@@ -24,7 +24,15 @@ export function createPracticeSession(
     busy = $state(false),
     recording = $state(false),
     finished = $state(false),
-    referenceUrl = $state('');
+    referenceUrl = $state(''),
+    referenceLoading = $state(false);
+  let referenceController: AbortController | undefined;
+  function stopReference() {
+    referenceController?.abort();
+    referenceController = undefined;
+    referenceLoading = false;
+    player?.pause();
+  }
   const ownPlayback = createRecordingPlayback();
   let recorder: MediaRecorder | undefined,
     stream: MediaStream | undefined,
@@ -74,7 +82,7 @@ export function createPracticeSession(
     tracks();
     controller?.abort();
     controller = undefined;
-    player?.pause();
+    stopReference();
     if (referenceUrl) URL.revokeObjectURL(referenceUrl);
     referenceUrl = '';
     ownPlayback.setRecording();
@@ -123,7 +131,7 @@ export function createPracticeSession(
   }
   async function assess(blob?: Blob) {
     ownPlayback.stop();
-    player?.pause();
+    stopReference();
     const operation = generation;
     busy = true;
     status = 'Processing your recording…';
@@ -159,7 +167,7 @@ export function createPracticeSession(
   async function record() {
     const operation = generation;
     error = '';
-    player?.pause();
+    stopReference();
     ownPlayback.stop();
     if (!window.isSecureContext) {
       error = 'Microphone access needs HTTPS, or localhost on this computer.';
@@ -253,7 +261,7 @@ export function createPracticeSession(
   }
   function cancel() {
     ownPlayback.stop();
-    player?.pause();
+    stopReference();
     generation++;
     cancelled = true;
     recorder?.state === 'recording' && recorder.stop();
@@ -267,7 +275,7 @@ export function createPracticeSession(
   async function yours(segment: AudioSegment) {
     const operation = generation;
     error = '';
-    player?.pause();
+    stopReference();
     try {
       await ownPlayback.play(segment);
     } catch (cause) {
@@ -278,11 +286,13 @@ export function createPracticeSession(
   }
   async function reference(word?: string) {
     ownPlayback.stop();
-    player?.pause();
+    stopReference();
     const operation = generation;
-    busy = true;
-    controller = new AbortController();
-    await guard(async () => {
+    const request = new AbortController();
+    referenceController = request;
+    referenceLoading = true;
+    error = '';
+    try {
       const r = await fetch('/api/reference', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -290,32 +300,33 @@ export function createPracticeSession(
           ticket: current.ticket,
           ...(word ? { word } : {}),
         }),
-        signal: AbortSignal.any([
-          controller!.signal,
-          AbortSignal.timeout(180000),
-        ]),
+        signal: AbortSignal.any([request.signal, AbortSignal.timeout(180000)]),
       });
       if (!r.ok) {
         const d = await r.json();
-        throw Error(
-          d.message ||
-            'Reference unavailable. Check your internet connection and retry.',
-        );
+        throw Error(d.message || 'Reference unavailable. Check your internet connection and retry.');
       }
       const audio = await r.blob();
       assertActive(operation);
+      if (request.signal.aborted) return;
       if (referenceUrl) URL.revokeObjectURL(referenceUrl);
       referenceUrl = URL.createObjectURL(audio);
       await tick();
       assertActive(operation);
-      try {
-        await player?.play();
-      } catch {
-        error = 'Playback failed. Press Native to try again.';
+      if (request.signal.aborted) return;
+      await player?.play();
+    } catch (cause) {
+      if (operation === generation && !disposed && !request.signal.aborted)
+        error = cause instanceof Error ? cause.message : 'Reference playback failed. Try again.';
+    } finally {
+      if (referenceController === request) {
+        referenceLoading = false;
+        referenceController = undefined;
       }
-    });
+    }
   }
   async function grade(value: number) {
+    stopReference();
     busy = true;
     await guard(async () => {
       await api('review', { ticket: current.ticket, grade: value });
@@ -372,6 +383,9 @@ export function createPracticeSession(
     },
     get finished() {
       return finished;
+    },
+    get referenceLoading() {
+      return referenceLoading;
     },
     get referenceUrl() {
       return referenceUrl;

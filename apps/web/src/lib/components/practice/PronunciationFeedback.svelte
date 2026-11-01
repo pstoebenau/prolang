@@ -8,12 +8,14 @@
     feedback,
     target,
     busy,
+    referenceLoading,
     onreference,
     onyours,
   }: {
     feedback: SpeechFeedback | null;
     target: string;
     busy: boolean;
+    referenceLoading: boolean;
     onreference: (word?: string) => Promise<void>;
     onyours: (segment: AudioSegment) => Promise<void>;
   } = $props();
@@ -119,7 +121,8 @@
         {#if selectedResult.expected}
           <Button
             variant="outline"
-            disabled={busy}
+            disabled={busy || referenceLoading}
+            aria-busy={referenceLoading}
             onclick={() => onreference(selectedResult.expected)}>Native</Button
           >
         {/if}

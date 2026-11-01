@@ -181,7 +181,7 @@ test('unflagged phoneme differences render for the selected word', async ({
       },
     }),
   );
-  // Reference playback is outside this regression; serve a short silent WAV.
+  // Hold reference responses to inspect the UI while audio is loading.
   const wav = Buffer.alloc(364);
   wav.write('RIFF');
   wav.writeUInt32LE(356, 4);
@@ -195,9 +195,11 @@ test('unflagged phoneme differences render for the selected word', async ({
   wav.writeUInt16LE(16, 34);
   wav.write('data', 36);
   wav.writeUInt32LE(320, 40);
-  await page.route('**/api/reference', (route) =>
-    route.fulfill({ contentType: 'audio/wav', body: wav }),
-  );
+  let releaseReference: (() => void) | undefined;
+  await page.route('**/api/reference', async (route) => {
+    await new Promise<void>((resolve) => { releaseReference = resolve; });
+    await route.fulfill({ contentType: 'audio/wav', body: wav });
+  });
   await page.goto(`/practice?retry=${card.id}`);
   await page
     .getByRole('button', { name: 'Record German', exact: true })
@@ -213,6 +215,7 @@ test('unflagged phoneme differences render for the selected word', async ({
     page.locator('.selected-word dd').last().locator('mark'),
   ).toHaveText('e');
   await expect(page.locator('.transcript-note')).toContainText('der tochter');
+  await expect(page.getByRole('region', { name: 'How to improve these sounds' })).toContainText('front of your tongue');
   await page
     .getByRole('button', { name: 'Tochter: Sound differs', exact: true })
     .click();
@@ -243,7 +246,20 @@ test('unflagged phoneme differences render for the selected word', async ({
       ),
     )
     .toEqual([[0, 0.35, 0.6]]);
-  await page.getByRole('button', { name: 'Native', exact: true }).click();
+  for (const label of ['Native', 'Listen to phrase']) {
+    const button = page.getByRole('button', { name: label, exact: true });
+    await button.click();
+    await expect(button).toHaveAttribute('aria-busy', 'true');
+    await expect(page.locator('.processing-bar')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Cancel processing' })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Record again', exact: true })).toBeEnabled();
+    await expect(page.getByRole('button', { name: 'Tochter: Sound differs', exact: true })).toBeEnabled();
+    await expect(comparison.getByRole('heading', { name: 'Tochter', exact: true })).toBeVisible();
+    await expect.poll(() => !!releaseReference).toBe(true);
+    releaseReference!();
+    releaseReference = undefined;
+    await expect(button).toHaveAttribute('aria-busy', 'false');
+  }
   await expect
     .poll(() =>
       page.evaluate(

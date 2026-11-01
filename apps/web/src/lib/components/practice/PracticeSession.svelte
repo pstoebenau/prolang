@@ -100,7 +100,8 @@
             </p>
             <Button
               variant="outline"
-              disabled={session.busy}
+              disabled={session.busy || session.referenceLoading}
+              aria-busy={session.referenceLoading}
               onclick={() => session.reference()}>Listen to phrase</Button
             >
           </div>{/if}
@@ -110,6 +111,7 @@
             feedback={session.feedback}
             target={session.assessedTarget}
             busy={session.busy}
+            referenceLoading={session.referenceLoading}
             onreference={session.reference}
             onyours={session.yours}
           />
