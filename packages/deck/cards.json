@@ -1,0 +1,1002 @@
+[
+  {
+    "id": 1,
+    "category": "family",
+    "german": "die Mutter",
+    "english": "mother",
+    "plural": "die Mütter",
+    "article": "die",
+    "example": "Meine Mutter kommt heute.",
+    "exampleEnglish": "My mother is coming today."
+  },
+  {
+    "id": 2,
+    "category": "family",
+    "german": "der Vater",
+    "english": "father",
+    "plural": "die Väter",
+    "article": "der",
+    "example": "Mein Vater arbeitet zu Hause.",
+    "exampleEnglish": "My father works at home."
+  },
+  {
+    "id": 3,
+    "category": "family",
+    "german": "die Schwester",
+    "english": "sister",
+    "plural": "die Schwestern",
+    "article": "die",
+    "example": "Meine Schwester wohnt in Berlin.",
+    "exampleEnglish": "My sister lives in Berlin."
+  },
+  {
+    "id": 4,
+    "category": "family",
+    "german": "der Bruder",
+    "english": "brother",
+    "plural": "die Brüder",
+    "article": "der",
+    "example": "Mein Bruder ist älter als ich.",
+    "exampleEnglish": "My brother is older than me."
+  },
+  {
+    "id": 5,
+    "category": "family",
+    "german": "das Kind",
+    "english": "child",
+    "plural": "die Kinder",
+    "article": "das",
+    "example": "Das Kind spielt im Garten.",
+    "exampleEnglish": "The child is playing in the garden."
+  },
+  {
+    "id": 6,
+    "category": "family",
+    "german": "die Eltern",
+    "english": "parents",
+    "plural": "plural only",
+    "article": "die",
+    "example": "Meine Eltern besuchen uns morgen.",
+    "exampleEnglish": "My parents are visiting us tomorrow."
+  },
+  {
+    "id": 7,
+    "category": "family",
+    "german": "die Großmutter",
+    "english": "grandmother",
+    "plural": "die Großmütter",
+    "article": "die",
+    "example": "Meine Großmutter backt gern.",
+    "exampleEnglish": "My grandmother likes baking."
+  },
+  {
+    "id": 8,
+    "category": "family",
+    "german": "der Großvater",
+    "english": "grandfather",
+    "plural": "die Großväter",
+    "article": "der",
+    "example": "Mein Großvater liest die Zeitung.",
+    "exampleEnglish": "My grandfather is reading the newspaper."
+  },
+  {
+    "id": 9,
+    "category": "family",
+    "german": "die Tochter",
+    "english": "daughter",
+    "plural": "die Töchter",
+    "article": "die",
+    "example": "Unsere Tochter geht zur Schule.",
+    "exampleEnglish": "Our daughter goes to school."
+  },
+  {
+    "id": 10,
+    "category": "family",
+    "german": "der Sohn",
+    "english": "son",
+    "plural": "die Söhne",
+    "article": "der",
+    "example": "Unser Sohn ist drei Jahre alt.",
+    "exampleEnglish": "Our son is three years old."
+  },
+  {
+    "id": 11,
+    "category": "family",
+    "german": "die Familie",
+    "english": "family",
+    "plural": "die Familien",
+    "article": "die",
+    "example": "Meine Familie ist sehr groß.",
+    "exampleEnglish": "My family is very large."
+  },
+  {
+    "id": 12,
+    "category": "family",
+    "german": "der Freund",
+    "english": "male friend",
+    "plural": "die Freunde",
+    "article": "der",
+    "example": "Ein Freund hilft mir beim Umzug.",
+    "exampleEnglish": "A friend is helping me move."
+  },
+  {
+    "id": 13,
+    "category": "family",
+    "german": "die Freundin",
+    "english": "female friend",
+    "plural": "die Freundinnen",
+    "article": "die",
+    "example": "Meine Freundin kommt zum Essen.",
+    "exampleEnglish": "My friend is coming for dinner."
+  },
+  {
+    "id": 14,
+    "category": "family",
+    "german": "der Geburtstag",
+    "english": "birthday",
+    "plural": "die Geburtstage",
+    "article": "der",
+    "example": "Wann hast du Geburtstag?",
+    "exampleEnglish": "When is your birthday?"
+  },
+  {
+    "id": 15,
+    "category": "family",
+    "german": "verheiratet",
+    "english": "married",
+    "plural": "",
+    "article": null,
+    "example": "Wir sind seit zehn Jahren verheiratet.",
+    "exampleEnglish": "We have been married for ten years."
+  },
+  {
+    "id": 16,
+    "category": "family",
+    "german": "Wie heißt du?",
+    "english": "What is your name?",
+    "plural": "",
+    "article": null,
+    "example": "Hallo, wie heißt du?",
+    "exampleEnglish": "Hello, what is your name?"
+  },
+  {
+    "id": 17,
+    "category": "family",
+    "german": "Ich heiße Anna.",
+    "english": "My name is Anna.",
+    "plural": "",
+    "article": null,
+    "example": "Ich heiße Anna und wohne hier.",
+    "exampleEnglish": "My name is Anna and I live here."
+  },
+  {
+    "id": 18,
+    "category": "family",
+    "german": "Wie geht es dir?",
+    "english": "How are you?",
+    "plural": "",
+    "article": null,
+    "example": "Hallo Paul, wie geht es dir?",
+    "exampleEnglish": "Hello Paul, how are you?"
+  },
+  {
+    "id": 19,
+    "category": "family",
+    "german": "Mir geht es gut.",
+    "english": "I am doing well.",
+    "plural": "",
+    "article": null,
+    "example": "Danke, mir geht es gut.",
+    "exampleEnglish": "Thank you, I am doing well."
+  },
+  {
+    "id": 20,
+    "category": "family",
+    "german": "Bis bald!",
+    "english": "See you soon!",
+    "plural": "",
+    "article": null,
+    "example": "Ich muss gehen. Bis bald!",
+    "exampleEnglish": "I have to go. See you soon!"
+  },
+  {
+    "id": 21,
+    "category": "daily",
+    "german": "Guten Morgen!",
+    "english": "Good morning!",
+    "plural": "",
+    "article": null,
+    "example": "Guten Morgen! Hast du gut geschlafen?",
+    "exampleEnglish": "Good morning! Did you sleep well?"
+  },
+  {
+    "id": 22,
+    "category": "daily",
+    "german": "Gute Nacht!",
+    "english": "Good night!",
+    "plural": "",
+    "article": null,
+    "example": "Schlaf gut und gute Nacht!",
+    "exampleEnglish": "Sleep well and good night!"
+  },
+  {
+    "id": 23,
+    "category": "daily",
+    "german": "aufstehen",
+    "english": "to get up",
+    "plural": "",
+    "article": null,
+    "example": "Ich stehe um sieben Uhr auf.",
+    "exampleEnglish": "I get up at seven o'clock."
+  },
+  {
+    "id": 24,
+    "category": "daily",
+    "german": "frühstücken",
+    "english": "to eat breakfast",
+    "plural": "",
+    "article": null,
+    "example": "Wir frühstücken zusammen.",
+    "exampleEnglish": "We eat breakfast together."
+  },
+  {
+    "id": 25,
+    "category": "daily",
+    "german": "arbeiten",
+    "english": "to work",
+    "plural": "",
+    "article": null,
+    "example": "Ich arbeite heute bis fünf.",
+    "exampleEnglish": "I work until five today."
+  },
+  {
+    "id": 26,
+    "category": "daily",
+    "german": "lernen",
+    "english": "to learn",
+    "plural": "",
+    "article": null,
+    "example": "Ich lerne jeden Tag Deutsch.",
+    "exampleEnglish": "I learn German every day."
+  },
+  {
+    "id": 27,
+    "category": "daily",
+    "german": "schlafen",
+    "english": "to sleep",
+    "plural": "",
+    "article": null,
+    "example": "Am Wochenende schlafe ich länger.",
+    "exampleEnglish": "I sleep longer on weekends."
+  },
+  {
+    "id": 28,
+    "category": "daily",
+    "german": "kochen",
+    "english": "to cook",
+    "plural": "",
+    "article": null,
+    "example": "Heute koche ich eine Suppe.",
+    "exampleEnglish": "Today I am cooking a soup."
+  },
+  {
+    "id": 29,
+    "category": "daily",
+    "german": "aufräumen",
+    "english": "to tidy up",
+    "plural": "",
+    "article": null,
+    "example": "Ich räume mein Zimmer auf.",
+    "exampleEnglish": "I am tidying my room."
+  },
+  {
+    "id": 30,
+    "category": "daily",
+    "german": "spazieren gehen",
+    "english": "to go for a walk",
+    "plural": "",
+    "article": null,
+    "example": "Wir gehen im Park spazieren.",
+    "exampleEnglish": "We are going for a walk in the park."
+  },
+  {
+    "id": 31,
+    "category": "daily",
+    "german": "die Arbeit",
+    "english": "work",
+    "plural": "die Arbeiten",
+    "article": "die",
+    "example": "Die Arbeit macht mir Spaß.",
+    "exampleEnglish": "I enjoy the work."
+  },
+  {
+    "id": 32,
+    "category": "daily",
+    "german": "die Schule",
+    "english": "school",
+    "plural": "die Schulen",
+    "article": "die",
+    "example": "Die Schule beginnt um acht.",
+    "exampleEnglish": "School starts at eight."
+  },
+  {
+    "id": 33,
+    "category": "daily",
+    "german": "das Haus",
+    "english": "house",
+    "plural": "die Häuser",
+    "article": "das",
+    "example": "Unser Haus hat einen Garten.",
+    "exampleEnglish": "Our house has a garden."
+  },
+  {
+    "id": 34,
+    "category": "daily",
+    "german": "die Wohnung",
+    "english": "apartment",
+    "plural": "die Wohnungen",
+    "article": "die",
+    "example": "Die Wohnung ist hell und ruhig.",
+    "exampleEnglish": "The apartment is bright and quiet."
+  },
+  {
+    "id": 35,
+    "category": "daily",
+    "german": "der Schlüssel",
+    "english": "key",
+    "plural": "die Schlüssel",
+    "article": "der",
+    "example": "Wo ist mein Schlüssel?",
+    "exampleEnglish": "Where is my key?"
+  },
+  {
+    "id": 36,
+    "category": "daily",
+    "german": "das Handy",
+    "english": "mobile phone",
+    "plural": "die Handys",
+    "article": "das",
+    "example": "Mein Handy ist fast leer.",
+    "exampleEnglish": "My phone battery is almost flat."
+  },
+  {
+    "id": 37,
+    "category": "daily",
+    "german": "heute",
+    "english": "today",
+    "plural": "",
+    "article": null,
+    "example": "Heute habe ich Zeit.",
+    "exampleEnglish": "Today I have time."
+  },
+  {
+    "id": 38,
+    "category": "daily",
+    "german": "morgen",
+    "english": "tomorrow",
+    "plural": "",
+    "article": null,
+    "example": "Morgen muss ich früh aufstehen.",
+    "exampleEnglish": "Tomorrow I have to get up early."
+  },
+  {
+    "id": 39,
+    "category": "daily",
+    "german": "Wie spät ist es?",
+    "english": "What time is it?",
+    "plural": "",
+    "article": null,
+    "example": "Entschuldigung, wie spät ist es?",
+    "exampleEnglish": "Excuse me, what time is it?"
+  },
+  {
+    "id": 40,
+    "category": "daily",
+    "german": "Ich verstehe nicht.",
+    "english": "I do not understand.",
+    "plural": "",
+    "article": null,
+    "example": "Ich verstehe nicht. Bitte sprich langsamer.",
+    "exampleEnglish": "I do not understand. Please speak more slowly."
+  },
+  {
+    "id": 41,
+    "category": "food",
+    "german": "das Brot",
+    "english": "bread",
+    "plural": "die Brote",
+    "article": "das",
+    "example": "Ich kaufe ein frisches Brot.",
+    "exampleEnglish": "I am buying a fresh loaf of bread."
+  },
+  {
+    "id": 42,
+    "category": "food",
+    "german": "das Brötchen",
+    "english": "bread roll",
+    "plural": "die Brötchen",
+    "article": "das",
+    "example": "Zum Frühstück esse ich ein Brötchen.",
+    "exampleEnglish": "I eat a bread roll for breakfast."
+  },
+  {
+    "id": 43,
+    "category": "food",
+    "german": "die Butter",
+    "english": "butter",
+    "plural": "usually uncountable",
+    "article": "die",
+    "example": "Die Butter steht im Kühlschrank.",
+    "exampleEnglish": "The butter is in the fridge."
+  },
+  {
+    "id": 44,
+    "category": "food",
+    "german": "der Käse",
+    "english": "cheese",
+    "plural": "die Käse",
+    "article": "der",
+    "example": "Dieser Käse schmeckt sehr gut.",
+    "exampleEnglish": "This cheese tastes very good."
+  },
+  {
+    "id": 45,
+    "category": "food",
+    "german": "die Milch",
+    "english": "milk",
+    "plural": "usually uncountable",
+    "article": "die",
+    "example": "Wir brauchen noch Milch.",
+    "exampleEnglish": "We still need milk."
+  },
+  {
+    "id": 46,
+    "category": "food",
+    "german": "das Ei",
+    "english": "egg",
+    "plural": "die Eier",
+    "article": "das",
+    "example": "Möchtest du ein gekochtes Ei?",
+    "exampleEnglish": "Would you like a boiled egg?"
+  },
+  {
+    "id": 47,
+    "category": "food",
+    "german": "der Apfel",
+    "english": "apple",
+    "plural": "die Äpfel",
+    "article": "der",
+    "example": "Ich esse jeden Tag einen Apfel.",
+    "exampleEnglish": "I eat an apple every day."
+  },
+  {
+    "id": 48,
+    "category": "food",
+    "german": "die Banane",
+    "english": "banana",
+    "plural": "die Bananen",
+    "article": "die",
+    "example": "Die Banane ist schon reif.",
+    "exampleEnglish": "The banana is already ripe."
+  },
+  {
+    "id": 49,
+    "category": "food",
+    "german": "die Kartoffel",
+    "english": "potato",
+    "plural": "die Kartoffeln",
+    "article": "die",
+    "example": "Die Kartoffeln sind fertig.",
+    "exampleEnglish": "The potatoes are ready."
+  },
+  {
+    "id": 50,
+    "category": "food",
+    "german": "das Gemüse",
+    "english": "vegetables",
+    "plural": "usually uncountable",
+    "article": "das",
+    "example": "Wir essen viel frisches Gemüse.",
+    "exampleEnglish": "We eat a lot of fresh vegetables."
+  },
+  {
+    "id": 51,
+    "category": "food",
+    "german": "das Wasser",
+    "english": "water",
+    "plural": "die Wasser (types)",
+    "article": "das",
+    "example": "Ein Glas Wasser, bitte.",
+    "exampleEnglish": "A glass of water, please."
+  },
+  {
+    "id": 52,
+    "category": "food",
+    "german": "der Kaffee",
+    "english": "coffee",
+    "plural": "die Kaffees",
+    "article": "der",
+    "example": "Ich trinke Kaffee ohne Zucker.",
+    "exampleEnglish": "I drink coffee without sugar."
+  },
+  {
+    "id": 53,
+    "category": "food",
+    "german": "der Tee",
+    "english": "tea",
+    "plural": "die Tees",
+    "article": "der",
+    "example": "Der Tee ist noch heiß.",
+    "exampleEnglish": "The tea is still hot."
+  },
+  {
+    "id": 54,
+    "category": "food",
+    "german": "die Suppe",
+    "english": "soup",
+    "plural": "die Suppen",
+    "article": "die",
+    "example": "Die Suppe schmeckt lecker.",
+    "exampleEnglish": "The soup tastes delicious."
+  },
+  {
+    "id": 55,
+    "category": "food",
+    "german": "die Rechnung",
+    "english": "bill",
+    "plural": "die Rechnungen",
+    "article": "die",
+    "example": "Die Rechnung bitte!",
+    "exampleEnglish": "The bill, please!"
+  },
+  {
+    "id": 56,
+    "category": "food",
+    "german": "Ich habe Hunger.",
+    "english": "I am hungry.",
+    "plural": "",
+    "article": null,
+    "example": "Ich habe Hunger. Essen wir etwas?",
+    "exampleEnglish": "I am hungry. Shall we eat something?"
+  },
+  {
+    "id": 57,
+    "category": "food",
+    "german": "Ich habe Durst.",
+    "english": "I am thirsty.",
+    "plural": "",
+    "article": null,
+    "example": "Ich habe Durst. Hast du Wasser?",
+    "exampleEnglish": "I am thirsty. Do you have water?"
+  },
+  {
+    "id": 58,
+    "category": "food",
+    "german": "Guten Appetit!",
+    "english": "Enjoy your meal!",
+    "plural": "",
+    "article": null,
+    "example": "Das Essen ist fertig. Guten Appetit!",
+    "exampleEnglish": "The food is ready. Enjoy your meal!"
+  },
+  {
+    "id": 59,
+    "category": "food",
+    "german": "Ohne Fleisch, bitte.",
+    "english": "Without meat, please.",
+    "plural": "",
+    "article": null,
+    "example": "Für mich ohne Fleisch, bitte.",
+    "exampleEnglish": "Without meat for me, please."
+  },
+  {
+    "id": 60,
+    "category": "food",
+    "german": "Kann ich bestellen?",
+    "english": "Can I order?",
+    "plural": "",
+    "article": null,
+    "example": "Entschuldigung, kann ich bestellen?",
+    "exampleEnglish": "Excuse me, can I order?"
+  },
+  {
+    "id": 61,
+    "category": "shopping",
+    "german": "der Supermarkt",
+    "english": "supermarket",
+    "plural": "die Supermärkte",
+    "article": "der",
+    "example": "Der Supermarkt schließt um acht.",
+    "exampleEnglish": "The supermarket closes at eight."
+  },
+  {
+    "id": 62,
+    "category": "shopping",
+    "german": "das Geschäft",
+    "english": "shop",
+    "plural": "die Geschäfte",
+    "article": "das",
+    "example": "Dieses Geschäft ist sonntags geschlossen.",
+    "exampleEnglish": "This shop is closed on Sundays."
+  },
+  {
+    "id": 63,
+    "category": "shopping",
+    "german": "die Kasse",
+    "english": "checkout",
+    "plural": "die Kassen",
+    "article": "die",
+    "example": "Bitte bezahlen Sie an der Kasse.",
+    "exampleEnglish": "Please pay at the checkout."
+  },
+  {
+    "id": 64,
+    "category": "shopping",
+    "german": "die Tasche",
+    "english": "bag",
+    "plural": "die Taschen",
+    "article": "die",
+    "example": "Ich habe meine eigene Tasche dabei.",
+    "exampleEnglish": "I have my own bag with me."
+  },
+  {
+    "id": 65,
+    "category": "shopping",
+    "german": "das Geld",
+    "english": "money",
+    "plural": "usually uncountable",
+    "article": "das",
+    "example": "Ich habe nicht genug Geld dabei.",
+    "exampleEnglish": "I do not have enough money with me."
+  },
+  {
+    "id": 66,
+    "category": "shopping",
+    "german": "die Karte",
+    "english": "card",
+    "plural": "die Karten",
+    "article": "die",
+    "example": "Kann ich mit Karte bezahlen?",
+    "exampleEnglish": "Can I pay by card?"
+  },
+  {
+    "id": 67,
+    "category": "shopping",
+    "german": "der Preis",
+    "english": "price",
+    "plural": "die Preise",
+    "article": "der",
+    "example": "Der Preis ist zu hoch.",
+    "exampleEnglish": "The price is too high."
+  },
+  {
+    "id": 68,
+    "category": "shopping",
+    "german": "das Angebot",
+    "english": "special offer",
+    "plural": "die Angebote",
+    "article": "das",
+    "example": "Diese Woche ist Kaffee im Angebot.",
+    "exampleEnglish": "Coffee is on special offer this week."
+  },
+  {
+    "id": 69,
+    "category": "shopping",
+    "german": "die Größe",
+    "english": "size",
+    "plural": "die Größen",
+    "article": "die",
+    "example": "Haben Sie das in meiner Größe?",
+    "exampleEnglish": "Do you have that in my size?"
+  },
+  {
+    "id": 70,
+    "category": "shopping",
+    "german": "die Jacke",
+    "english": "jacket",
+    "plural": "die Jacken",
+    "article": "die",
+    "example": "Die Jacke passt mir gut.",
+    "exampleEnglish": "The jacket fits me well."
+  },
+  {
+    "id": 71,
+    "category": "shopping",
+    "german": "der Schuh",
+    "english": "shoe",
+    "plural": "die Schuhe",
+    "article": "der",
+    "example": "Dieser Schuh ist zu klein.",
+    "exampleEnglish": "This shoe is too small."
+  },
+  {
+    "id": 72,
+    "category": "shopping",
+    "german": "die Hose",
+    "english": "trousers",
+    "plural": "die Hosen",
+    "article": "die",
+    "example": "Ich suche eine schwarze Hose.",
+    "exampleEnglish": "I am looking for black trousers."
+  },
+  {
+    "id": 73,
+    "category": "shopping",
+    "german": "kaufen",
+    "english": "to buy",
+    "plural": "",
+    "article": null,
+    "example": "Ich möchte ein Geschenk kaufen.",
+    "exampleEnglish": "I would like to buy a present."
+  },
+  {
+    "id": 74,
+    "category": "shopping",
+    "german": "bezahlen",
+    "english": "to pay",
+    "plural": "",
+    "article": null,
+    "example": "Wo kann ich bezahlen?",
+    "exampleEnglish": "Where can I pay?"
+  },
+  {
+    "id": 75,
+    "category": "shopping",
+    "german": "teuer",
+    "english": "expensive",
+    "plural": "",
+    "article": null,
+    "example": "Das ist mir zu teuer.",
+    "exampleEnglish": "That is too expensive for me."
+  },
+  {
+    "id": 76,
+    "category": "shopping",
+    "german": "günstig",
+    "english": "inexpensive",
+    "plural": "",
+    "article": null,
+    "example": "Diese Äpfel sind heute günstig.",
+    "exampleEnglish": "These apples are inexpensive today."
+  },
+  {
+    "id": 77,
+    "category": "shopping",
+    "german": "Wie viel kostet das?",
+    "english": "How much does that cost?",
+    "plural": "",
+    "article": null,
+    "example": "Entschuldigung, wie viel kostet das?",
+    "exampleEnglish": "Excuse me, how much does that cost?"
+  },
+  {
+    "id": 78,
+    "category": "shopping",
+    "german": "Ich schaue nur.",
+    "english": "I am just looking.",
+    "plural": "",
+    "article": null,
+    "example": "Danke, ich schaue nur.",
+    "exampleEnglish": "Thank you, I am just looking."
+  },
+  {
+    "id": 79,
+    "category": "shopping",
+    "german": "Haben Sie eine Tüte?",
+    "english": "Do you have a bag?",
+    "plural": "",
+    "article": null,
+    "example": "Haben Sie eine Tüte für mich?",
+    "exampleEnglish": "Do you have a bag for me?"
+  },
+  {
+    "id": 80,
+    "category": "shopping",
+    "german": "Ich möchte das umtauschen.",
+    "english": "I would like to exchange this.",
+    "plural": "",
+    "article": null,
+    "example": "Die Hose passt nicht. Ich möchte das umtauschen.",
+    "exampleEnglish": "The trousers do not fit. I would like to exchange this."
+  },
+  {
+    "id": 81,
+    "category": "travel",
+    "german": "der Bahnhof",
+    "english": "train station",
+    "plural": "die Bahnhöfe",
+    "article": "der",
+    "example": "Der Bahnhof ist gleich um die Ecke.",
+    "exampleEnglish": "The station is just around the corner."
+  },
+  {
+    "id": 82,
+    "category": "travel",
+    "german": "der Zug",
+    "english": "train",
+    "plural": "die Züge",
+    "article": "der",
+    "example": "Der Zug kommt in zehn Minuten.",
+    "exampleEnglish": "The train arrives in ten minutes."
+  },
+  {
+    "id": 83,
+    "category": "travel",
+    "german": "der Bus",
+    "english": "bus",
+    "plural": "die Busse",
+    "article": "der",
+    "example": "Dieser Bus fährt zum Flughafen.",
+    "exampleEnglish": "This bus goes to the airport."
+  },
+  {
+    "id": 84,
+    "category": "travel",
+    "german": "die Haltestelle",
+    "english": "stop",
+    "plural": "die Haltestellen",
+    "article": "die",
+    "example": "Die nächste Haltestelle ist am Markt.",
+    "exampleEnglish": "The next stop is at the market."
+  },
+  {
+    "id": 85,
+    "category": "travel",
+    "german": "die Fahrkarte",
+    "english": "ticket",
+    "plural": "die Fahrkarten",
+    "article": "die",
+    "example": "Eine Fahrkarte nach Hamburg, bitte.",
+    "exampleEnglish": "A ticket to Hamburg, please."
+  },
+  {
+    "id": 86,
+    "category": "travel",
+    "german": "der Flughafen",
+    "english": "airport",
+    "plural": "die Flughäfen",
+    "article": "der",
+    "example": "Wir fahren morgen zum Flughafen.",
+    "exampleEnglish": "We are going to the airport tomorrow."
+  },
+  {
+    "id": 87,
+    "category": "travel",
+    "german": "das Hotel",
+    "english": "hotel",
+    "plural": "die Hotels",
+    "article": "das",
+    "example": "Unser Hotel liegt im Zentrum.",
+    "exampleEnglish": "Our hotel is in the city centre."
+  },
+  {
+    "id": 88,
+    "category": "travel",
+    "german": "das Zimmer",
+    "english": "room",
+    "plural": "die Zimmer",
+    "article": "das",
+    "example": "Ich habe ein Zimmer reserviert.",
+    "exampleEnglish": "I have reserved a room."
+  },
+  {
+    "id": 89,
+    "category": "travel",
+    "german": "der Reisepass",
+    "english": "passport",
+    "plural": "die Reisepässe",
+    "article": "der",
+    "example": "Hier ist mein Reisepass.",
+    "exampleEnglish": "Here is my passport."
+  },
+  {
+    "id": 90,
+    "category": "travel",
+    "german": "der Koffer",
+    "english": "suitcase",
+    "plural": "die Koffer",
+    "article": "der",
+    "example": "Mein Koffer ist sehr schwer.",
+    "exampleEnglish": "My suitcase is very heavy."
+  },
+  {
+    "id": 91,
+    "category": "travel",
+    "german": "die Straße",
+    "english": "street",
+    "plural": "die Straßen",
+    "article": "die",
+    "example": "Wie heißt diese Straße?",
+    "exampleEnglish": "What is this street called?"
+  },
+  {
+    "id": 92,
+    "category": "travel",
+    "german": "die Apotheke",
+    "english": "pharmacy",
+    "plural": "die Apotheken",
+    "article": "die",
+    "example": "Wo ist die nächste Apotheke?",
+    "exampleEnglish": "Where is the nearest pharmacy?"
+  },
+  {
+    "id": 93,
+    "category": "travel",
+    "german": "links",
+    "english": "left",
+    "plural": "",
+    "article": null,
+    "example": "Biegen Sie hier links ab.",
+    "exampleEnglish": "Turn left here."
+  },
+  {
+    "id": 94,
+    "category": "travel",
+    "german": "rechts",
+    "english": "right",
+    "plural": "",
+    "article": null,
+    "example": "Das Hotel ist auf der rechten Seite.",
+    "exampleEnglish": "The hotel is on the right side."
+  },
+  {
+    "id": 95,
+    "category": "travel",
+    "german": "geradeaus",
+    "english": "straight ahead",
+    "plural": "",
+    "article": null,
+    "example": "Gehen Sie immer geradeaus.",
+    "exampleEnglish": "Keep going straight ahead."
+  },
+  {
+    "id": 96,
+    "category": "travel",
+    "german": "Wo ist die Toilette?",
+    "english": "Where is the toilet?",
+    "plural": "",
+    "article": null,
+    "example": "Entschuldigung, wo ist die Toilette?",
+    "exampleEnglish": "Excuse me, where is the toilet?"
+  },
+  {
+    "id": 97,
+    "category": "travel",
+    "german": "Ich brauche Hilfe.",
+    "english": "I need help.",
+    "plural": "",
+    "article": null,
+    "example": "Ich brauche Hilfe mit meinem Gepäck.",
+    "exampleEnglish": "I need help with my luggage."
+  },
+  {
+    "id": 98,
+    "category": "travel",
+    "german": "Sprechen Sie Englisch?",
+    "english": "Do you speak English?",
+    "plural": "",
+    "article": null,
+    "example": "Entschuldigung, sprechen Sie Englisch?",
+    "exampleEnglish": "Excuse me, do you speak English?"
+  },
+  {
+    "id": 99,
+    "category": "travel",
+    "german": "Eine einfache Fahrt, bitte.",
+    "english": "A one-way ticket, please.",
+    "plural": "",
+    "article": null,
+    "example": "Nach Köln, eine einfache Fahrt, bitte.",
+    "exampleEnglish": "To Cologne, a one-way ticket, please."
+  },
+  {
+    "id": 100,
+    "category": "travel",
+    "german": "Ich habe mich verlaufen.",
+    "english": "I have lost my way.",
+    "plural": "",
+    "article": null,
+    "example": "Können Sie mir helfen? Ich habe mich verlaufen.",
+    "exampleEnglish": "Can you help me? I have lost my way."
+  }
+]
