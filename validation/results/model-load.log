@@ -1,0 +1,18 @@
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 6 files:  50%|█████     | 3/6 [00:00<00:00,  8.61it/s]Fetching 6 files:  83%|████████▎ | 5/6 [00:20<00:04,  4.00s/it]Fetching 6 files: 100%|██████████| 6/6 [00:44<00:00,  7.38s/it]Fetching 6 files: 100%|██████████| 6/6 [00:44<00:00,  7.38s/it]
+Loading weights:   0%|          | 0/404 [00:00<?, ?it/s]Loading weights: 100%|██████████| 404/404 [00:00<00:00, 40514.02it/s]
+[transformers] [1mWav2Vec2ForCTC LOAD REPORT[0m from: facebook/wav2vec2-large-960h
+Key                        | Status  | 
+---------------------------+---------+-
+wav2vec2.masked_spec_embed | MISSING | 
+
+Notes:
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+facebook/wav2vec2-large-960h {'revision': 'bdeaacdf88f7a155f50a2704bc967aa81fbbb2ab', 'seconds': 51.79795183305396, 'loaded': True, 'path': '/Users/patricks/Documents/code/prolang/.cache/huggingface/hub/models--facebook--wav2vec2-large-960h/snapshots/bdeaacdf88f7a155f50a2704bc967aa81fbbb2ab'}
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files:  17%|█▋        | 3/18 [00:00<00:02,  5.44it/s]Fetching 18 files:  33%|███▎      | 6/18 [00:01<00:02,  5.25it/s]Fetching 18 files:  50%|█████     | 9/18 [00:01<00:01,  6.15it/s]Fetching 18 files:  67%|██████▋   | 12/18 [00:01<00:00,  6.20it/s]Fetching 18 files:  83%|████████▎ | 15/18 [00:02<00:00,  5.90it/s]Fetching 18 files:  94%|█████████▍| 17/18 [00:18<00:01,  1.10s/it]Fetching 18 files: 100%|██████████| 18/18 [00:51<00:00,  2.85s/it]Fetching 18 files: 100%|██████████| 18/18 [00:51<00:00,  2.85s/it]
+Loading weights:   0%|          | 0/424 [00:00<?, ?it/s]Loading weights: 100%|██████████| 424/424 [00:00<00:00, 32138.52it/s]
+jonatasgrosman/wav2vec2-large-xlsr-53-german {'revision': '4b8a02957378d0f2da2ef74091156b032c485a89', 'seconds': 55.01936566596851, 'loaded': True, 'path': '/Users/patricks/Documents/code/prolang/.cache/huggingface/hub/models--jonatasgrosman--wav2vec2-large-xlsr-53-german/snapshots/4b8a02957378d0f2da2ef74091156b032c485a89'}
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  50%|█████     | 3/6 [00:00<00:00,  8.63it/s]Fetching 6 files:  83%|████████▎ | 5/6 [00:13<00:02,  2.73s/it]Fetching 6 files: 100%|██████████| 6/6 [03:00<00:00, 30.06s/it]Fetching 6 files: 100%|██████████| 6/6 [03:00<00:00, 30.06s/it]
+Loading weights:   0%|          | 0/424 [00:00<?, ?it/s]Loading weights: 100%|██████████| 424/424 [00:00<00:00, 37702.41it/s]
+facebook/wav2vec2-lv-60-espeak-cv-ft {'revision': 'ae45363bf3413b374fecd9dc8bc1df0e24c3b7f4', 'seconds': 183.5661034170189, 'loaded': True, 'path': '/Users/patricks/Documents/code/prolang/.cache/huggingface/hub/models--facebook--wav2vec2-lv-60-espeak-cv-ft/snapshots/ae45363bf3413b374fecd9dc8bc1df0e24c3b7f4'}
+TTS /var/folders/qv/nb_12j2d56d0dc8z2nfs294c0000gn/T/openpronounce/tts-4e07387c86f9b1a66ecab04c25e3dae18156571b.wav 1.1501390830380842

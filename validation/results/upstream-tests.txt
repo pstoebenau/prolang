@@ -1,0 +1,14 @@
+........................................................................ [ 72%]
+...........................                                              [100%]
+============================= slowest 10 durations =============================
+9.15s call     tests/test_audio.py::TestLoad::test_load_browser_webm_opus_through_ffmpeg
+0.62s call     tests/test_languages.py::TestFrenchPhones::test_compare_phones_french_perfect
+0.50s call     tests/test_speech.py::TestAudioProcessingFunctions::test_extract_energy
+0.38s call     tests/test_languages.py::TestFrenchPhones::test_expected_phones_are_french
+0.07s call     tests/test_audio.py::TestLoad::test_webm2wav_unreadable_file
+0.07s call     tests/test_audio.py::TestText2Speech::test_gtts_backend
+0.02s call     tests/test_server.py::TestServer::test_ui_assets_and_languages
+0.01s call     tests/test_server.py::TestServer::test_speech2text
+
+(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+99 passed in 12.64s

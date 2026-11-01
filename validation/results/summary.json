@@ -1,0 +1,162 @@
+{
+  "synthetic": {
+    "attempted": 25,
+    "http200": 25,
+    "structured": 25,
+    "score": {
+      "min": 76.3,
+      "median": 89.0,
+      "p95_nearest_rank": 96.36,
+      "max": 100.0
+    },
+    "wer": {
+      "min": 0.0,
+      "median": 0.0,
+      "p95_nearest_rank": 0.2,
+      "max": 0.25
+    },
+    "per": {
+      "min": 0.0,
+      "median": 0.2,
+      "p95_nearest_rank": 0.5263,
+      "max": 0.5333
+    },
+    "seconds": {
+      "min": 0.749,
+      "median": 0.921,
+      "p95_nearest_rank": 1.089,
+      "max": 5.543
+    },
+    "mean_flagged_words": 0.24
+  },
+  "human": {
+    "attempted": 15,
+    "http200": 15,
+    "structured": 15,
+    "score": {
+      "min": 75.51,
+      "median": 92.22,
+      "p95_nearest_rank": 100.0,
+      "max": 100.0
+    },
+    "wer": {
+      "min": 0.0,
+      "median": 0.0,
+      "p95_nearest_rank": 0.3333,
+      "max": 0.3333
+    },
+    "per": {
+      "min": 0.0,
+      "median": 0.1818,
+      "p95_nearest_rank": 0.4545,
+      "max": 0.4545
+    },
+    "seconds": {
+      "min": 0.75,
+      "median": 0.986,
+      "p95_nearest_rank": 1.906,
+      "max": 1.906
+    },
+    "mean_flagged_words": 0
+  },
+  "negative": {
+    "attempted": 2,
+    "http200": 2,
+    "structured": 2,
+    "score": {
+      "min": 10.25,
+      "median": 14.675,
+      "p95_nearest_rank": 19.1,
+      "max": 19.1
+    },
+    "wer": {
+      "min": 1.0,
+      "median": 1.0,
+      "p95_nearest_rank": 1.0,
+      "max": 1.0
+    },
+    "per": {
+      "min": 0.875,
+      "median": 0.9375,
+      "p95_nearest_rank": 1.0,
+      "max": 1.0
+    },
+    "seconds": {
+      "min": 0.419,
+      "median": 0.4605,
+      "p95_nearest_rank": 0.502,
+      "max": 0.502
+    },
+    "mean_flagged_words": 5
+  },
+  "controls": [
+    {
+      "id": "chrome-mediarecorder",
+      "kind": "synthetic",
+      "text": "Meine Mutter kocht das Abendessen.",
+      "seconds": 0.486,
+      "status": 200,
+      "score": 87.61,
+      "transcript": "meine mutter kocht das abendessen",
+      "wer": 0.0,
+      "per": 0.0833,
+      "flagged_words": [],
+      "phone_count": 23,
+      "structured": true
+    },
+    {
+      "id": "silence",
+      "kind": "negative",
+      "text": "Meine Mutter kocht das Abendessen.",
+      "seconds": 0.502,
+      "status": 200,
+      "score": 10.25,
+      "transcript": "",
+      "wer": 1.0,
+      "per": 1.0,
+      "flagged_words": [
+        "meine",
+        "mutter",
+        "kocht",
+        "das",
+        "abendessen"
+      ],
+      "phone_count": 0,
+      "structured": true
+    },
+    {
+      "id": "wrong-sentence",
+      "kind": "negative",
+      "text": "Meine Mutter kocht das Abendessen.",
+      "seconds": 0.419,
+      "status": 200,
+      "score": 19.1,
+      "transcript": "wo ist der bahnhof",
+      "wer": 1.0,
+      "per": 0.875,
+      "flagged_words": [
+        "meine",
+        "mutter",
+        "kocht",
+        "das",
+        "abendessen"
+      ],
+      "phone_count": 13,
+      "structured": true
+    },
+    {
+      "id": "warm-repeat",
+      "kind": "synthetic",
+      "text": "Meine Mutter kocht das Abendessen.",
+      "seconds": 0.484,
+      "status": 200,
+      "score": 82.98,
+      "transcript": "meine mutter kocht das abendessen",
+      "wer": 0.0,
+      "per": 0.2083,
+      "flagged_words": [],
+      "phone_count": 25,
+      "structured": true
+    }
+  ]
+}

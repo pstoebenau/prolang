@@ -1,0 +1,442 @@
+{
+  "score": 10.25,
+  "distance": 2372,
+  "acoustic_distance": 15.926,
+  "differences": {
+    "word_distance": 34,
+    "phoneme_distance": 30.0,
+    "word_error_rate": 1.0,
+    "phoneme_error_rate": 1.0,
+    "errors": [
+      {
+        "position": 0,
+        "word": "meine",
+        "expected": "maɪnə",
+        "actual": "",
+        "actual_word": "",
+        "phone_distance": 4,
+        "confidence": 1.0,
+        "phones": [
+          {
+            "expected": "m",
+            "heard": "",
+            "confidence": 0.748
+          },
+          {
+            "expected": "aɪ",
+            "heard": "",
+            "confidence": 0.999
+          },
+          {
+            "expected": "n",
+            "heard": "",
+            "confidence": 0.774
+          },
+          {
+            "expected": "ə",
+            "heard": "",
+            "confidence": 0.499
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "word": "mutter",
+        "expected": "mʊtɜ",
+        "actual": "",
+        "actual_word": "",
+        "phone_distance": 4,
+        "confidence": 1.0,
+        "phones": [
+          {
+            "expected": "m",
+            "heard": "",
+            "confidence": 0.748
+          },
+          {
+            "expected": "ʊ",
+            "heard": "",
+            "confidence": 0.998
+          },
+          {
+            "expected": "t",
+            "heard": "",
+            "confidence": 0.82
+          },
+          {
+            "expected": "ɜ",
+            "heard": "",
+            "confidence": 0.5
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "word": "kocht",
+        "expected": "kɔxt",
+        "actual": "",
+        "actual_word": "",
+        "phone_distance": 4,
+        "confidence": 1.0,
+        "phones": [
+          {
+            "expected": "k",
+            "heard": "",
+            "confidence": 0.899
+          },
+          {
+            "expected": "ɔ",
+            "heard": "",
+            "confidence": 0.999
+          },
+          {
+            "expected": "x",
+            "heard": "",
+            "confidence": 0.998
+          },
+          {
+            "expected": "t",
+            "heard": "",
+            "confidence": 0.41
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "word": "das",
+        "expected": "das",
+        "actual": "",
+        "actual_word": "",
+        "phone_distance": 3,
+        "confidence": 0.872,
+        "phones": [
+          {
+            "expected": "d",
+            "heard": "",
+            "confidence": 0.93
+          },
+          {
+            "expected": "a",
+            "heard": "",
+            "confidence": 0.467
+          },
+          {
+            "expected": "s",
+            "heard": "",
+            "confidence": 0.348
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "word": "abendessen",
+        "expected": "ɑbəndɛsən",
+        "actual": "",
+        "actual_word": "",
+        "phone_distance": 9,
+        "confidence": 1.0,
+        "phones": [
+          {
+            "expected": "ɑ",
+            "heard": "",
+            "confidence": 0.995
+          },
+          {
+            "expected": "b",
+            "heard": "",
+            "confidence": 0.935
+          },
+          {
+            "expected": "ə",
+            "heard": "",
+            "confidence": 0.997
+          },
+          {
+            "expected": "n",
+            "heard": "",
+            "confidence": 0.774
+          },
+          {
+            "expected": "d",
+            "heard": "",
+            "confidence": 0.93
+          },
+          {
+            "expected": "ɛ",
+            "heard": "",
+            "confidence": 0.995
+          },
+          {
+            "expected": "s",
+            "heard": "",
+            "confidence": 0.695
+          },
+          {
+            "expected": "ə",
+            "heard": "",
+            "confidence": 0.997
+          },
+          {
+            "expected": "n",
+            "heard": "",
+            "confidence": 0.387
+          }
+        ]
+      }
+    ],
+    "feedback": "🔊 Feedback on your pronunciation:\n❌ You need to better pronounce these words: meine, mutter, kocht, das, abendessen\n",
+    "transcribe": "",
+    "expected_vector": [],
+    "transcribed_vector": [],
+    "expected_phonemes": [
+      "maɪnə",
+      "mʊtɜ",
+      "kɔxt",
+      "das",
+      "ɑːbəndɛsən"
+    ],
+    "transcribed_phonemes": [],
+    "words_with_errors": [
+      "meine",
+      "mutter",
+      "kocht",
+      "das",
+      "abendessen"
+    ],
+    "expected_phones": [
+      [
+        "m",
+        "aɪ",
+        "n",
+        "ə"
+      ],
+      [
+        "m",
+        "ʊ",
+        "t",
+        "ɜ"
+      ],
+      [
+        "k",
+        "ɔ",
+        "x",
+        "t"
+      ],
+      [
+        "d",
+        "a",
+        "s"
+      ],
+      [
+        "ɑ",
+        "b",
+        "ə",
+        "n",
+        "d",
+        "ɛ",
+        "s",
+        "ə",
+        "n"
+      ]
+    ],
+    "heard_phones": [],
+    "heard_phones_confidence": []
+  },
+  "feedback": "🔊 Feedback on your pronunciation:\n❌ You need to better pronounce these words: meine, mutter, kocht, das, abendessen\n",
+  "transcribe": "",
+  "language": "de",
+  "prosody": {
+    "f0": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "energy": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}

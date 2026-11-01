@@ -1,0 +1,422 @@
+[
+  {
+    "id": "family-1",
+    "category": "family",
+    "text": "Meine Mutter kocht das Abendessen.",
+    "path": ".cache/audio/family-1.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "100cf9a0b83c3e148e8d96d5706c1c780e218c72357a964f7021bae1c277fc76"
+  },
+  {
+    "id": "family-2",
+    "category": "family",
+    "text": "Mein Vater arbeitet heute.",
+    "path": ".cache/audio/family-2.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "f948ce8378eb294e5f95baf2decfe13621e395892025908a868ec1f10a87c0c6"
+  },
+  {
+    "id": "family-3",
+    "category": "family",
+    "text": "Ich spiele mit meinem Bruder.",
+    "path": ".cache/audio/family-3.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "04d7524d80ae12cf5dc08d5df1a8649dbe36a550431989ea59d50a42887e40b4"
+  },
+  {
+    "id": "family-4",
+    "category": "family",
+    "text": "Meine Schwester wohnt in Berlin.",
+    "path": ".cache/audio/family-4.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "ef66751144ecbd622b5d350ca0f710c0180c26761f04ebc03de772e23d6c571d"
+  },
+  {
+    "id": "family-5",
+    "category": "family",
+    "text": "Wir besuchen unsere Großeltern.",
+    "path": ".cache/audio/family-5.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "13301411f1e87dee825b918bf6b9566bb16ca096f57057305a04ad2d01adea0d"
+  },
+  {
+    "id": "daily-1",
+    "category": "daily",
+    "text": "Ich stehe um sieben Uhr auf.",
+    "path": ".cache/audio/daily-1.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "39a81a8c1ac861d086707fa6af1efec552cd8f181ea0ed0bcde0e10367d03e53"
+  },
+  {
+    "id": "daily-2",
+    "category": "daily",
+    "text": "Ich putze mir die Zähne.",
+    "path": ".cache/audio/daily-2.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "1320162103d32fc7b6758a411f8a75ec8b2e10afbc1635f3454e68dbe358bf0d"
+  },
+  {
+    "id": "daily-3",
+    "category": "daily",
+    "text": "Heute gehe ich zur Arbeit.",
+    "path": ".cache/audio/daily-3.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "99be2b1d935d74c3e855a33014bf118c198931fd4b0aa339fb46d53f37d5e6a0"
+  },
+  {
+    "id": "daily-4",
+    "category": "daily",
+    "text": "Am Abend lese ich ein Buch.",
+    "path": ".cache/audio/daily-4.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "ad5f76e4ff4ec61273b444faa264d76b2f2cd065612239f55cad6ed4c6d355d2"
+  },
+  {
+    "id": "daily-5",
+    "category": "daily",
+    "text": "Ich gehe jetzt schlafen.",
+    "path": ".cache/audio/daily-5.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "4fa336f3ebca80866ce1f4126676f640f56cc50c1596483225cb3ea900cf1295"
+  },
+  {
+    "id": "food-1",
+    "category": "food",
+    "text": "Ich möchte ein Glas Wasser.",
+    "path": ".cache/audio/food-1.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "6027a7f7bb1c7ed2b0e8adc7da5c345aee5dded249357c1c647629808a1eb3fb"
+  },
+  {
+    "id": "food-2",
+    "category": "food",
+    "text": "Zum Frühstück esse ich Brot.",
+    "path": ".cache/audio/food-2.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "39f4ed5ce1d84de0a11653df5cc98accbb5083cc9de709dc94fec69d3bac4ec1"
+  },
+  {
+    "id": "food-3",
+    "category": "food",
+    "text": "Der Kaffee ist noch heiß.",
+    "path": ".cache/audio/food-3.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "e09a2b503e65ababd8a674eb4e605ed8f4fc90dee5d845abfbb2337496fbed34"
+  },
+  {
+    "id": "food-4",
+    "category": "food",
+    "text": "Ich hätte gern eine Suppe.",
+    "path": ".cache/audio/food-4.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "9967e96c8993abd2cbaa1b4e61fa543bf2db51183359b71cd668f76b7c17c20e"
+  },
+  {
+    "id": "food-5",
+    "category": "food",
+    "text": "Das Essen schmeckt sehr gut.",
+    "path": ".cache/audio/food-5.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "709cc4d31f105fe5d71d1190e9604614903887e009277fbc0654bfe8433a940f"
+  },
+  {
+    "id": "shopping-1",
+    "category": "shopping",
+    "text": "Wie viel kostet das?",
+    "path": ".cache/audio/shopping-1.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "579bec347d6e654be84ee58632514fd1f3d0d7b99a1423b49abcb723265234e6"
+  },
+  {
+    "id": "shopping-2",
+    "category": "shopping",
+    "text": "Ich suche eine neue Jacke.",
+    "path": ".cache/audio/shopping-2.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "d53c739b53b786bed484266b83279d907f3f485f2be2766519e8c3cef4308edf"
+  },
+  {
+    "id": "shopping-3",
+    "category": "shopping",
+    "text": "Kann ich mit Karte bezahlen?",
+    "path": ".cache/audio/shopping-3.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "74859d1b34955e82f01d470204adbddb80487d78e033b06249331b6dad3e0b85"
+  },
+  {
+    "id": "shopping-4",
+    "category": "shopping",
+    "text": "Haben Sie frische Äpfel?",
+    "path": ".cache/audio/shopping-4.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "417cd50d8394659e06593a6fde53be8a62dc4a9a2ff537063704c29e0b9e1bef"
+  },
+  {
+    "id": "shopping-5",
+    "category": "shopping",
+    "text": "Ich brauche eine Tüte, bitte.",
+    "path": ".cache/audio/shopping-5.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "148c04cf5287310066533fdd92b7a87fb8d02d8969098791c657208ccbad1a0c"
+  },
+  {
+    "id": "travel-1",
+    "category": "travel",
+    "text": "Wo ist der Bahnhof?",
+    "path": ".cache/audio/travel-1.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "119e1bdea80ca887b845ea240f2f48614f84dae13748beb3304ce20c6ea796d3"
+  },
+  {
+    "id": "travel-2",
+    "category": "travel",
+    "text": "Wann fährt der nächste Zug?",
+    "path": ".cache/audio/travel-2.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "6f74e29dba1cf5332775fecdfc2601a44b0d02376865ac1b62b4b5528e8e8216"
+  },
+  {
+    "id": "travel-3",
+    "category": "travel",
+    "text": "Ich möchte eine Fahrkarte kaufen.",
+    "path": ".cache/audio/travel-3.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "13c3b6ac14746ccbc76361f4fd41cfc770062c0e68478e906a025c135db7495b"
+  },
+  {
+    "id": "travel-4",
+    "category": "travel",
+    "text": "Wie komme ich zum Flughafen?",
+    "path": ".cache/audio/travel-4.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "149d3c7168b45d3ee0534bbc776b3c08e0be34f5c4a3084fadd314c93bc1663e"
+  },
+  {
+    "id": "travel-5",
+    "category": "travel",
+    "text": "Ich habe ein Zimmer reserviert.",
+    "path": ".cache/audio/travel-5.webm",
+    "kind": "synthetic",
+    "source": "macOS say Anna (German (Germany)); local evaluation only; not redistributed",
+    "sha256": "6424b05e861e37cdabcd3896643f685783593c5e72540c1775017e87e1da6434"
+  },
+  {
+    "id": "human-family-1",
+    "category": "family",
+    "text": "schwester doris kam zurück.",
+    "path": ".cache/audio/human-family-1.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---2d7f94f212e3851f34d5e9d082072c73",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "1859c9f3ebead5e52f09b281a20e80f0148f2b128e26dfdf934a5f87f5e3dd85"
+  },
+  {
+    "id": "human-family-2",
+    "category": "family",
+    "text": "genauso nackt wie sein sohn.",
+    "path": ".cache/audio/human-family-2.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---0ce62038c4a0b605013f2fab14235f8b",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "321878fa37d2935beec9263282d1b63060b6997af829ac65349fa969ff877dd1"
+  },
+  {
+    "id": "human-family-3",
+    "category": "family",
+    "text": "doch nun, mutter bewegte sich!",
+    "path": ".cache/audio/human-family-3.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---0710cdfcf3852c4f75b2df85e3f04703",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "cea5df41f36b139079302a2cac637ebfa6957b7fde94148924ef677d788d994b"
+  },
+  {
+    "id": "human-daily-1",
+    "category": "daily",
+    "text": "morgen war leerung.",
+    "path": ".cache/audio/human-daily-1.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---a8d882193a77a064ff49aedb429ae1af",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "a43c63817fc4b301d39f8a774f92451e9798f528d07fa61bbe43c2257c7844e1"
+  },
+  {
+    "id": "human-daily-2",
+    "category": "daily",
+    "text": "da lohnt sich ein bisschen arbeit!",
+    "path": ".cache/audio/human-daily-2.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---1527743f2f7ac5c9edda1528bef46eb9",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "c3e6bec5505d9d2bb1fc080170a21590b9b1b4ba7c68429a127b4c7f683054ea"
+  },
+  {
+    "id": "human-daily-3",
+    "category": "daily",
+    "text": "ich danke ihm nochmals für seine arbeit.",
+    "path": ".cache/audio/human-daily-3.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---58cb5b0cc9c9981ce1f924c461d008d4",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "f221e402767c1af432546780f8eb2be9c516c2c60342f234e0b80cb1fd2c44b1"
+  },
+  {
+    "id": "human-food-1",
+    "category": "food",
+    "text": "aber nur kaffee.",
+    "path": ".cache/audio/human-food-1.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---2ac895c5a80bb98fe27d3aee49ed0c7b",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "9e9fdd067fc9c58aaea6224609e712a7287c3722186cd150bab7fbd8a74bf19f"
+  },
+  {
+    "id": "human-food-2",
+    "category": "food",
+    "text": "sie sitzen am tisch und essen.",
+    "path": ".cache/audio/human-food-2.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---141b1a1377451bf91f319665f5a2893a",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "2d7c73e3ca71f2fc484ef56ffd31985631995dadc061be72c0174dc1894229b4"
+  },
+  {
+    "id": "human-food-3",
+    "category": "food",
+    "text": "Wie lange muss man das perfekte Ei kochen?",
+    "path": ".cache/audio/human-food-3.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---af39a6b2891c9097e4c67b4ea00f0599",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "413d562a4738eb196fd9fc883b4cfb3fd68dac71e33927966e63baa0a410d3f4"
+  },
+  {
+    "id": "human-shopping-1",
+    "category": "shopping",
+    "text": "klasse oder doch lieber masse kaufen?",
+    "path": ".cache/audio/human-shopping-1.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---e17f9a7d8b49e211dcf721a149201e24",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "b9cc471164a907d1b39b15dd2112f3a1bd1e969f1f9c7393499e5e2dd082ebf8"
+  },
+  {
+    "id": "human-shopping-2",
+    "category": "shopping",
+    "text": "das ganze koste etwa fünfzig null euro.",
+    "path": ".cache/audio/human-shopping-2.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---cfef9d4a2b1fcbdfb5b0854d94e45a0b",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "44901c00519d48c9d06aac7cfd26963b5ffbadf121783f330484e3ee5033999e"
+  },
+  {
+    "id": "human-shopping-3",
+    "category": "shopping",
+    "text": "er ist mit insgesamt zehn null euro dotiert.",
+    "path": ".cache/audio/human-shopping-3.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---6d74361bf1f75c475113167d8c4cf265",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "41959a593f28dfef1425c7d10aa81273940d7b93fa929348b931db9f78e3a201"
+  },
+  {
+    "id": "human-travel-1",
+    "category": "travel",
+    "text": "im april fahren sich die verhandlungen fest.",
+    "path": ".cache/audio/human-travel-1.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---c6ed538f664ac667d19bade8fb2c5b55",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "cb7105b47e272a9556a79e55c3356ec3a595ebd359482b2c33f1f8ef0ef10b65"
+  },
+  {
+    "id": "human-travel-2",
+    "category": "travel",
+    "text": "heute sind praktisch alle für den neuen bahnhof.",
+    "path": ".cache/audio/human-travel-2.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---577b781ed1f016a12505df4c576cac72",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "7c14e1002715ba01e57f5f2d5e3036800486ede62a6fa6b1192a59acf831aaa2"
+  },
+  {
+    "id": "human-travel-3",
+    "category": "travel",
+    "text": "herbert gießt sich den schnaps mit einem zug in den rachen.",
+    "path": ".cache/audio/human-travel-3.webm",
+    "kind": "human",
+    "source": "Thorsten-Voice/TV-24kHz-Neutral",
+    "row_id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---5495c587ebe97d0680a5371e4acdf3e2",
+    "speaker": "Thorsten Müller (Thorsten-Voice)",
+    "license": "CC-BY-4.0 per HF dataset card",
+    "shard": "data/train-00000-of-00008.parquet",
+    "sha256": "7e12a44d7c6420dd9911555edbe0a7e48913eabe412131231851457e7b0b4809"
+  }
+]

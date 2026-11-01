@@ -1,0 +1,5 @@
+{
+  "facebook/wav2vec2-large-960h": "bdeaacdf88f7a155f50a2704bc967aa81fbbb2ab",
+  "jonatasgrosman/wav2vec2-large-xlsr-53-german": "4b8a02957378d0f2da2ef74091156b032c485a89",
+  "facebook/wav2vec2-lv-60-espeak-cv-ft": "ae45363bf3413b374fecd9dc8bc1df0e24c3b7f4"
+}

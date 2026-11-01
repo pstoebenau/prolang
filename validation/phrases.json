@@ -1,0 +1,7 @@
+{
+ "family": ["Meine Mutter kocht das Abendessen.", "Mein Vater arbeitet heute.", "Ich spiele mit meinem Bruder.", "Meine Schwester wohnt in Berlin.", "Wir besuchen unsere Großeltern."],
+ "daily": ["Ich stehe um sieben Uhr auf.", "Ich putze mir die Zähne.", "Heute gehe ich zur Arbeit.", "Am Abend lese ich ein Buch.", "Ich gehe jetzt schlafen."],
+ "food": ["Ich möchte ein Glas Wasser.", "Zum Frühstück esse ich Brot.", "Der Kaffee ist noch heiß.", "Ich hätte gern eine Suppe.", "Das Essen schmeckt sehr gut."],
+ "shopping": ["Wie viel kostet das?", "Ich suche eine neue Jacke.", "Kann ich mit Karte bezahlen?", "Haben Sie frische Äpfel?", "Ich brauche eine Tüte, bitte."],
+ "travel": ["Wo ist der Bahnhof?", "Wann fährt der nächste Zug?", "Ich möchte eine Fahrkarte kaufen.", "Wie komme ich zum Flughafen?", "Ich habe ein Zimmer reserviert."]
+}

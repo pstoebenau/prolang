@@ -1,0 +1,314 @@
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+Loading weights:   0%|          | 0/404 [00:00<?, ?it/s]Loading weights: 100%|██████████| 404/404 [00:00<00:00, 48429.47it/s]
+[transformers] [1mWav2Vec2ForCTC LOAD REPORT[0m from: /Users/patricks/Documents/code/prolang/.cache/huggingface/hub/models--facebook--wav2vec2-large-960h/snapshots/bdeaacdf88f7a155f50a2704bc967aa81fbbb2ab
+Key                        | Status  | 
+---------------------------+---------+-
+wav2vec2.masked_spec_embed | MISSING | 
+
+Notes:
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+Loading weights:   0%|          | 0/424 [00:00<?, ?it/s]Loading weights: 100%|██████████| 424/424 [00:00<00:00, 46288.00it/s]
+Loading weights:   0%|          | 0/424 [00:00<?, ?it/s]Loading weights: 100%|██████████| 424/424 [00:00<00:00, 46043.52it/s]
+{"id": "family-1", "kind": "synthetic", "text": "Meine Mutter kocht das Abendessen.", "seconds": 5.543, "status": 200, "score": 82.98, "transcript": "meine mutter kocht das abendessen", "wer": 0.0, "per": 0.2083, "flagged_words": [], "phone_count": 25, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "family-2", "kind": "synthetic", "text": "Mein Vater arbeitet heute.", "seconds": 0.973, "status": 200, "score": 88.89, "transcript": "mein vater arbeitet heute", "wer": 0.0, "per": 0.2778, "flagged_words": [], "phone_count": 17, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "family-3", "kind": "synthetic", "text": "Ich spiele mit meinem Bruder.", "seconds": 1.057, "status": 200, "score": 94.46, "transcript": "ich spiele mit meinem bruder", "wer": 0.0, "per": 0.1, "flagged_words": [], "phone_count": 20, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "family-4", "kind": "synthetic", "text": "Meine Schwester wohnt in Berlin.", "seconds": 1.03, "status": 200, "score": 96.36, "transcript": "meine schwester wohnt in berlin", "wer": 0.0, "per": 0.0909, "flagged_words": [], "phone_count": 21, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "family-5", "kind": "synthetic", "text": "Wir besuchen unsere Großeltern.", "seconds": 0.856, "status": 200, "score": 87.5, "transcript": "wir besuchen unsere grosseltern", "wer": 0.25, "per": 0.125, "flagged_words": [], "phone_count": 25, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "daily-1", "kind": "synthetic", "text": "Ich stehe um sieben Uhr auf.", "seconds": 0.942, "status": 200, "score": 87.58, "transcript": "ich stehe um sieben uhr auf", "wer": 0.0, "per": 0.1765, "flagged_words": ["auf"], "phone_count": 18, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "daily-2", "kind": "synthetic", "text": "Ich putze mir die Zähne.", "seconds": 0.872, "status": 200, "score": 78.67, "transcript": "ich putze mir die zähne", "wer": 0.0, "per": 0.5333, "flagged_words": ["ich", "die"], "phone_count": 14, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "daily-3", "kind": "synthetic", "text": "Heute gehe ich zur Arbeit.", "seconds": 1.051, "status": 200, "score": 84.76, "transcript": "heute gehe ich zur arbeit", "wer": 0.0, "per": 0.3529, "flagged_words": [], "phone_count": 18, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "daily-4", "kind": "synthetic", "text": "Am Abend lese ich ein Buch.", "seconds": 0.967, "status": 200, "score": 92.15, "transcript": "am abend lese ich ein buch", "wer": 0.0, "per": 0.1111, "flagged_words": [], "phone_count": 18, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "daily-5", "kind": "synthetic", "text": "Ich gehe jetzt schlafen.", "seconds": 0.749, "status": 200, "score": 81.62, "transcript": "ich gehe jetzt schlafen", "wer": 0.0, "per": 0.2, "flagged_words": [], "phone_count": 16, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "food-1", "kind": "synthetic", "text": "Ich möchte ein Glas Wasser.", "seconds": 0.918, "status": 200, "score": 95.3, "transcript": "ich möchte ein glas wasser", "wer": 0.0, "per": 0.1176, "flagged_words": [], "phone_count": 17, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "food-2", "kind": "synthetic", "text": "Zum Frühstück esse ich Brot.", "seconds": 0.792, "status": 200, "score": 87.84, "transcript": "zum frühstück esse ich brot", "wer": 0.0, "per": 0.2105, "flagged_words": [], "phone_count": 19, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "food-3", "kind": "synthetic", "text": "Der Kaffee ist noch heiß.", "seconds": 0.84, "status": 200, "score": 89.0, "transcript": "der kaffee ist noch heiss", "wer": 0.2, "per": 0.125, "flagged_words": [], "phone_count": 16, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "food-4", "kind": "synthetic", "text": "Ich hätte gern eine Suppe.", "seconds": 0.898, "status": 200, "score": 86.82, "transcript": "ich hätte gern eine suppe", "wer": 0.0, "per": 0.1765, "flagged_words": ["gern"], "phone_count": 17, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "food-5", "kind": "synthetic", "text": "Das Essen schmeckt sehr gut.", "seconds": 1.02, "status": 200, "score": 100.0, "transcript": "das essen schmeckt sehr gut", "wer": 0.0, "per": 0.0, "flagged_words": [], "phone_count": 18, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "shopping-1", "kind": "synthetic", "text": "Wie viel kostet das?", "seconds": 0.989, "status": 200, "score": 94.28, "transcript": "wie viel kostet das", "wer": 0.0, "per": 0.1429, "flagged_words": [], "phone_count": 13, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "shopping-2", "kind": "synthetic", "text": "Ich suche eine neue Jacke.", "seconds": 1.04, "status": 200, "score": 76.3, "transcript": "ich suche eine neue jacke", "wer": 0.0, "per": 0.25, "flagged_words": ["ich"], "phone_count": 17, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "shopping-3", "kind": "synthetic", "text": "Kann ich mit Karte bezahlen?", "seconds": 0.862, "status": 200, "score": 91.53, "transcript": "kann ich mit karte bezahlen", "wer": 0.0, "per": 0.2, "flagged_words": [], "phone_count": 19, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "shopping-4", "kind": "synthetic", "text": "Haben Sie frische Äpfel?", "seconds": 0.889, "status": 200, "score": 85.88, "transcript": "haben sie frische äpfel", "wer": 0.0, "per": 0.3529, "flagged_words": [], "phone_count": 17, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "shopping-5", "kind": "synthetic", "text": "Ich brauche eine Tüte, bitte.", "seconds": 0.921, "status": 200, "score": 91.11, "transcript": "ich brauche eine tüte bitte", "wer": 0.0, "per": 0.2222, "flagged_words": ["brauche"], "phone_count": 20, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "travel-1", "kind": "synthetic", "text": "Wo ist der Bahnhof?", "seconds": 0.753, "status": 200, "score": 91.43, "transcript": "wo ist der bahnhof", "wer": 0.0, "per": 0.2143, "flagged_words": [], "phone_count": 13, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "travel-2", "kind": "synthetic", "text": "Wann fährt der nächste Zug?", "seconds": 0.823, "status": 200, "score": 78.95, "transcript": "wann fährt der nächste zug", "wer": 0.0, "per": 0.5263, "flagged_words": [], "phone_count": 15, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "travel-3", "kind": "synthetic", "text": "Ich möchte eine Fahrkarte kaufen.", "seconds": 1.089, "status": 200, "score": 93.04, "transcript": "ich möchte eine fahrkarte kaufen", "wer": 0.0, "per": 0.1739, "flagged_words": [], "phone_count": 23, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "travel-4", "kind": "synthetic", "text": "Wie komme ich zum Flughafen?", "seconds": 1.003, "status": 200, "score": 90.0, "transcript": "wie komme ich zum flughafen", "wer": 0.0, "per": 0.25, "flagged_words": [], "phone_count": 21, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "travel-5", "kind": "synthetic", "text": "Ich habe ein Zimmer reserviert.", "seconds": 0.841, "status": 200, "score": 90.48, "transcript": "ich habe ein zimmer reserviert", "wer": 0.0, "per": 0.2381, "flagged_words": [], "phone_count": 20, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-family-1", "kind": "human", "text": "schwester doris kam zurück.", "seconds": 0.944, "status": 200, "score": 86.58, "transcript": "schwester doris kam zurück", "wer": 0.0, "per": 0.3158, "flagged_words": [], "phone_count": 20, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-family-2", "kind": "human", "text": "genauso nackt wie sein sohn.", "seconds": 0.961, "status": 200, "score": 100.0, "transcript": "genauso nackt wie sein sohn", "wer": 0.0, "per": 0.0, "flagged_words": [], "phone_count": 18, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-family-3", "kind": "human", "text": "doch nun, mutter bewegte sich!", "seconds": 0.986, "status": 200, "score": 94.68, "transcript": "doch nun mutter bewegte sich", "wer": 0.0, "per": 0.05, "flagged_words": [], "phone_count": 20, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-daily-1", "kind": "human", "text": "morgen war leerung.", "seconds": 0.75, "status": 200, "score": 75.72, "transcript": "morgen war lehro", "wer": 0.3333, "per": 0.3571, "flagged_words": [], "phone_count": 11, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-daily-2", "kind": "human", "text": "da lohnt sich ein bisschen arbeit!", "seconds": 0.773, "status": 200, "score": 75.51, "transcript": "da lohnt sich ein bisschen arbeit", "wer": 0.0, "per": 0.4545, "flagged_words": [], "phone_count": 20, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-daily-3", "kind": "human", "text": "ich danke ihm nochmals für seine arbeit.", "seconds": 1.906, "status": 200, "score": 88.17, "transcript": "ich danke ihm nochmals für seine arbeit", "wer": 0.0, "per": 0.2143, "flagged_words": [], "phone_count": 26, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-food-1", "kind": "human", "text": "aber nur kaffee.", "seconds": 0.808, "status": 200, "score": 84.0, "transcript": "aber nur kaffee", "wer": 0.0, "per": 0.4, "flagged_words": [], "phone_count": 9, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-food-2", "kind": "human", "text": "sie sitzen am tisch und essen.", "seconds": 0.962, "status": 200, "score": 91.53, "transcript": "sie sitzen am tisch und essen", "wer": 0.0, "per": 0.1579, "flagged_words": [], "phone_count": 21, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-food-3", "kind": "human", "text": "Wie lange muss man das perfekte Ei kochen?", "seconds": 1.113, "status": 200, "score": 97.24, "transcript": "wie lange muss man das perfekte ei kochen", "wer": 0.0, "per": 0.069, "flagged_words": [], "phone_count": 30, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-shopping-1", "kind": "human", "text": "klasse oder doch lieber masse kaufen?", "seconds": 0.992, "status": 200, "score": 98.33, "transcript": "klasse oder doch lieber masse kaufen", "wer": 0.0, "per": 0.0417, "flagged_words": [], "phone_count": 24, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-shopping-2", "kind": "human", "text": "das ganze koste etwa fünfzig null euro.", "seconds": 0.982, "status": 200, "score": 94.67, "transcript": "das ganze koste etwa fünfzig null euro", "wer": 0.0, "per": 0.1333, "flagged_words": [], "phone_count": 31, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-shopping-3", "kind": "human", "text": "er ist mit insgesamt zehn null euro dotiert.", "seconds": 1.208, "status": 200, "score": 92.22, "transcript": "er ist mit insgesamt zehn null euro dotiert", "wer": 0.0, "per": 0.1875, "flagged_words": [], "phone_count": 30, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-travel-1", "kind": "human", "text": "im april fahren sich die verhandlungen fest.", "seconds": 1.071, "status": 200, "score": 92.73, "transcript": "im april fahren sich die verhandlungen fest", "wer": 0.0, "per": 0.1818, "flagged_words": [], "phone_count": 33, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-travel-2", "kind": "human", "text": "heute sind praktisch alle für den neuen bahnhof.", "seconds": 1.088, "status": 200, "score": 94.12, "transcript": "heute sind praktisch alle für den neuen bahnhof", "wer": 0.0, "per": 0.1471, "flagged_words": [], "phone_count": 31, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "human-travel-3", "kind": "human", "text": "herbert gießt sich den schnaps mit einem zug in den rachen.", "seconds": 1.045, "status": 200, "score": 87.52, "transcript": "herbert giesst sich den schnaps mit einem zug in den rachen", "wer": 0.0909, "per": 0.2439, "flagged_words": [], "phone_count": 42, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "chrome-mediarecorder", "kind": "synthetic", "text": "Meine Mutter kocht das Abendessen.", "seconds": 0.486, "status": 200, "score": 87.61, "transcript": "meine mutter kocht das abendessen", "wer": 0.0, "per": 0.0833, "flagged_words": [], "phone_count": 23, "structured": true}
+{"id": "silence", "kind": "negative", "text": "Meine Mutter kocht das Abendessen.", "seconds": 0.502, "status": 200, "score": 10.25, "transcript": "", "wer": 1.0, "per": 1.0, "flagged_words": ["meine", "mutter", "kocht", "das", "abendessen"], "phone_count": 0, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "wrong-sentence", "kind": "negative", "text": "Meine Mutter kocht das Abendessen.", "seconds": 0.419, "status": 200, "score": 19.1, "transcript": "wo ist der bahnhof", "wer": 1.0, "per": 0.875, "flagged_words": ["meine", "mutter", "kocht", "das", "abendessen"], "phone_count": 13, "structured": true}
+/Users/patricks/Documents/code/prolang/.cache/OpenPronounce/openpronounce/audio.py:48: UserWarning: PySoundFile failed. Trying audioread instead.
+  waveform, _ = librosa.load(file_path, sr=sr, mono=True)
+/Users/patricks/Documents/code/prolang/.venv/lib/python3.11/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+{"id": "warm-repeat", "kind": "synthetic", "text": "Meine Mutter kocht das Abendessen.", "seconds": 0.484, "status": 200, "score": 82.98, "transcript": "meine mutter kocht das abendessen", "wer": 0.0, "per": 0.2083, "flagged_words": [], "phone_count": 25, "structured": true}

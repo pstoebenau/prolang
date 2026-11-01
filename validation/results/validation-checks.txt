@@ -1,0 +1,1 @@
+PASS: 44 complete real-model responses, 41 Opus uploads; controls lower than matched speech. CPU only. Human quality/calibration and CUDA remain separate gates.

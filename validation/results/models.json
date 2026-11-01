@@ -1,0 +1,20 @@
+{
+  "facebook/wav2vec2-large-960h": {
+    "revision": "bdeaacdf88f7a155f50a2704bc967aa81fbbb2ab",
+    "seconds": 51.79795183305396,
+    "loaded": true,
+    "path": "/Users/patricks/Documents/code/prolang/.cache/huggingface/hub/models--facebook--wav2vec2-large-960h/snapshots/bdeaacdf88f7a155f50a2704bc967aa81fbbb2ab"
+  },
+  "jonatasgrosman/wav2vec2-large-xlsr-53-german": {
+    "revision": "4b8a02957378d0f2da2ef74091156b032c485a89",
+    "seconds": 55.01936566596851,
+    "loaded": true,
+    "path": "/Users/patricks/Documents/code/prolang/.cache/huggingface/hub/models--jonatasgrosman--wav2vec2-large-xlsr-53-german/snapshots/4b8a02957378d0f2da2ef74091156b032c485a89"
+  },
+  "facebook/wav2vec2-lv-60-espeak-cv-ft": {
+    "revision": "ae45363bf3413b374fecd9dc8bc1df0e24c3b7f4",
+    "seconds": 183.5661034170189,
+    "loaded": true,
+    "path": "/Users/patricks/Documents/code/prolang/.cache/huggingface/hub/models--facebook--wav2vec2-lv-60-espeak-cv-ft/snapshots/ae45363bf3413b374fecd9dc8bc1df0e24c3b7f4"
+  }
+}

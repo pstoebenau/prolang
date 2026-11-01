@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/patricks/Documents/code/prolang/validation/gpu_probe.py", line 4, in <module>
+    assert torch.cuda.is_available(), 'CUDA unavailable: no GPU validation performed'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: CUDA unavailable: no GPU validation performed
