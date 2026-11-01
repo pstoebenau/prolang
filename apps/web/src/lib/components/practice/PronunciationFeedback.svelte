@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { phoneAudio } from '$lib/phone-audio';
-  import { phoneGuidance } from '$lib/phone-guidance';
+  import { Tooltip } from 'bits-ui';
   import PhoneSequence from './PhoneSequence.svelte';
   import type { SpeechFeedback, AudioSegment } from '$lib/types';
   import { practiceWords } from '$lib/practice-feedback';
@@ -74,63 +73,50 @@
           >{selectedResult.label}</small
         >
       </div>
-      <dl class="sound-pair">
-        <div>
-          <dt>Expected</dt>
-          <dd class:ipa={!!selectedResult.expectedPhones?.length}>
-            {#if selectedResult.phonePairs}
-              <PhoneSequence
-                pairs={selectedResult.phonePairs}
-                side="expected"
-              />
-            {:else}
-              {phonemes(selectedResult.expectedPhones) ||
-                selectedResult.expected ||
-                '—'}
-            {/if}
-          </dd>
-        </div>
-        <div>
-          <dt>You said</dt>
-          <dd class:ipa={!!selectedResult.heardPhones}>
-            {#if selectedResult.phonePairs}
-              <PhoneSequence pairs={selectedResult.phonePairs} side="heard" />
-            {:else}
-              {selectedResult.heardPhones !== undefined
-                ? phonemes(selectedResult.heardPhones) || 'Not detected'
-                : 'Sound comparison unavailable'}
-            {/if}
-          </dd>
-        </div>
-      </dl>
-      {#if selectedResult.phoneDifferences.length}
-        <section class="sound-guidance" aria-label="How to improve these sounds">
-          <h4>How to shape the sounds</h4>
-          <p class="muted">Listen, try the mouth position, then say the whole word.</p>
-          <ul>
-            {#each selectedResult.phoneDifferences as difference}
-              {@const guidance = phoneGuidance(difference)}
-              {#if guidance}
-                {@const sound = guidance.expected || guidance.heard}
-                <li>
-                  <div class="sound-heading">
-                    <strong class="sound-label">{guidance.label}</strong>
-                    {#if phoneAudio(sound)}
-                      <Button variant="outline" size="sm" disabled={busy}
-                        aria-label={`Listen to sound ${sound}`}
-                        onclick={() => onsound(sound)}>Listen to sound</Button>
-                    {:else if selectedResult.expected}
-                      <Button variant="outline" size="sm" disabled={busy || referenceLoading}
-                        onclick={() => onreference(selectedResult.expected)}>Hear in word</Button>
-                    {/if}
-                  </div>
-                  <p>{guidance.instruction}</p>
-                </li>
+      <Tooltip.Provider delayDuration={200}>
+        <dl class="sound-pair">
+          <div>
+            <dt>Expected</dt>
+            <dd class:ipa={!!selectedResult.expectedPhones?.length}>
+              {#if selectedResult.phonePairs}
+                <PhoneSequence
+                  pairs={selectedResult.phonePairs}
+                  side="expected"
+                  {busy}
+                  {onsound}
+                />
+              {:else}
+                {phonemes(selectedResult.expectedPhones) ||
+                  selectedResult.expected ||
+                  '—'}
               {/if}
-            {/each}
-          </ul>
-          <p class="muted sound-note">Sound examples demonstrate mouth position; some consonants include surrounding vowels. Use Native for German rhythm and vowel length. <a href="/sounds">Recording credits</a></p>
-        </section>
+            </dd>
+          </div>
+          <div>
+            <dt>You said</dt>
+            <dd class:ipa={!!selectedResult.heardPhones}>
+              {#if selectedResult.phonePairs}
+                <PhoneSequence
+                  pairs={selectedResult.phonePairs}
+                  side="heard"
+                  {busy}
+                  {onsound}
+                />
+              {:else}
+                {selectedResult.heardPhones !== undefined
+                  ? phonemes(selectedResult.heardPhones) || 'Not detected'
+                  : 'Sound comparison unavailable'}
+              {/if}
+            </dd>
+          </div>
+        </dl>
+      </Tooltip.Provider>
+      {#if selectedResult.phonePairs}
+        <p class="muted sound-hint">
+          Hover or focus a symbol for tips. Click to hear it. <a href="/sounds"
+            >Audio credits</a
+          >
+        </p>
       {/if}
       <div class="actions">
         {#if selectedResult.expected}
@@ -157,11 +143,8 @@
 {:else}<p class="muted">Record to compare your pronunciation.</p>{/if}
 
 <style>
-  .sound-guidance { border-top: 1px solid #d3d9cd; padding-top: 16px; }
-  .sound-heading { display: flex; align-items: center; gap: 12px; }
-  .sound-label { font-size: 20px; }
-  h4 { font-weight: 650; }
-  ul { padding-left: 20px; }
-  li { margin: 16px 0; }
-  li p { margin: 6px 0; }
+  .sound-hint {
+    font-size: 12px;
+    margin: 0 0 12px;
+  }
 </style>

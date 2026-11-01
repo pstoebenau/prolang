@@ -197,7 +197,9 @@ test('unflagged phoneme differences render for the selected word', async ({
   wav.writeUInt32LE(320, 40);
   let releaseReference: (() => void) | undefined;
   await page.route('**/api/reference', async (route) => {
-    await new Promise<void>((resolve) => { releaseReference = resolve; });
+    await new Promise<void>((resolve) => {
+      releaseReference = resolve;
+    });
     await route.fulfill({ contentType: 'audio/wav', body: wav });
   });
   await page.goto(`/practice?retry=${card.id}`);
@@ -215,7 +217,29 @@ test('unflagged phoneme differences render for the selected word', async ({
     page.locator('.selected-word dd').last().locator('mark'),
   ).toHaveText('e');
   await expect(page.locator('.transcript-note')).toContainText('der tochter');
-  await expect(page.getByRole('region', { name: 'How to improve these sounds' })).toContainText('front of your tongue');
+  const firstSound = page.getByRole('button', {
+    name: 'Expected i: play sound',
+    exact: true,
+  });
+  await expect(firstSound).toBeEnabled();
+  await page
+    .locator('.answer')
+    .evaluate((element) =>
+      Promise.all(
+        element.getAnimations().map((animation) => animation.finished),
+      ),
+    );
+  await firstSound.hover();
+  await expect(page.getByRole('tooltip')).toContainText('front of your tongue');
+  await expect(firstSound).toHaveAttribute('aria-describedby', /.+/);
+  const descriptionId = await firstSound.getAttribute('aria-describedby');
+  await expect(page.getByRole('tooltip')).toHaveAttribute('id', descriptionId!);
+  await firstSound.focus();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('tooltip')).toHaveCount(0);
+  await expect(
+    page.getByRole('heading', { name: 'How to shape the sounds' }),
+  ).toHaveCount(0);
   await page
     .getByRole('button', { name: 'Tochter: Sound differs', exact: true })
     .click();
@@ -251,10 +275,18 @@ test('unflagged phoneme differences render for the selected word', async ({
     await button.click();
     await expect(button).toHaveAttribute('aria-busy', 'true');
     await expect(page.locator('.processing-bar')).toHaveCount(0);
-    await expect(page.getByRole('button', { name: 'Cancel processing' })).toHaveCount(0);
-    await expect(page.getByRole('button', { name: 'Record again', exact: true })).toBeEnabled();
-    await expect(page.getByRole('button', { name: 'Tochter: Sound differs', exact: true })).toBeEnabled();
-    await expect(comparison.getByRole('heading', { name: 'Tochter', exact: true })).toBeVisible();
+    await expect(
+      page.getByRole('button', { name: 'Cancel processing' }),
+    ).toHaveCount(0);
+    await expect(
+      page.getByRole('button', { name: 'Record again', exact: true }),
+    ).toBeEnabled();
+    await expect(
+      page.getByRole('button', { name: 'Tochter: Sound differs', exact: true }),
+    ).toBeEnabled();
+    await expect(
+      comparison.getByRole('heading', { name: 'Tochter', exact: true }),
+    ).toBeVisible();
     await expect.poll(() => !!releaseReference).toBe(true);
     releaseReference!();
     releaseReference = undefined;
@@ -268,25 +300,74 @@ test('unflagged phoneme differences render for the selected word', async ({
       ),
     )
     .toBe(1);
-  const soundButton = page.getByRole('button', { name: 'Listen to sound ɜ', exact: true });
+  const soundButton = page.getByRole('button', {
+    name: 'Expected ɜ: play sound',
+    exact: true,
+  });
   await soundButton.click();
-  await expect(page.locator('audio')).toHaveAttribute('src', '/sounds/open-mid-central-unrounded-vowel.mp3');
-  await expect.poll(() => page.locator('audio').evaluate((audio: HTMLAudioElement) => audio.readyState)).toBeGreaterThanOrEqual(2);
+  await expect(page.locator('audio')).toHaveAttribute(
+    'src',
+    '/sounds/open-mid-central-unrounded-vowel.mp3',
+  );
+  await expect
+    .poll(() =>
+      page
+        .locator('audio')
+        .evaluate((audio: HTMLAudioElement) => audio.readyState),
+    )
+    .toBeGreaterThanOrEqual(2);
   await expect(page.locator('.processing-bar')).toHaveCount(0);
-  await expect(page.locator('.sound-guidance')).not.toContainText('The recognizer heard');
-  await expect(page.locator('.sound-guidance')).not.toContainText('/');
+  await expect(page.getByRole('tooltip')).toContainText(
+    'Keep the tongue central',
+  );
+  await expect(page.getByRole('tooltip')).not.toContainText(
+    'The recognizer heard',
+  );
+  await expect(page.getByRole('tooltip')).not.toContainText('/');
   await soundButton.click();
-  await expect.poll(() => page.locator('audio').evaluate((audio: HTMLAudioElement) => audio.error)).toBeNull();
+  await expect
+    .poll(() =>
+      page.locator('audio').evaluate((audio: HTMLAudioElement) => audio.error),
+    )
+    .toBeNull();
+  const detectedSound = page.getByRole('button', {
+    name: 'Detected a: play sound',
+    exact: true,
+  });
+  await detectedSound.hover();
+  await expect(page.getByRole('tooltip')).toContainText('not your recording');
+  await detectedSound.press('Enter');
+  await expect(page.locator('audio')).toHaveAttribute(
+    'src',
+    '/sounds/open-front-unrounded-vowel.mp3',
+  );
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('tooltip')).toHaveCount(0);
+  // Matching symbols are playable as well as highlighted differences.
+  await page
+    .getByRole('button', { name: 'Expected t: play sound', exact: true })
+    .first()
+    .click();
+  await expect(page.locator('audio')).toHaveAttribute(
+    'src',
+    '/sounds/voiceless-alveolar-plosive.mp3',
+  );
   await expect(page.locator('audio[controls]')).toHaveCount(0);
   await expect(page.locator('audio:visible')).toHaveCount(0);
 });
 
-test('home and practice are separate and the brand returns home', async ({ page }) => {
+test('home and practice are separate and the brand returns home', async ({
+  page,
+}) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Make German part of your day.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Make German part of your day.' }),
+  ).toBeVisible();
   await page.getByRole('link', { name: 'Go to practice' }).click();
   await expect(page).toHaveURL(/\/practice$/);
-  await expect(page.getByRole('button', { name: 'Start practice', exact: true })).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Start practice', exact: true }),
+  ).toBeVisible();
   await page.getByRole('link', { name: 'Prolang home' }).click();
   await expect(page).toHaveURL('/');
   await page.goto('/?retry=2');

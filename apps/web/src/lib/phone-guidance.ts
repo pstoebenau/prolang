@@ -55,6 +55,20 @@ function normalize(phone: string) {
   return phone.normalize('NFC').replace(/[ˈˌ͜͡]/gu, '');
 }
 
+/** Articulation cue for a symbol, including matching or detected sounds. */
+export function soundGuidance(phone: string) {
+  const target = normalize(phone);
+  const cue = cues[target.replace(/ː/g, '')];
+  if (!cue)
+    return 'Listen to this part of Native, imitate it slowly, then blend it back into the word. A specific articulation cue is not available for this symbol.';
+  return (
+    cue +
+    (target.includes('ː')
+      ? ' Hold this vowel longer, keeping its quality steady.'
+      : '')
+  );
+}
+
 export function phoneGuidance(pair: { expected: string; heard?: string }) {
   const expected = pair.expected;
   const heard = pair.heard ?? '';
@@ -62,19 +76,24 @@ export function phoneGuidance(pair: { expected: string; heard?: string }) {
   const target = normalize(expected);
   const actual = normalize(heard);
   const base = target.replace(/ː/g, '');
-  const cue = cues[base];
-  const label = !expected ? `Extra sound: ${heard}` : !heard ? `Add ${expected}` : expected;
+  const label = !expected
+    ? `Extra sound: ${heard}`
+    : !heard
+      ? `Add ${expected}`
+      : expected;
   let instruction: string;
   if (!expected) {
-    instruction = 'Link the sounds on either side directly, without adding another sound or syllable. Compare Native and Yours to check the transition.';
+    instruction =
+      'Link the sounds on either side directly, without adding another sound or syllable. Compare Native and Yours to check the transition.';
   } else if (target !== actual && base === actual.replace(/ː/g, '') && heard) {
     instruction = target.includes('ː')
       ? 'Hold this vowel longer while keeping its tongue and lip position steady. Match the duration in Native.'
       : 'Shorten this vowel without adding a glide. Match the duration in Native.';
   } else {
-    instruction = cue ?? 'Listen to this part of Native, imitate it slowly, then blend it back into the word. A specific articulation cue is not available for this symbol.';
-    if (cue && target.includes('ː')) instruction += ' Hold this vowel longer, keeping its quality steady.';
-    if (!heard) instruction += ' Practice it between the neighboring sounds, then say the whole word.';
+    instruction = soundGuidance(expected);
+    if (!heard)
+      instruction +=
+        ' Practice it between the neighboring sounds, then say the whole word.';
   }
   return { expected, heard, label, instruction };
 }

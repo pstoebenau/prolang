@@ -1,20 +1,22 @@
 <script lang="ts">
+  import PhoneSymbol from './PhoneSymbol.svelte';
   import type { PhonePair } from '$lib/phone-comparison';
-  let { pairs, side }: { pairs: PhonePair[]; side: 'expected' | 'heard' } =
-    $props();
+  let {
+    pairs,
+    side,
+    busy,
+    onsound,
+  }: {
+    pairs: PhonePair[];
+    side: 'expected' | 'heard';
+    busy: boolean;
+    onsound: (phone: string) => Promise<void>;
+  } = $props();
 </script>
 
 <span class="phone-sequence">
-  {#each pairs as pair}
-    {#if pair.expected !== pair.heard}
-      <mark
-        title={`Expected ${pair.expected || 'no sound'}; detected ${pair.heard || 'no sound'}`}
-      >
-        {pair[side] || '—'}
-      </mark>
-    {:else}
-      <span>{pair[side]}</span>
-    {/if}
+  {#each pairs as pair, i (`${i}:${pair.expected}:${pair.heard}`)}
+    <PhoneSymbol {pair} {side} {busy} {onsound} />
   {/each}
 </span>
 
@@ -23,13 +25,6 @@
     display: inline-flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.15em;
-  }
-  mark {
-    color: #8c3028;
-    background: #f3dfd8;
-    border-bottom: 2px solid #a24737;
-    border-radius: 3px;
-    padding: 0 0.12em;
+    gap: 0.1em;
   }
 </style>
