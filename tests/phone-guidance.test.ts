@@ -4,9 +4,10 @@ import { phoneGuidance } from '../apps/web/src/lib/phone-guidance';
 test('matching phones need no correction', () => {
   expect(phoneGuidance({ expected: 'i', heard: 'i' })).toBeNull();
 });
-test('substitutions explain the recognition and provide articulation cues', () => {
+test('substitutions have concise labels and articulation cues', () => {
   const tip = phoneGuidance({ expected: 'y', heard: 'u' })!;
-  expect(tip.explanation).toContain('heard /u/');
+  expect(tip.label).toBe('y');
+  expect(tip.instruction).not.toContain('/');
   expect(tip.instruction).toContain('without moving your tongue back');
 });
 test('length, stress and affricate notation are handled', () => {

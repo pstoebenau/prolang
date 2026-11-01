@@ -109,7 +109,7 @@
               {@const guidance = phoneGuidance(difference)}
               {#if guidance}
                 <li>
-                  <p>{guidance.explanation}</p>
+                  <strong class="sound-label">{guidance.label}</strong>
                   <p>{guidance.instruction}</p>
                 </li>
               {/if}
