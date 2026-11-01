@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { phoneGuidance } from '$lib/phone-guidance';
   import PhoneSequence from './PhoneSequence.svelte';
   import type { SpeechFeedback, AudioSegment } from '$lib/types';
   import { practiceWords } from '$lib/practice-feedback';
@@ -97,6 +98,23 @@
           </dd>
         </div>
       </dl>
+      {#if selectedResult.phoneDifferences.length}
+        <section class="sound-guidance" aria-label="How to improve these sounds">
+          <h4>How to shape the sounds</h4>
+          <p class="muted">Recognition is an estimate. Use these cues with Native and Yours to check what you hear.</p>
+          <ul>
+            {#each selectedResult.phoneDifferences as difference}
+              {@const guidance = phoneGuidance(difference)}
+              {#if guidance}
+                <li>
+                  <p>{guidance.explanation}</p>
+                  <p>{guidance.instruction}</p>
+                </li>
+              {/if}
+            {/each}
+          </ul>
+        </section>
+      {/if}
       <div class="actions">
         {#if selectedResult.expected}
           <Button
@@ -119,3 +137,11 @@
     </div>
   {/if}
 {:else}<p class="muted">Record to compare your pronunciation.</p>{/if}
+
+<style>
+  .sound-guidance { border-top: 1px solid #d3d9cd; padding-top: 16px; }
+  h4 { font-weight: 650; }
+  ul { padding-left: 20px; }
+  li { margin: 16px 0; }
+  li p { margin: 6px 0; }
+</style>
