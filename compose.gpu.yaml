@@ -1,0 +1,12 @@
+# Opt-in overlay: still exactly one service.
+services:
+  prolang:
+    environment:
+      OPENPRONOUNCE_DEVICE: cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

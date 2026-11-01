@@ -1,0 +1,30 @@
+services:
+  prolang:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '${BIND_ADDRESS:-127.0.0.1}:${PORT:-3000}:3000'
+    environment:
+      ORIGIN: ${ORIGIN:-http://localhost:3000}
+      OPENPRONOUNCE_DEVICE: ${OPENPRONOUNCE_DEVICE:-cpu}
+      TORCH_THREADS: ${TORCH_THREADS:-4}
+    volumes:
+      - data:/app/data
+      - models:/app/.cache/huggingface
+      - references:/app/.cache/references
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'bun',
+          '-e',
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 15m
+      retries: 5
+volumes:
+  data:
+  models:
+  references:

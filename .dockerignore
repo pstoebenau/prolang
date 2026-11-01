@@ -1,0 +1,13 @@
+.git
+.venv
+.cache
+node_modules
+**/node_modules
+**/.svelte-kit
+**/build
+**/.turbo
+.turbo
+data
+.env
+validation/results
+validation/evidence
