@@ -1,0 +1,22 @@
+{
+  "name": "prolang",
+  "private": true,
+  "packageManager": "bun@1.4.3",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "bun scripts/run.ts dev",
+    "start": "bun scripts/run.ts start",
+    "build": "turbo build",
+    "check": "turbo check --env-mode=loose",
+    "test": "bun test tests",
+    "bootstrap": "bash scripts/bootstrap.sh"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "prettier": "3.6.2",
+    "prettier-plugin-svelte": "3.4.0",
+    "turbo": "2.5.6"
+  }
+}

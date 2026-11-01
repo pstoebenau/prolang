@@ -1,0 +1,10 @@
+{
+  "name": "@prolang/inference",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run.ts start",
+    "start": "bun run.ts start",
+    "check": "bun run.ts check"
+  }
+}

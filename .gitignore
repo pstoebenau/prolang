@@ -1,0 +1,14 @@
+.venv/
+.cache/
+__pycache__/
+*.pyc
+*.egg-info/
+.DS_Store
+node_modules/
+.svelte-kit/
+.turbo/
+build/
+data/
+.env
+playwright-report/
+test-results/

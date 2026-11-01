@@ -1,0 +1,19 @@
+{
+  "tasks": {
+    "build": {
+      "outputs": ["build/**", ".svelte-kit/**"]
+    },
+    "check": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    }
+  },
+  "globalDependencies": ["packages/deck/cards.json"]
+}
