@@ -32,7 +32,7 @@ test('practice grades invalidate server data and retry links survive reloads', a
 }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/practice');
   await page
     .getByRole('button', { name: 'Start practice', exact: true })
     .click();
@@ -96,7 +96,7 @@ test('leaving practice releases active microphone tracks', async ({ page }) => {
       return destination.stream;
     };
   });
-  await page.goto('/?retry=2');
+  await page.goto('/practice?retry=2');
   await page
     .getByRole('button', { name: 'Record German', exact: true })
     .click();
@@ -198,7 +198,7 @@ test('unflagged phoneme differences render for the selected word', async ({
   await page.route('**/api/reference', (route) =>
     route.fulfill({ contentType: 'audio/wav', body: wav }),
   );
-  await page.goto(`/?retry=${card.id}`);
+  await page.goto(`/practice?retry=${card.id}`);
   await page
     .getByRole('button', { name: 'Record German', exact: true })
     .click();
@@ -254,4 +254,16 @@ test('unflagged phoneme differences render for the selected word', async ({
     .toBe(1);
   await expect(page.locator('audio[controls]')).toHaveCount(0);
   await expect(page.locator('audio:visible')).toHaveCount(0);
+});
+
+test('home and practice are separate and the brand returns home', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Make German part of your day.' })).toBeVisible();
+  await page.getByRole('link', { name: 'Go to practice' }).click();
+  await expect(page).toHaveURL(/\/practice$/);
+  await expect(page.getByRole('button', { name: 'Start practice', exact: true })).toBeVisible();
+  await page.getByRole('link', { name: 'Prolang home' }).click();
+  await expect(page).toHaveURL('/');
+  await page.goto('/?retry=2');
+  await expect(page).toHaveURL('/practice?retry=2');
 });

@@ -45,5 +45,5 @@
       <p lang="de">{c.example}</p>
       <small>{c.exampleEnglish}</small>
     </div>
-    <Button variant="outline" href={`/?retry=${c.id}`}>Practice</Button>
+    <Button variant="outline" href={`/practice?retry=${c.id}`}>Practice</Button>
   </div>{/each}{#if !filtered.length}<p>No entries match your search.</p>{/if}

@@ -43,7 +43,7 @@
     >
     <p>Heard: {a.feedback.transcribe}</p>
     <pre>{JSON.stringify(a.feedback, null, 2)}</pre>
-    <Button variant="outline" href={`/?retry=${a.cardId}`}
+    <Button variant="outline" href={`/practice?retry=${a.cardId}`}
       >Retry this word</Button
     >
   </details>{/each}

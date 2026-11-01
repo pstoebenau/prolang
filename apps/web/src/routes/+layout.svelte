@@ -4,15 +4,15 @@
   import { page } from '$app/state';
   let { children } = $props();
   const navigation = [
-    ['/', 'Practice'],
+    ['/practice', 'Practice'],
     ['/deck', 'Deck'],
     ['/progress', 'Progress'],
     ['/settings', 'Settings'],
   ];
 </script>
 
-<header class:practice-header={page.url.pathname === '/'}>
-  <div class="brand">Prolang<span>.</span></div>
+<header class:practice-header={page.url.pathname === '/practice'}>
+  <a class="brand" href="/" aria-label="Prolang home">Prolang<span>.</span></a>
   <nav aria-label="Main navigation">
     {#each navigation as [href, label]}
       <Button
@@ -25,9 +25,13 @@
     {/each}
   </nav>
 </header>
-<main class:practice-page={page.url.pathname === '/'}>
+<main class:practice-page={page.url.pathname === '/practice'}>
   {@render children()}
   <footer>
     Prolang · Local German practice · Experimental pronunciation feedback
   </footer>
 </main>
+
+<style>
+  .brand { display: inline-block; color: inherit; text-decoration: none; }
+</style>
