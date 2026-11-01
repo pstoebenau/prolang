@@ -1,0 +1,362 @@
+{
+  "i": {
+    "src": "/sounds/close-front-unrounded-vowel.mp3",
+    "name": "Close front unrounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Close_front_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ɪ": {
+    "src": "/sounds/near-close-near-front-unrounded-vowel.mp3",
+    "name": "Near-close near-front unrounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Near-close_near-front_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "e": {
+    "src": "/sounds/close-mid-front-unrounded-vowel.mp3",
+    "name": "Close-mid front unrounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Close-mid_front_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ɛ": {
+    "src": "/sounds/open-mid-front-unrounded-vowel.mp3",
+    "name": "Open-mid front unrounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Open-mid_front_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "a": {
+    "src": "/sounds/open-front-unrounded-vowel.mp3",
+    "name": "Open front unrounded vowel",
+    "author": "No machine-readable author provided.  Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Open_front_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ɑ": {
+    "src": "/sounds/open-back-unrounded-vowel.mp3",
+    "name": "Open back unrounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Open_back_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "o": {
+    "src": "/sounds/close-mid-back-rounded-vowel.mp3",
+    "name": "Close-mid back rounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Close-mid_back_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ɔ": {
+    "src": "/sounds/open-mid-back-rounded-vowel.mp3",
+    "name": "Open-mid back rounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Open-mid_back_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "u": {
+    "src": "/sounds/close-back-rounded-vowel.mp3",
+    "name": "Close back rounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Close_back_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ʊ": {
+    "src": "/sounds/near-close-near-back-rounded-vowel.mp3",
+    "name": "Near-close near-back rounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Near-close_near-back_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "y": {
+    "src": "/sounds/close-front-rounded-vowel.mp3",
+    "name": "Close front rounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Close_front_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ʏ": {
+    "src": "/sounds/near-close-near-front-rounded-vowel.mp3",
+    "name": "Near-close near-front rounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Near-close_near-front_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ø": {
+    "src": "/sounds/close-mid-front-rounded-vowel.mp3",
+    "name": "Close-mid front rounded vowel",
+    "author": "Denelson83",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Close-mid_front_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "œ": {
+    "src": "/sounds/open-mid-front-rounded-vowel.mp3",
+    "name": "Open-mid front rounded vowel",
+    "author": "No machine-readable author provided. JøMa assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Open-mid_front_rounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ə": {
+    "src": "/sounds/mid-central-vowel.mp3",
+    "name": "Mid-central vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Mid-central_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ɐ": {
+    "src": "/sounds/near-open-central-unrounded-vowel.mp3",
+    "name": "Near-open central unrounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Near-open_central_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ɜ": {
+    "src": "/sounds/open-mid-central-unrounded-vowel.mp3",
+    "name": "Open-mid central unrounded vowel",
+    "author": "No machine-readable author provided. Denelson83 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Open-mid_central_unrounded_vowel.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ç": {
+    "src": "/sounds/voiceless-palatal-fricative.mp3",
+    "name": "Voiceless palatal fricative",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_palatal_fricative.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "x": {
+    "src": "/sounds/voiceless-velar-fricative.mp3",
+    "name": "Voiceless velar fricative",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_velar_fricative.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ʃ": {
+    "src": "/sounds/voiceless-palato-alveolar-sibilant.mp3",
+    "name": "Voiceless palato-alveolar sibilant",
+    "author": "Peter Isotalo",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_palato-alveolar_sibilant.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ʒ": {
+    "src": "/sounds/voiced-palato-alveolar-sibilant.mp3",
+    "name": "Voiced palato-alveolar sibilant",
+    "author": "Peter Isotalo",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiced_palato-alveolar_sibilant.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "s": {
+    "src": "/sounds/voiceless-alveolar-sibilant.mp3",
+    "name": "Voiceless alveolar sibilant",
+    "author": "Peter Isotalo",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_alveolar_sibilant.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "z": {
+    "src": "/sounds/voiced-alveolar-sibilant.mp3",
+    "name": "Voiced alveolar sibilant",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiced_alveolar_sibilant.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "f": {
+    "src": "/sounds/voiceless-labio-dental-fricative.mp3",
+    "name": "Voiceless labio-dental fricative",
+    "author": "Nixinova",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_labio-dental_fricative.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "v": {
+    "src": "/sounds/voiced-labio-dental-fricative.mp3",
+    "name": "Voiced labio-dental fricative",
+    "author": "Nixinova",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiced_labio-dental_fricative.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "h": {
+    "src": "/sounds/voiceless-glottal-fricative.mp3",
+    "name": "Voiceless glottal fricative",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_glottal_fricative.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "j": {
+    "src": "/sounds/palatal-approximant.mp3",
+    "name": "Palatal approximant",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Palatal_approximant.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "l": {
+    "src": "/sounds/alveolar-lateral-approximant.mp3",
+    "name": "Alveolar lateral approximant",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Alveolar_lateral_approximant.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "m": {
+    "src": "/sounds/bilabial-nasal.mp3",
+    "name": "Bilabial nasal",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Bilabial_nasal.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "n": {
+    "src": "/sounds/alveolar-nasal.mp3",
+    "name": "Alveolar nasal",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Alveolar_nasal.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ŋ": {
+    "src": "/sounds/velar-nasal.mp3",
+    "name": "Velar nasal",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Velar_nasal.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "p": {
+    "src": "/sounds/voiceless-bilabial-plosive.mp3",
+    "name": "Voiceless bilabial plosive",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_bilabial_plosive.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "b": {
+    "src": "/sounds/voiced-bilabial-plosive.mp3",
+    "name": "Voiced bilabial plosive",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiced_bilabial_plosive.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "t": {
+    "src": "/sounds/voiceless-alveolar-plosive.mp3",
+    "name": "Voiceless alveolar plosive",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_alveolar_plosive.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "d": {
+    "src": "/sounds/voiced-alveolar-plosive.mp3",
+    "name": "Voiced alveolar plosive",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiced_alveolar_plosive.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "k": {
+    "src": "/sounds/voiceless-velar-plosive.mp3",
+    "name": "Voiceless velar plosive",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiceless_velar_plosive.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ɡ": {
+    "src": "/sounds/voiced-velar-plosive.mp3",
+    "name": "Voiced velar plosive",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiced_velar_plosive.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ʁ": {
+    "src": "/sounds/voiced-uvular-fricative.mp3",
+    "name": "Voiced uvular fricative",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Voiced_uvular_fricative.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "r": {
+    "src": "/sounds/alveolar-trill.mp3",
+    "name": "Alveolar trill",
+    "author": "Peter Isotalo (Karmosin)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Alveolar_trill.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  },
+  "ʔ": {
+    "src": "/sounds/glottal-stop.mp3",
+    "name": "Glottal stop",
+    "author": "No machine-readable author provided. Peter Isotalo assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Glottal_stop.ogg",
+    "changes": "Converted from Ogg to MP3; no edits to the recording."
+  }
+}

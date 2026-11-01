@@ -1,3 +1,4 @@
+import { phoneAudio } from '$lib/phone-audio';
 import { createRecordingPlayback } from './recording-playback';
 import { onMount, onDestroy, tick } from 'svelte';
 import { invalidate } from '$app/navigation';
@@ -284,7 +285,7 @@ export function createPracticeSession(
           cause instanceof Error ? cause.message : 'Recording playback failed.';
     }
   }
-  async function reference(word?: string) {
+  async function reference(word?: string, soundUrl?: string) {
     ownPlayback.stop();
     stopReference();
     const operation = generation;
@@ -293,28 +294,32 @@ export function createPracticeSession(
     referenceLoading = true;
     error = '';
     try {
-      const r = await fetch('/api/reference', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ticket: current.ticket,
-          ...(word ? { word } : {}),
-        }),
-        signal: AbortSignal.any([request.signal, AbortSignal.timeout(180000)]),
-      });
-      if (!r.ok) {
-        const d = await r.json();
-        throw Error(d.message || 'Reference unavailable. Check your internet connection and retry.');
+      let nextUrl = soundUrl;
+      if (!nextUrl) {
+        const r = await fetch('/api/reference', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ticket: current.ticket, ...(word ? { word } : {}) }),
+          signal: AbortSignal.any([request.signal, AbortSignal.timeout(180000)]),
+        });
+        if (!r.ok) {
+          const d = await r.json();
+          throw Error(d.message || 'Reference unavailable. Check your internet connection and retry.');
+        }
+        const audio = await r.blob();
+        assertActive(operation);
+        if (request.signal.aborted) return;
+        nextUrl = URL.createObjectURL(audio);
       }
-      const audio = await r.blob();
-      assertActive(operation);
-      if (request.signal.aborted) return;
-      if (referenceUrl) URL.revokeObjectURL(referenceUrl);
-      referenceUrl = URL.createObjectURL(audio);
+      if (referenceUrl.startsWith('blob:')) URL.revokeObjectURL(referenceUrl);
+      referenceUrl = nextUrl;
       await tick();
       assertActive(operation);
       if (request.signal.aborted) return;
-      await player?.play();
+      if (player) {
+        player.currentTime = 0;
+        await player.play();
+      }
     } catch (cause) {
       if (operation === generation && !disposed && !request.signal.aborted)
         error = cause instanceof Error ? cause.message : 'Reference playback failed. Try again.';
@@ -418,6 +423,10 @@ export function createPracticeSession(
     cancel,
     reference,
     yours,
+    sound: async (phone: string) => {
+      const audio = phoneAudio(phone);
+      if (audio) await reference(undefined, audio.src);
+    },
     grade,
     stopRecording: () => recorder?.stop(),
   };

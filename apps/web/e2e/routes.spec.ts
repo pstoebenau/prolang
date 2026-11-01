@@ -268,6 +268,15 @@ test('unflagged phoneme differences render for the selected word', async ({
       ),
     )
     .toBe(1);
+  const soundButton = page.getByRole('button', { name: 'Listen to sound ɜ', exact: true });
+  await soundButton.click();
+  await expect(page.locator('audio')).toHaveAttribute('src', '/sounds/open-mid-central-unrounded-vowel.mp3');
+  await expect.poll(() => page.locator('audio').evaluate((audio: HTMLAudioElement) => audio.readyState)).toBeGreaterThanOrEqual(2);
+  await expect(page.locator('.processing-bar')).toHaveCount(0);
+  await expect(page.locator('.sound-guidance')).not.toContainText('The recognizer heard');
+  await expect(page.locator('.sound-guidance')).not.toContainText('/');
+  await soundButton.click();
+  await expect.poll(() => page.locator('audio').evaluate((audio: HTMLAudioElement) => audio.error)).toBeNull();
   await expect(page.locator('audio[controls]')).toHaveCount(0);
   await expect(page.locator('audio:visible')).toHaveCount(0);
 });
