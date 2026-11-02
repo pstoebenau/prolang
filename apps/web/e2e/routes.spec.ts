@@ -5,7 +5,7 @@ test('routes render data without JavaScript', async ({ browser }) => {
   const page = await context.newPage();
   try {
     await page.goto('http://127.0.0.1:5199/deck');
-    await expect(page.locator('.deck-row')).toHaveCount(100);
+    await expect(page.locator('[data-testid="deck-row"]')).toHaveCount(100);
     await page.getByRole('link', { name: 'Progress', exact: true }).click();
     await expect(page).toHaveURL(/\/progress$/);
     await expect(
@@ -37,13 +37,15 @@ test('practice grades invalidate server data and retry links survive reloads', a
     .getByRole('button', { name: 'Reveal answer', exact: true })
     .click();
   await page.getByRole('button', { name: 'Good', exact: true }).click();
-  await expect(page.locator('.step')).toContainText('2 / 5');
+  await expect(page.locator('[data-testid="step"]')).toContainText('2 / 5');
   await page.getByRole('link', { name: 'Progress', exact: true }).click();
-  await expect(page.locator('.stats')).toContainText(/1\s*\/\s*100/);
+  await expect(page.locator('[data-testid="stats"]')).toContainText(
+    /1\s*\/\s*100/,
+  );
   await page.getByRole('link', { name: 'Deck', exact: true }).click();
   await page.getByRole('searchbox').fill('Mutter');
   await page
-    .locator('.deck-row')
+    .locator('[data-testid="deck-row"]')
     .first()
     .getByRole('link', { name: 'Practice', exact: true })
     .click();
@@ -208,19 +210,21 @@ test('unflagged phoneme differences render for the selected word', async ({
     page.getByRole('button', { name: 'die: Sound differs', exact: true }),
   ).toBeVisible();
   await expect(
-    page.locator('.selected-word dd').first().locator('mark'),
+    page.locator('[data-testid="selected-word"] dd').first().locator('mark'),
   ).toHaveText('i');
   await expect(
-    page.locator('.selected-word dd').last().locator('mark'),
+    page.locator('[data-testid="selected-word"] dd').last().locator('mark'),
   ).toHaveText('e');
-  await expect(page.locator('.transcript-note')).toContainText('der tochter');
+  await expect(page.locator('[data-testid="transcript-note"]')).toContainText(
+    'der tochter',
+  );
   const firstSound = page.getByRole('button', {
     name: 'Expected i: pronunciation tips',
     exact: true,
   });
   await expect(firstSound).toBeEnabled();
   await page
-    .locator('.answer')
+    .locator('[data-testid="answer"]')
     .evaluate((element) =>
       Promise.all(
         element.getAnimations().map((animation) => animation.finished),
@@ -240,7 +244,7 @@ test('unflagged phoneme differences render for the selected word', async ({
   await page
     .getByRole('button', { name: 'Tochter: Sound differs', exact: true })
     .click();
-  const comparison = page.locator('.selected-word');
+  const comparison = page.locator('[data-testid="selected-word"]');
   await expect(comparison.locator('dd').last()).toContainText(
     /t\s*ɔ\s*x\s*t\s*a/,
   );
@@ -250,7 +254,7 @@ test('unflagged phoneme differences render for the selected word', async ({
   );
   await expect(comparison.locator('dd').last().locator('mark')).toHaveText('a');
   await expect(comparison.locator('mark')).toHaveCount(2);
-  await expect(page.locator('.answer table')).toHaveCount(0);
+  await expect(page.locator('[data-testid="answer"] table')).toHaveCount(0);
   await expect(page.getByText('Details', { exact: true })).toHaveCount(0);
   await expect(
     page.getByRole('button', { name: 'Listen to word', exact: true }),
@@ -271,7 +275,7 @@ test('unflagged phoneme differences render for the selected word', async ({
     const button = page.getByRole('button', { name: label, exact: true });
     await button.click();
     await expect(button).toHaveAttribute('aria-busy', 'true');
-    await expect(page.locator('.processing-bar')).toHaveCount(0);
+    await expect(page.locator('[data-testid="processing-bar"]')).toHaveCount(0);
     await expect(
       page.getByRole('button', { name: 'Cancel processing' }),
     ).toHaveCount(0);

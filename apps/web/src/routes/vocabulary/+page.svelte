@@ -110,47 +110,59 @@
 </script>
 
 <svelte:head><title>Vocabulary stages · Prolang</title></svelte:head>
-<div class="eyebrow">Two sides of knowing a word</div>
-<h1>Your vocabulary</h1>
-<p>
+<div
+  class="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+>
+  Two sides of knowing a word
+</div>
+<h1
+  class="mt-2.5 mb-3 text-[34px] font-semibold tracking-[-1.2px] max-[750px]:text-[29px]"
+>
+  Your vocabulary
+</h1>
+<p class="leading-[1.6]">
   Recognizing a word and recalling it yourself are different skills. Take a
   short assessment for each to explore vocabulary beyond your flashcard deck.
 </p>
-<p class="muted">
+<p class="text-sm text-muted-foreground">
   Each assessment samples 16 words from four difficulty bands in a curated
   64-word bank. Stages estimate performance on this sample, not a total word
   count or a certified German level. Repeated tests can reflect familiarity with
   the bank.
 </p>
-<div class="skill-columns">
+<div
+  class="my-7 grid grid-cols-2 gap-10 border-y py-3 max-[650px]:grid-cols-1 max-[650px]:gap-2"
+  data-testid="skill-columns"
+>
   {#each modes as mode}
     {@const latest = data.history.find((r) => r.mode === mode)}
     {@const progress = vocabularyProgress(latest)}
     <section>
-      <h2>{label(mode)}</h2>
+      <h2 class="mt-6 mb-3 text-[22px] font-semibold">{label(mode)}</h2>
       <strong
         >{progress.assessed
           ? stages[progress.level]
           : 'Not assessed yet'}</strong
       >
-      <p>
+      <p class="leading-[1.6]">
         {mode === 'recognition'
           ? 'German word → choose its English meaning.'
           : 'English meaning → type the German word.'}
       </p>
       {#if latest}
-        <p>
+        <p class="leading-[1.6]">
           {progress.total} / 16 correct · {new Date(
             latest.at,
           ).toLocaleDateString()}
         </p>
         <progress
+          class="max-w-full accent-primary"
           value={progress.total}
           max="16"
           aria-label={`${label(mode)} sample accuracy`}
         ></progress>
       {/if}
-      <div class="actions">
+      <div class="my-[18px] flex flex-wrap items-center gap-2.5">
         <Button disabled={busy || !!session} onclick={() => start(mode)}
           >{latest ? 'Reassess' : 'Find my stage'}</Button
         >
@@ -159,23 +171,27 @@
   {/each}
 </div>
 {#if session && question}
-  <section class="question" aria-label="Vocabulary assessment">
-    <p class="eyebrow">
+  <section class="border-b py-6" aria-label="Vocabulary assessment">
+    <p
+      class="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+    >
       {label(session.mode)} · {index + 1} / {session.questions.length}
     </p>
     <progress
+      class="max-w-full accent-primary"
       max={session.questions.length}
       value={index}
       aria-label="Assessment progress"
     ></progress>
     {#if answers.length === 16 && error}
-      <p>
+      <p class="leading-[1.6]">
         Your answers are ready. Retry saving, or check your saved results if
         another tab already submitted this assessment.
       </p>
       <Button disabled={busy} onclick={finish}>Retry saving</Button>
     {:else}
       <h2
+        class="mt-6 mb-3 font-semibold text-[30px]"
         bind:this={questionHeading}
         tabindex="-1"
         lang={session.mode === 'recognition' ? 'de' : 'en'}
@@ -189,11 +205,13 @@
         }}
       >
         {#if session.mode === 'recognition'}
-          <fieldset disabled={busy}>
+          <fieldset class="border-0 p-0" disabled={busy}>
             <legend>Choose the English meaning</legend>
             {#each question.options as option}
-              <label class="choice"
+              <label
+                class="mt-3 mb-1.5 text-sm flex max-w-[480px] items-center gap-3.5 border-b py-2"
                 ><input
+                  class="accent-primary min-h-6 w-5"
                   type="radio"
                   name="meaning"
                   value={option.id}
@@ -203,8 +221,11 @@
             {/each}
           </fieldset>
         {:else}
-          <label for="german-answer">German word</label>
+          <label class="mt-3 mb-1.5 block text-sm" for="german-answer"
+            >German word</label
+          >
           <Input
+            class="w-full max-w-[440px]"
             id="german-answer"
             lang="de"
             bind:value={answer}
@@ -213,12 +234,12 @@
             spellcheck="false"
             disabled={busy}
           />
-          <p class="muted">
+          <p class="text-sm text-muted-foreground">
             Articles are optional. Capitalization is ignored; umlauts and
             spelling count. Use the word matching this meaning.
           </p>
         {/if}
-        <div class="actions">
+        <div class="my-[18px] flex flex-wrap items-center gap-2.5">
           <Button type="submit" disabled={busy || !answer.trim()}
             >{index === 15 ? 'Finish assessment' : 'Next'}</Button
           ><Button variant="outline" disabled={busy} onclick={() => next(true)}
@@ -230,31 +251,42 @@
     <Button variant="ghost" onclick={cancel}>Cancel assessment</Button>
   </section>
 {/if}
-{#if busy}<p role="status">Saving / loading assessment…</p>{/if}
-{#if error}<p role="alert" class="error">{error}</p>{/if}
+{#if busy}<p class="leading-[1.6]" role="status">
+    Saving / loading assessment…
+  </p>{/if}
+{#if error}<p
+    role="alert"
+    class="leading-[1.6] my-[18px] border-l-[3px] border-destructive bg-destructive/12 px-[18px] py-3.5 text-destructive"
+  >
+    {error}
+  </p>{/if}
 {#if result}
   {@const progress = vocabularyProgress(result)}
-  <section class="question" aria-label="Vocabulary result">
-    <h2>{label(result.mode)} · {stages[progress.level]}</h2>
-    <p>
+  <section class="border-b py-6" aria-label="Vocabulary result">
+    <h2 class="mt-6 mb-3 font-semibold text-[30px]">
+      {label(result.mode)} · {stages[progress.level]}
+    </h2>
+    <p class="leading-[1.6]">
       {progress.total} of 16 correct. This is an estimate from a small sample.
     </p>
-    <p class="muted">
+    <p class="text-sm text-muted-foreground">
       Each band needs {result.mode === 'recognition'
         ? '4 out of 4'
         : '3 out of 4'} correct to unlock the next stage. Earlier bands must also
       pass. Recognition uses a higher threshold to reduce advancement by guessing.
     </p>
-    {#each stages as stage, i}<p>
+    {#each stages as stage, i}<p class="leading-[1.6]">
         {stage} words: {progress.bands[i]} / 4
       </p>{/each}
     <details>
-      <summary>Review your answers</summary>
+      <summary class="min-h-11 cursor-pointer py-2.5"
+        >Review your answers</summary
+      >
       {#each result.answers as a}
         {@const item = vocabulary.find((v) => v.id === a.itemId)!}
-        <div class="history">
+        <div class="border-t py-4">
           <strong lang="de">{item.german}</strong> · {item.meaning}
-          <p>
+          <p class="leading-[1.6]">
             {a.correct ? 'Correct' : 'Not yet'} · Your answer: {a.answer
               ? result.mode === 'recognition'
                 ? vocabulary.find((v) => v.id === a.answer)?.meaning
@@ -266,15 +298,17 @@
     </details>
   </section>
 {/if}
-<h2>Assessment history</h2>
-{#if !data.history.length}<p>
+<h2 class="mt-6 mb-3 text-[22px] font-semibold">Assessment history</h2>
+{#if !data.history.length}<p class="leading-[1.6]">
     Your completed vocabulary assessments will appear here.
   </p>{/if}
 {#each data.history as r}
   {@const p = vocabularyProgress(r)}
-  <div class="history">
+  <div class="border-t py-4">
     <strong>{label(r.mode)} · {stages[p.level]}</strong>
-    <p>{new Date(r.at).toLocaleString()} · {p.total} / 16 correct</p>
+    <p class="leading-[1.6]">
+      {new Date(r.at).toLocaleString()} · {p.total} / 16 correct
+    </p>
     <Button
       variant="outline"
       disabled={busy || !!session}
@@ -282,53 +316,6 @@
     >
   </div>
 {/each}
-<p class="muted">
+<p class="text-sm text-muted-foreground">
   These assessments do not change flashcard due dates or reading-aloud stages.
 </p>
-
-<style>
-  .skill-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    border-block: 1px solid var(--border);
-    padding: 12px 0;
-    margin: 28px 0;
-  }
-  .question {
-    padding: 24px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .question h2 {
-    font-size: 30px;
-  }
-  progress {
-    accent-color: var(--primary);
-    max-width: 100%;
-  }
-  fieldset {
-    border: 0;
-    padding: 0;
-  }
-  .choice {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    border-bottom: 1px solid var(--border);
-    padding: 8px 0;
-    max-width: 480px;
-  }
-  input[type='radio'] {
-    min-height: 24px;
-    width: 20px;
-  }
-  :global(#german-answer) {
-    width: min(100%, 440px);
-  }
-  @media (max-width: 650px) {
-    .skill-columns {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-  }
-</style>

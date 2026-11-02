@@ -42,10 +42,10 @@
 </script>
 
 {#if feedback}
-  <div class="word-strip" aria-label="Words to inspect">
+  <div class="mb-6 flex flex-wrap gap-2" aria-label="Words to inspect">
     {#each wordResults as word, i}
       <button
-        class="word-token"
+        class="max-w-full cursor-pointer rounded-t-sm border-b-[3px] border-[var(--word-color)] bg-transparent px-2.5 py-2 text-[23px] text-[var(--word-color)] [overflow-wrap:anywhere] transition-colors hover:bg-[color-mix(in_srgb,var(--word-color)_10%,transparent)] aria-pressed:bg-[color-mix(in_srgb,var(--word-color)_10%,transparent)] aria-pressed:outline aria-pressed:outline-[var(--word-color)] aria-pressed:outline-offset-3 disabled:cursor-wait disabled:opacity-60"
         style:--word-color={wordColor(word.severity)}
         aria-pressed={selectedWord === i}
         aria-label={`${word.expected || word.detected}: ${word.label}`}
@@ -59,25 +59,35 @@
     {/each}
   </div>
   {#if wordResults.some((word) => !word.matches)}
-    <p class="muted transcript-note">
+    <p class="text-sm text-muted-foreground" data-testid="transcript-note">
       Transcript (may be inaccurate): <span lang="de"
         >{feedback.transcribe || 'No words recognized'}</span
       >
     </p>
   {/if}
   {#if selectedResult}
-    <div class="selected-word" aria-live="polite">
-      <div class="selected-heading">
-        <h3 lang="de">{selectedResult.expected || selectedResult.detected}</h3>
-        <small style:color={wordColor(selectedResult.severity)}
+    <div class="pb-5" data-testid="selected-word" aria-live="polite">
+      <div class="flex flex-wrap items-baseline gap-3">
+        <h3 class="font-[650] text-xl" lang="de">
+          {selectedResult.expected || selectedResult.detected}
+        </h3>
+        <small
+          class="text-sm text-muted-foreground"
+          style:color={wordColor(selectedResult.severity)}
           >{selectedResult.label}</small
         >
       </div>
       <Tooltip.Provider delayDuration={200}>
-        <dl class="sound-pair">
-          <div>
-            <dt>Expected</dt>
-            <dd class:ipa={!!selectedResult.expectedPhones?.length}>
+        <dl class="my-5">
+          <div
+            class="grid grid-cols-[85px_minmax(0,1fr)] items-baseline gap-3 py-2"
+          >
+            <dt class="text-[13px] text-muted-foreground">Expected</dt>
+            <dd
+              class="m-0 [overflow-wrap:anywhere]"
+              class:font-ipa={!!selectedResult.expectedPhones?.length}
+              class:text-[19px]={!!selectedResult.expectedPhones?.length}
+            >
               {#if selectedResult.phonePairs}
                 <PhoneSequence
                   pairs={selectedResult.phonePairs}
@@ -91,9 +101,15 @@
               {/if}
             </dd>
           </div>
-          <div>
-            <dt>You said</dt>
-            <dd class:ipa={!!selectedResult.heardPhones}>
+          <div
+            class="grid grid-cols-[85px_minmax(0,1fr)] items-baseline gap-3 py-2"
+          >
+            <dt class="text-[13px] text-muted-foreground">You said</dt>
+            <dd
+              class="m-0 [overflow-wrap:anywhere]"
+              class:font-ipa={!!selectedResult.heardPhones}
+              class:text-[19px]={!!selectedResult.heardPhones}
+            >
               {#if selectedResult.phonePairs}
                 <PhoneSequence
                   pairs={selectedResult.phonePairs}
@@ -110,12 +126,12 @@
         </dl>
       </Tooltip.Provider>
       {#if selectedResult.phonePairs}
-        <p class="muted sound-hint">
+        <p class="text-muted-foreground mb-3 text-xs">
           Hover, focus, or tap a symbol in either row for tips on the expected
           sound.
         </p>
       {/if}
-      <div class="actions">
+      <div class="my-[18px] flex flex-wrap items-center gap-2.5">
         {#if selectedResult.expected}
           <Button
             variant="outline"
@@ -137,11 +153,6 @@
       </div>
     </div>
   {/if}
-{:else}<p class="muted">Record to compare your pronunciation.</p>{/if}
-
-<style>
-  .sound-hint {
-    font-size: 12px;
-    margin: 0 0 12px;
-  }
-</style>
+{:else}<p class="text-sm text-muted-foreground">
+    Record to compare your pronunciation.
+  </p>{/if}

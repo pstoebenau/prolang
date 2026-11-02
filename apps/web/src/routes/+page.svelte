@@ -12,17 +12,25 @@
   />
 </svelte:head>
 
-<section class="home-intro">
-  <p class="eyebrow">Your German, a little more fluent</p>
-  <h1>Make German part of your day.</h1>
-  <p>
+<section class="max-w-[680px] pt-6 pb-10">
+  <p
+    class="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+  >
+    Your German, a little more fluent
+  </p>
+  <h1
+    class="mt-2.5 mb-3 font-semibold tracking-[-1.2px] text-[clamp(34px,5vw,52px)] leading-[1.1] max-[750px]:text-[clamp(34px,5vw,52px)]"
+  >
+    Make German part of your day.
+  </h1>
+  <p class="leading-[1.6]">
     Recall useful words, say them aloud, and listen closely. A short practice
     session brings vocabulary and pronunciation together.
   </p>
-  <p class="muted">
+  <p class="text-sm text-muted-foreground">
     {data.due} cards due for review · {data.newCards} new cards to explore
   </p>
-  <div class="actions">
+  <div class="my-[18px] flex flex-wrap items-center gap-2.5">
     <Button href="/practice">Go to practice</Button>
     <Button variant="outline" href="/reading">Read a paragraph</Button>
     <Button variant="ghost" href="/vocabulary"
@@ -30,45 +38,24 @@
     >
   </div>
 </section>
-<section class="home-next" aria-label="Your learning tools">
+<section
+  class="grid grid-cols-2 gap-10 border-t pt-3 max-[600px]:grid-cols-1 max-[600px]:gap-3"
+  aria-label="Your learning tools"
+>
   <div>
-    <h2>Learn, then come back</h2>
-    <p>
+    <h2 class="mt-6 mb-3 text-[22px] font-semibold">Learn, then come back</h2>
+    <p class="leading-[1.6]">
       Review up to 20 due cards and 5 new cards per session. Your recall ratings
       help schedule the next review.
     </p>
-    <a href="/progress">See your progress</a>
+    <a class="text-primary underline" href="/progress">See your progress</a>
   </div>
   <div>
-    <h2>Find the sound</h2>
-    <p>
+    <h2 class="mt-6 mb-3 text-[22px] font-semibold">Find the sound</h2>
+    <p class="leading-[1.6]">
       Compare your recording with native audio, inspect each word, and try
       practical cues for the sounds that differ.
     </p>
-    <a href="/deck">Choose a word to practice</a>
+    <a class="text-primary underline" href="/deck">Choose a word to practice</a>
   </div>
 </section>
-
-<style>
-  .home-intro {
-    max-width: 680px;
-    padding: 24px 0 40px;
-  }
-  h1 {
-    font-size: clamp(34px, 5vw, 52px);
-    line-height: 1.1;
-  }
-  .home-next {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    border-top: 1px solid var(--border);
-    padding-top: 12px;
-  }
-  @media (max-width: 600px) {
-    .home-next {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-  }
-</style>

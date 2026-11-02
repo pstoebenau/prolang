@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { NativeSelect } from '$lib/components/ui/native-select';
   import { Input } from '$lib/components/ui/input';
   import type { PageProps } from './$types';
   import { Button } from '$lib/components/ui/button';
@@ -18,33 +19,49 @@
 </script>
 
 <svelte:head><title>Deck · Prolang</title></svelte:head>
-<div class="eyebrow">100 useful words & phrases</div>
-<h1>Your German deck</h1>
-<div class="actions">
+<div
+  class="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+>
+  100 useful words & phrases
+</div>
+<h1
+  class="mt-2.5 mb-3 text-[34px] font-semibold tracking-[-1.2px] max-[750px]:text-[29px]"
+>
+  Your German deck
+</h1>
+<div class="my-[18px] flex flex-wrap items-center gap-2.5">
   <Input
+    class="min-w-40 flex-1"
     aria-label="Search deck"
     type="search"
     placeholder="Search German or English…"
     bind:value={search}
-  /><select aria-label="Category" bind:value={category}
+  /><NativeSelect aria-label="Category" bind:value={category}
     ><option value="all">All categories</option
     >{#each ['family', 'daily', 'food', 'shopping', 'travel'] as c}<option
         value={c}>{c}</option
-      >{/each}</select
+      >{/each}</NativeSelect
   >
 </div>
-<p class="muted">
+<p class="text-sm text-muted-foreground">
   {filtered.length} entries · pronunciation retries never change recall scheduling
 </p>
-{#each filtered as c}<div class="deck-row">
+{#each filtered as c}<div
+    class="grid grid-cols-[1fr_1fr_auto] items-center gap-5 border-t py-[19px] max-[750px]:grid-cols-[1fr_auto]"
+    data-testid="deck-row"
+  >
     <div>
-      <h3 lang="de">{c.german}</h3>
-      <p>{c.english}</p>
-      <small>{c.category}{c.plural ? ` · ${c.plural}` : ''}</small>
+      <h3 class="text-[17px] font-[650]" lang="de">{c.german}</h3>
+      <p class="leading-[1.6] my-1">{c.english}</p>
+      <small class="text-sm text-muted-foreground"
+        >{c.category}{c.plural ? ` · ${c.plural}` : ''}</small
+      >
     </div>
-    <div class="example">
-      <p lang="de">{c.example}</p>
-      <small>{c.exampleEnglish}</small>
+    <div class="max-[750px]:col-span-full max-[750px]:row-start-2">
+      <p class="leading-[1.6] my-1" lang="de">{c.example}</p>
+      <small class="text-sm text-muted-foreground">{c.exampleEnglish}</small>
     </div>
     <Button variant="outline" href={`/practice?retry=${c.id}`}>Practice</Button>
-  </div>{/each}{#if !filtered.length}<p>No entries match your search.</p>{/if}
+  </div>{/each}{#if !filtered.length}<p class="leading-[1.6]">
+    No entries match your search.
+  </p>{/if}

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import RecordingStatus from '$lib/components/practice/RecordingStatus.svelte';
+  import { NativeSelect } from '$lib/components/ui/native-select';
   import type { PageProps } from './$types';
   import { onMount } from 'svelte';
   import { Button } from '$lib/components/ui/button';
@@ -35,25 +37,34 @@
 </script>
 
 <svelte:head><title>Read aloud · Prolang</title></svelte:head>
-<div class="eyebrow">Read, listen, improve</div>
-<h1>Read aloud</h1>
-<p>
+<div
+  class="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+>
+  Read, listen, improve
+</div>
+<h1
+  class="mt-2.5 mb-3 text-[34px] font-semibold tracking-[-1.2px] max-[750px]:text-[29px]"
+>
+  Read aloud
+</h1>
+<p class="leading-[1.6]">
   Take your time with a German passage. Finish speaking to see the same word and
   sound feedback you use in flashcards.
 </p>
-<section class="reading-level" aria-label="Reading-aloud level">
-  <h2>
+<section class="my-7 border-y pt-2 pb-3" aria-label="Reading-aloud level">
+  <h2 class="mt-6 mb-3 text-[22px] font-semibold">
     {data.progress.placed
       ? stages[data.progress.level]
       : 'Find your starting stage'}
   </h2>
   {#if data.progress.placed}
-    <p>
+    <p class="leading-[1.6]">
       Reading aloud · {data.progress.level === 3
         ? 'Highest current stage. Keep exploring the passages.'
         : `${data.progress.nextStage} more distinct passages scoring 80 or above to advance.`}
     </p>
     <progress
+      class="accent-primary w-full max-w-[320px]"
       max="3"
       value={data.progress.level === 3
         ? 3
@@ -61,17 +72,18 @@
       aria-label="Reading stage progress"
     ></progress>
   {:else}
-    <p>
+    <p class="leading-[1.6]">
       Read three short placement samples. {data.progress.placementDone} of 3 complete.
       Your pronunciation results suggest your first stage.
     </p>
     <progress
+      class="accent-primary w-full max-w-[320px]"
       max="3"
       value={data.progress.placementDone}
       aria-label="Placement progress"
     ></progress>
   {/if}
-  <p class="muted">
+  <p class="text-sm text-muted-foreground">
     This is your reading-aloud stage, not an overall German or CEFR level.
     Scores are experimental. Three different passages below 55 move the
     automatic stage down; easier or harder practice is always available after
@@ -79,10 +91,11 @@
   </p>
 </section>
 {#if data.progress.placed}
-  <div class="reading-options">
-    <label
+  <div class="flex flex-wrap gap-6">
+    <label class="mt-3 mb-1.5 block text-sm"
       >Difficulty
-      <select
+      <NativeSelect
+        class=" mt-2 block max-w-full"
         bind:value={override}
         disabled={session.busy}
         onchange={() => {
@@ -101,32 +114,39 @@
         <option value="auto">Automatic · {stages[data.progress.level]}</option>
         {#each stages as stage, i}<option value={String(i)}>{stage}</option
           >{/each}
-      </select>
+      </NativeSelect>
     </label>
-    <label
+    <label class="mt-3 mb-1.5 block text-sm"
       >Passage
-      <select
+      <NativeSelect
+        class=" mt-2 block max-w-full"
         value={session.passageId}
         disabled={session.busy}
         onchange={(e) => session.choose(e.currentTarget.value)}
       >
         <option value="" disabled>Choose a passage</option>
         {#each available as p}<option value={p.id}>{p.title}</option>{/each}
-      </select>
+      </NativeSelect>
     </label>
   </div>
 {/if}
 {#if passage}
-  <section class="reading-workspace">
+  <section>
     <div>
-      <p class="eyebrow">
+      <p
+        class="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+      >
         {passage.placement
           ? 'Placement sample'
           : `${stages[passage.level]} · About 1–2 minutes`}
       </p>
-      <h2 lang="de">{passage.title}</h2>
-      <p class="passage" lang="de">{passage.text}</p>
-      <div class="actions">
+      <h2 class="mt-6 mb-3 text-[22px] font-semibold" lang="de">
+        {passage.title}
+      </h2>
+      <p class="max-w-[72ch] text-[22px] leading-[1.9]" lang="de">
+        {passage.text}
+      </p>
+      <div class="my-[18px] flex flex-wrap items-center gap-2.5">
         {#if session.recording}<Button onclick={session.stop}
             >Finish & score</Button
           >
@@ -159,7 +179,7 @@
             : 'Next passage'}</Button
         >
       </div>
-      <p class="status" role="status" class:recording={session.recording}>
+      <RecordingStatus recording={session.recording}>
         {session.recording
           ? `Recording · ${session.seconds}s / 120s. Pauses are fine.`
           : session.busy
@@ -167,15 +187,17 @@
             : session.referenceLoading
               ? 'Preparing synthetic reference…'
               : 'Recording stops at two minutes. Feedback appears after you finish.'}
-      </p>
+      </RecordingStatus>
     </div>
     {#if session.attempt}
-      <section class="reading-feedback" aria-label="Paragraph feedback">
-        <h2>
+      <section class="border-t pt-4" aria-label="Paragraph feedback">
+        <h2 class="mt-6 mb-3 text-[22px] font-semibold">
           {session.attempt.feedback.score?.toFixed(0)}
-          <small>/ 100 · pronunciation</small>
+          <small class="text-sm text-muted-foreground"
+            >/ 100 · pronunciation</small
+          >
         </h2>
-        <p class="muted">
+        <p class="text-sm text-muted-foreground">
           {new Date(session.attempt.at).toLocaleString()} · Select a word to compare
           its sounds.
         </p>
@@ -184,34 +206,41 @@
           disabled={session.busy}
           onclick={() => session.yours()}>Play your whole recording</Button
         >
-        <PronunciationFeedback
-          feedback={session.attempt.feedback}
-          target={session.attempt.target}
-          busy={session.busy}
-          referenceLoading={session.referenceLoading}
-          onreference={session.reference}
-          onyours={session.yours}
-        />
+        <div class="mt-6">
+          <PronunciationFeedback
+            feedback={session.attempt.feedback}
+            target={session.attempt.target}
+            busy={session.busy}
+            referenceLoading={session.referenceLoading}
+            onreference={session.reference}
+            onyours={session.yours}
+          />
+        </div>
       </section>
     {/if}
   </section>
 {/if}
-{#if session.error}<p class="error" role="alert">{session.error}</p>{/if}
-<h2>Saved readings</h2>
-<p class="muted">
+{#if session.error}<p
+    class="leading-[1.6] my-[18px] border-l-[3px] border-destructive bg-destructive/12 px-[18px] py-3.5 text-destructive"
+    role="alert"
+  >
+    {session.error}
+  </p>{/if}
+<h2 class="mt-6 mb-3 text-[22px] font-semibold">Saved readings</h2>
+<p class="text-sm text-muted-foreground">
   Reopen any attempt to inspect feedback and listen again. Compare scores on the
   same passage; different passage difficulties are not directly comparable.
 </p>
-{#if !data.history.length}<p>
+{#if !data.history.length}<p class="leading-[1.6]">
     Your first completed reading will appear here.
   </p>{/if}
 {#each data.history as a}
-  <div class="history reading-history">
+  <div class="border-t py-4 flex flex-wrap items-center justify-between gap-5">
     <div>
       <strong lang="de"
         >{passages.find((p) => p.id === a.passageId)?.title}</strong
       >
-      <p class="muted">
+      <p class="text-sm text-muted-foreground">
         {new Date(a.at).toLocaleString()} · {stages[a.level]}{a.placement
           ? ' · placement'
           : ''}
@@ -225,44 +254,3 @@
     >
   </div>
 {/each}
-
-<style>
-  .reading-level {
-    border-block: 1px solid var(--border);
-    padding: 8px 0 12px;
-    margin: 28px 0;
-  }
-  progress {
-    accent-color: var(--primary);
-    width: min(100%, 320px);
-  }
-  .reading-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  select {
-    display: block;
-    max-width: 100%;
-    margin-top: 8px;
-  }
-  .passage {
-    font-size: 22px;
-    line-height: 1.9;
-    max-width: 72ch;
-  }
-  .reading-feedback {
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
-  }
-  .reading-feedback :global(.word-strip) {
-    margin-top: 24px;
-  }
-  .reading-history {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-</style>

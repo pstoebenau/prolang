@@ -12,17 +12,8 @@
   } = $props();
 </script>
 
-<span class="phone-sequence">
+<span class="inline-flex flex-wrap items-baseline gap-[0.1em]">
   {#each pairs as pair, i (`${i}:${pair.expected}:${pair.heard}`)}
     <PhoneSymbol {pair} {side} {busy} />
   {/each}
 </span>
-
-<style>
-  .phone-sequence {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.1em;
-  }
-</style>

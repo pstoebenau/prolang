@@ -7,18 +7,29 @@
 </script>
 
 <svelte:head><title>Settings · Prolang</title></svelte:head>
-<div class="eyebrow">Local workspace</div>
-<h1>Settings & data</h1>
-<h2>Backup</h2>
-<p>
+<div
+  class="text-[11px] font-bold uppercase tracking-[0.14em] text-muted-foreground"
+>
+  Local workspace
+</div>
+<h1
+  class="mt-2.5 mb-3 text-[34px] font-semibold tracking-[-1.2px] max-[750px]:text-[29px]"
+>
+  Settings & data
+</h1>
+<h2 class="mt-6 mb-3 text-[22px] font-semibold">Backup</h2>
+<p class="leading-[1.6]">
   Export your FSRS schedule, parameters, alternatives, review history and
   feedback, saved readings, and vocabulary assessments. Recorded and reference
   audio are excluded; reference audio can be generated again.
 </p>
-<Button variant="outline" href="/api/export" download="">Export JSON backup</Button
+<Button variant="outline" href="/api/export" download=""
+  >Export JSON backup</Button
 >
 <form method="POST" enctype="multipart/form-data" use:enhance>
-  <label for="backup">Choose a backup to restore</label>
+  <label class="mt-3 mb-1.5 block text-sm" for="backup"
+    >Choose a backup to restore</label
+  >
   <Input
     id="backup"
     name="backup"
@@ -26,44 +37,54 @@
     accept="application/json,.json"
     required
   />
-  <p>
+  <p class="leading-[1.6]">
     Restore replaces all current progress, history and recordings. Export your
     current data first.
   </p>
-  <label
-    ><input type="checkbox" name="confirm" value="REPLACE" required /> I confirm
-    that I want to replace my current data.</label
+  <label class="mt-3 mb-1.5 block text-sm"
+    ><input
+      class="accent-primary"
+      type="checkbox"
+      name="confirm"
+      value="REPLACE"
+      required
+    /> I confirm that I want to replace my current data.</label
   >
   <Button type="submit" variant="destructive">Replace with backup</Button>
 </form>
-{#if form?.message}<p role="status">{form.message}</p>{/if}
-<h2>Audio & privacy</h2>
-<p>
+{#if form?.message}<p class="leading-[1.6]" role="status">
+    {form.message}
+  </p>{/if}
+<h2 class="mt-6 mb-3 text-[22px] font-semibold">Audio & privacy</h2>
+<p class="leading-[1.6]">
   OpenPronounce runs locally. Microphone recordings are kept in the local SQLite
   database to recheck alternatives. Keep your data directory private. This is a
   single-user app without accounts; expose it only on a trusted network or
   behind access control.
 </p>
-<p>
+<p class="leading-[1.6]">
   Reference audio is synthetic German speech from Google Translate through gTTS
   2.5.4, cached locally. Uncached text is sent to Google and needs internet. The
   gTTS software is MIT licensed; no independent redistribution license for
   Google's generated audio is claimed. Google service terms apply.
 </p>
-<h2>Deck & model provenance</h2>
-<p>
+<h2 class="mt-6 mb-3 text-[22px] font-semibold">Deck & model provenance</h2>
+<p class="leading-[1.6]">
   The 100 deck entries and examples were authored for Prolang and are dedicated
   to CC0, along with the built-in reading passages and vocabulary assessment
   bank. Nouns include articles and plural forms or usage notes.
 </p>
-<p>
-  <a href="https://github.com/Halleck45/OpenPronounce">OpenPronounce</a> is MIT licensed,
-  pinned to 74bc17e. Transcription uses Qwen3-ASR 1.7B (Apache-2.0), pinned in apps/inference/models.lock.json.
-  Wav2Vec2 phoneme and acoustic model revisions are in validation/models.lock.json.
-  German feedback uses uncalibrated thresholds and cannot reliably diagnose vowel
-  duration. Use it to compare recordings, not as a proficiency grade.
+<p class="leading-[1.6]">
+  <a
+    class="text-primary underline"
+    href="https://github.com/Halleck45/OpenPronounce">OpenPronounce</a
+  > is MIT licensed, pinned to 74bc17e. Transcription uses Qwen3-ASR 1.7B (Apache-2.0),
+  pinned in apps/inference/models.lock.json. Wav2Vec2 phoneme and acoustic model
+  revisions are in validation/models.lock.json. German feedback uses uncalibrated
+  thresholds and cannot reliably diagnose vowel duration. Use it to compare recordings,
+  not as a proficiency grade.
 </p>
-<p>
+<p class="leading-[1.6]">
   Microphones require HTTPS or localhost. Android hardware and NVIDIA CUDA
   remain unverified. Current tested inference device: Mac CPU.
 </p>

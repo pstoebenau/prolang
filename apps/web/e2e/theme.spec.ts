@@ -28,7 +28,7 @@ test('theme overrides reach surfaces, controls, navigation and focus', async ({
   await input.focus();
   await expect(input).toHaveCSS('outline-color', 'rgb(120, 70, 140)');
   await input.fill('Mutter');
-  await expect(page.locator('.deck-row')).toHaveCount(2);
+  await expect(page.locator('[data-testid="deck-row"]')).toHaveCount(2);
   const active = page.getByRole('link', { name: 'Deck', exact: true });
   await expect(active).toHaveCSS('background-color', 'rgb(210, 200, 190)');
   await expect(active).toHaveCSS('color', 'rgb(50, 40, 30)');
@@ -57,4 +57,41 @@ test('button links and destructive actions use semantic theme colors', async ({
   await expect(download).toHaveAttribute('data-slot', 'button');
   await expect(download).toHaveCSS('border-top-color', 'rgb(100, 110, 120)');
   await expect(download).toHaveAttribute('download', '');
+});
+
+test('practice comparison reflows without horizontal overflow', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/practice?retry=2');
+  await page
+    .getByRole('button', { name: 'Reveal answer', exact: true })
+    .click();
+  const workspace = page.getByRole('region', { name: 'Practice workspace' });
+  const answer = page.getByTestId('answer');
+  for (const width of [1280, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    const recallBounds = await workspace
+      .locator(':scope > div')
+      .first()
+      .boundingBox();
+    const answerBounds = await answer.boundingBox();
+    expect(recallBounds).not.toBeNull();
+    expect(answerBounds).not.toBeNull();
+    if (width === 390) {
+      expect(answerBounds!.y).toBeGreaterThanOrEqual(
+        recallBounds!.y + recallBounds!.height,
+      );
+      expect(answerBounds!.x).toBe(recallBounds!.x);
+    } else {
+      expect(answerBounds!.x).toBeGreaterThan(
+        recallBounds!.x + recallBounds!.width,
+      );
+      expect(answerBounds!.y).toBe(recallBounds!.y);
+    }
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+    ).toBeLessThanOrEqual(width);
+    await expect(answer).toHaveCSS('animation-name', 'none');
+  }
 });

@@ -22,8 +22,10 @@ test('recognition placement saves separately and survives reload', async ({
     page.getByRole('region', { name: 'Vocabulary result' }),
   ).toContainText('0 of 16');
   await page.reload();
-  await expect(page.locator('.skill-columns')).toContainText('0 / 16 correct');
-  await expect(page.locator('.skill-columns')).toContainText(
+  await expect(page.locator('[data-testid="skill-columns"]')).toContainText(
+    '0 / 16 correct',
+  );
+  await expect(page.locator('[data-testid="skill-columns"]')).toContainText(
     'Not assessed yet',
   );
 });
