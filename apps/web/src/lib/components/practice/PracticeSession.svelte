@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Input } from '$lib/components/ui/input';
   import { Button } from '$lib/components/ui/button';
   import PracticeHelp from './PracticeHelp.svelte';
   import PronunciationFeedback from './PronunciationFeedback.svelte';
@@ -141,9 +142,9 @@
                 verify translations. Recheck your existing recording and save
                 the target for later.
               </p>
-              <label for="target">Assessment target</label><input
+              <label for="target">Assessment target</label><Input
                 id="target"
-                maxlength="300"
+                maxlength={300}
                 bind:value={session.target}
               />{#if session.answer.alternatives.length}<label for="saved"
                   >Saved alternatives</label

@@ -75,7 +75,7 @@
     color: inherit;
     font: inherit;
     border: 0;
-    border-radius: 4px;
+    border-radius: calc(var(--radius) - 3px);
     background: transparent;
     cursor: default;
   }
@@ -84,29 +84,30 @@
   }
   :global(button.phone-symbol:hover),
   :global(button.phone-symbol:focus-visible) {
-    background: #e4e9dd;
+    background: var(--accent);
   }
   :global(.phone-symbol:disabled) {
     cursor: wait;
     opacity: 0.6;
   }
   mark {
-    color: #8c3028;
-    background: #f3dfd8;
-    border-bottom: 2px solid #a24737;
-    border-radius: 3px;
+    color: var(--destructive);
+    background: color-mix(in srgb, var(--destructive) 12%, var(--background));
+    border-bottom: 2px solid var(--destructive);
+    border-radius: calc(var(--radius) - 4px);
     padding: 0 0.12em;
   }
   :global(.phoneme-tooltip) {
     z-index: 50;
     width: min(340px, calc(100vw - 24px));
     padding: 16px;
-    border: 1px solid #c8cec4;
-    border-radius: 8px;
-    background: #fafaf6;
-    color: #232923;
-    box-shadow: 0 6px 24px #23292320;
-    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--popover);
+    color: var(--popover-foreground);
+    box-shadow: 0 6px 24px
+      color-mix(in srgb, var(--foreground) 12%, transparent);
+    font-family: var(--font-sans);
     font-size: 14px;
     line-height: 1.5;
   }
@@ -118,7 +119,7 @@
     margin: 10px 0 0;
   }
   .preview-note {
-    color: #667060;
+    color: var(--muted-foreground);
     font-size: 12px;
   }
 </style>

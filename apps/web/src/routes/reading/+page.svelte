@@ -228,12 +228,12 @@
 
 <style>
   .reading-level {
-    border-block: 1px solid #d3d9cd;
+    border-block: 1px solid var(--border);
     padding: 8px 0 12px;
     margin: 28px 0;
   }
   progress {
-    accent-color: #285c3e;
+    accent-color: var(--primary);
     width: min(100%, 320px);
   }
   .reading-options {
@@ -252,7 +252,7 @@
     max-width: 72ch;
   }
   .reading-feedback {
-    border-top: 1px solid #d3d9cd;
+    border-top: 1px solid var(--border);
     padding-top: 16px;
   }
   .reading-feedback :global(.word-strip) {

@@ -20,7 +20,9 @@
       <Button
         variant="ghost"
         {href}
-        class={page.url.pathname === href ? 'active' : ''}
+        class={page.url.pathname === href
+          ? 'font-medium bg-accent text-accent-foreground'
+          : 'font-medium'}
         aria-current={page.url.pathname === href ? 'page' : undefined}
         >{label}</Button
       >
@@ -35,5 +37,9 @@
 </main>
 
 <style>
-  .brand { display: inline-block; color: inherit; text-decoration: none; }
+  .brand {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+  }
 </style>

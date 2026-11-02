@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Input } from '$lib/components/ui/input';
   import type { PageProps } from './$types';
   import { Button } from '$lib/components/ui/button';
   let { data }: PageProps = $props();
@@ -20,7 +21,7 @@
 <div class="eyebrow">100 useful words & phrases</div>
 <h1>Your German deck</h1>
 <div class="actions">
-  <input
+  <Input
     aria-label="Search deck"
     type="search"
     placeholder="Search German or English…"

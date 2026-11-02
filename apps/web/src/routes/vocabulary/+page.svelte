@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Input } from '$lib/components/ui/input';
   import type { PageProps } from './$types';
   import { onDestroy, tick } from 'svelte';
   import { invalidate } from '$app/navigation';
@@ -203,11 +204,11 @@
           </fieldset>
         {:else}
           <label for="german-answer">German word</label>
-          <input
+          <Input
             id="german-answer"
             lang="de"
             bind:value={answer}
-            maxlength="200"
+            maxlength={200}
             autocomplete="off"
             spellcheck="false"
             disabled={busy}
@@ -290,19 +291,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    border-block: 1px solid #d3d9cd;
+    border-block: 1px solid var(--border);
     padding: 12px 0;
     margin: 28px 0;
   }
   .question {
     padding: 24px 0;
-    border-bottom: 1px solid #d3d9cd;
+    border-bottom: 1px solid var(--border);
   }
   .question h2 {
     font-size: 30px;
   }
   progress {
-    accent-color: #285c3e;
+    accent-color: var(--primary);
     max-width: 100%;
   }
   fieldset {
@@ -313,7 +314,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    border-bottom: 1px solid #d3d9cd;
+    border-bottom: 1px solid var(--border);
     padding: 8px 0;
     max-width: 480px;
   }
@@ -321,7 +322,7 @@
     min-height: 24px;
     width: 20px;
   }
-  #german-answer {
+  :global(#german-answer) {
     width: min(100%, 440px);
   }
   @media (max-width: 650px) {

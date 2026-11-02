@@ -29,8 +29,10 @@
   const selectedResult = $derived(wordResults[selectedWord] ?? wordResults[0]);
   function wordColor(severity: number | null) {
     return severity === null
-      ? '#687066'
-      : `hsl(${Math.round((1 - severity) * 130)} 58% 31%)`;
+      ? 'var(--muted-foreground)'
+      : severity <= 0.5
+        ? `color-mix(in srgb, var(--success), var(--warning) ${severity * 200}%)`
+        : `color-mix(in srgb, var(--warning), var(--destructive) ${(severity - 0.5) * 200}%)`;
   }
 
   $effect(() => {

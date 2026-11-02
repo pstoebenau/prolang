@@ -7,18 +7,27 @@
     HTMLAnchorAttributes,
     HTMLButtonAttributes,
   } from 'svelte/elements';
-  export const buttonVariants = cva('button', {
-    variants: {
-      variant: {
-        default: 'primary',
-        outline: 'outline',
-        ghost: 'ghost',
-        destructive: 'destructive',
+  export const buttonVariants = cva(
+    'button inline-flex items-center justify-center gap-2 rounded-lg border border-transparent font-semibold no-underline cursor-pointer transition-colors disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45 focus-visible:outline-ring focus-visible:outline-3 focus-visible:outline-offset-4',
+    {
+      variants: {
+        variant: {
+          default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+          outline:
+            'border-input bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground',
+          ghost:
+            'bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground',
+          destructive:
+            'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        },
+        size: {
+          default: 'min-h-[46px] px-[18px] py-2.5',
+          sm: 'min-h-10 px-3 py-2',
+        },
       },
-      size: { default: '', sm: 'small' },
+      defaultVariants: { variant: 'default', size: 'default' },
     },
-    defaultVariants: { variant: 'default', size: 'default' },
-  });
+  );
   export type ButtonProps = WithElementRef<HTMLButtonAttributes> &
     WithElementRef<HTMLAnchorAttributes> &
     VariantProps<typeof buttonVariants>;

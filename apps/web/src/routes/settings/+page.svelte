@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Input } from '$lib/components/ui/input';
   import { enhance } from '$app/forms';
   import { Button } from '$lib/components/ui/button';
   import type { PageProps } from './$types';
@@ -14,10 +15,11 @@
   feedback, saved readings, and vocabulary assessments. Recorded and reference
   audio are excluded; reference audio can be generated again.
 </p>
-<a class="button outline" href="/api/export" download>Export JSON backup</a>
+<Button variant="outline" href="/api/export" download="">Export JSON backup</Button
+>
 <form method="POST" enctype="multipart/form-data" use:enhance>
   <label for="backup">Choose a backup to restore</label>
-  <input
+  <Input
     id="backup"
     name="backup"
     type="file"
