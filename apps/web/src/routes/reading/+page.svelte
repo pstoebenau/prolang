@@ -75,7 +75,7 @@
     This is your reading-aloud stage, not an overall German or CEFR level.
     Scores are experimental. Three different passages below 55 move the
     automatic stage down; easier or harder practice is always available after
-    placement.
+    placement. Only attempts at your current automatic stage affect progression.
   </p>
 </section>
 {#if data.progress.placed}
@@ -147,9 +147,15 @@
           disabled={session.busy || session.referenceLoading}
           onclick={() => session.reference()}>Listen to passage</Button
         >
-        <Button variant="ghost" disabled={session.busy} onclick={next}
+        <Button
+          variant="ghost"
+          disabled={session.busy ||
+            (!!passage.placement && data.progress.nextPlacement === passage.id)}
+          onclick={next}
           >{passage.placement
-            ? 'Continue placement / practice'
+            ? data.progress.placed
+              ? 'Start paragraph practice'
+              : 'Next placement sample'
             : 'Next passage'}</Button
         >
       </div>

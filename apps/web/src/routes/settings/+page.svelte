@@ -11,8 +11,8 @@
 <h2>Backup</h2>
 <p>
   Export your FSRS schedule, parameters, alternatives, review history and
-  feedback. Recorded and reference audio are excluded; reference audio can be
-  generated again.
+  feedback, saved readings, and vocabulary assessments. Recorded and reference
+  audio are excluded; reference audio can be generated again.
 </p>
 <a class="button outline" href="/api/export" download>Export JSON backup</a>
 <form method="POST" enctype="multipart/form-data" use:enhance>
@@ -51,7 +51,8 @@
 <h2>Deck & model provenance</h2>
 <p>
   The 100 deck entries and examples were authored for Prolang and are dedicated
-  to CC0. Nouns include articles and plural forms or usage notes.
+  to CC0, along with the built-in reading passages and vocabulary assessment
+  bank. Nouns include articles and plural forms or usage notes.
 </p>
 <p>
   <a href="https://github.com/Halleck45/OpenPronounce">OpenPronounce</a> is MIT licensed,

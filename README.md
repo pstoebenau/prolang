@@ -38,13 +38,25 @@ Again follows FSRS learning/relearning steps (normally one minute); start anothe
 
 After an assessment, expand “Accept different wording” to edit the target and recheck the stored recording. Accepted targets are saved and can be selected on future assessments. Semantic equivalence is your decision; the app does not validate translation correctness. Attempts store target, feedback and timestamp independently of review history.
 
+## Reading aloud and skill stages
+
+`/reading` adds 12 original German passages across four named stages: Starting, Developing, Confident, and Stretching. Three short placement samples establish a reading-aloud stage. Record a whole passage for up to two minutes, pause naturally, then finish to inspect the same pronunciation score, word/phone feedback, sound guidance, synthetic reference, and recorded-word playback as flashcards. Retry the whole passage. Saved readings include recordings and feedback; reopen them from reading history.
+
+Placement advances through each sample scoring at least 80, stopping at the first missed threshold. After placement, the latest attempts on three different passages at the current automatic stage must all score at least 80 to advance, or all below 55 to step down. Repeating one passage cannot advance the stage. Difficulty can be overridden for practice; only attempts at the automatic stage change progression. These are experimental reading-aloud stages, not CEFR or overall German proficiency grades.
+
+`/vocabulary` estimates recognition and active recall separately using a curated 64-word bank beyond the starter deck. Each assessment draws four words from each of four difficulty bands (16 questions). Recognition uses four English choices; active recall uses typed German, ignoring capitalization and optional articles but preserving spelling. “I do not know” counts as incorrect. A band requires 4/4 for recognition or 3/4 for recall to unlock the next stage, and preceding bands must pass. Results, answers, and history are saved; reassessing replaces the displayed estimate while retaining earlier results. This small, uncalibrated sample does not estimate a numeric vocabulary size; repeat familiarity can affect results.
+
+Progress shows reading aloud, vocabulary recognition, and vocabulary active recall independently. Neither paragraph attempts nor vocabulary assessments modify flashcard scheduling.
+
+Restart `bun run dev` after updating: the inference process intentionally does not hot reload Python. Long readings have a 16 MB upload limit and 120-second decoded-audio limit; flashcards retain 8 MB / 30 seconds. Wav2Vec feature extraction uses overlapping bounded windows above 30 seconds, preserving full-passage comparison and approximate phone timing. Qwen generation allows longer transcripts. Paragraph inference has a ten-minute worker deadline (web transport: ten and a half minutes); configure a reverse proxy accordingly. A cancelled UI request can still finish processing on the server. Only one inference job runs at a time.
+
 ## Audio, provenance and privacy
 
 The 100 original entries span family, daily activities, food, shopping and travel (20 each), with English meanings, bilingual examples, noun articles and plural/usage notes. Deck text is dedicated to [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). See [provenance](docs/PROVENANCE.md).
 
 Reference audio is **synthetic Google Translate German via gTTS 2.5.4**, generated on demand and cached. It is not human speech. Uncached target text goes to Google. gTTS software is MIT; no independent license to redistribute Google's audio is claimed. Google service terms apply. Network/service failure produces a retryable error. The Settings screen discloses this.
 
-Recordings and feedback stay in your local database. Uploads are at most 8 MB and 30 seconds, decoded with a bounded FFmpeg invocation in a serialized model worker. Silence/empty/undecodable input yields actionable errors. Temporary uploads are removed. The worker rejects overlapping inference rather than building an unbounded queue; HTTP and inference deadlines are explicit. Timeout kills the service so the supervisor stops its whole process group.
+Recordings and feedback stay in your local database. Flashcard uploads are at most 8 MB and 30 seconds; readings are at most 16 MB and 120 seconds, decoded with a bounded FFmpeg invocation in a serialized model worker. Silence/empty/undecodable input yields actionable errors. Temporary uploads are removed. The worker rejects overlapping inference rather than building an unbounded queue; HTTP and inference deadlines are explicit. Timeout kills the service so the supervisor stops its whole process group.
 
 Microphones need HTTPS or localhost. Use current Chrome. Hardware microphones, Android Chrome hardware, denied-device variations, and German coaching accuracy require further validation. Scores are experimental, English-derived thresholds are uncalibrated for German, and vowel duration is a known blind spot.
 
@@ -52,13 +64,13 @@ This is a **single-user app without authentication**. Keep it local or behind tr
 
 ## Backup and restore
 
-Settings exports strict version-1 JSON: FSRS dates and parameters, all card states, alternatives, reviews and attempt feedback. Audio is explicitly excluded. Restore validates everything before one replacement transaction; malformed input leaves the DB and live tickets intact. The UI requires an explicit replacement action and invalidates old tickets on success. Existing recording blobs are removed on restore; reference audio can be generated again. Export before replacement.
+Settings exports strict version-1 JSON: FSRS dates and parameters, all card states, alternatives, reviews, attempt feedback, reading history and vocabulary results. Reading and vocabulary arrays are optional version-1 extensions; legacy backups remain accepted and restore with empty skill histories. Older app versions cannot import the extended exports. Audio is explicitly excluded. Restore validates everything before one replacement transaction; malformed input leaves the DB and live tickets intact. The UI requires an explicit replacement action and invalidates old tickets on success. Existing recording blobs are removed on restore; reference audio can be generated again. Export before replacement.
 
 For a complete backup including recordings, stop the app and copy the **whole `data/` directory**; also copy `.cache/references/` if wanted. Do not copy a live SQLite file alone (WAL may contain writes). Model caches can be downloaded again. Restore directory backups only while stopped. Container volumes follow the same stop/copy rule (`docker compose stop`, archive the named volumes, restart).
 
 ## Web architecture
 
-The web app uses SvelteKit routes for practice (`/`), the deck (`/deck`), progress (`/progress`), and settings (`/settings`). Page server loaders read only the data each screen needs; practice mutations invalidate `prolang:data`. Navigation uses links, so URLs, reloads, and browser history work normally. Backup restore is a progressively enhanced form action with explicit confirmation and server-side validation.
+The web app uses SvelteKit routes for flashcards (`/practice`), reading (`/reading`), vocabulary placement (`/vocabulary`), the deck (`/deck`), progress (`/progress`), and settings (`/settings`). Page server loaders read only the data each screen needs; practice mutations invalidate `prolang:data`. Navigation uses links, so URLs, reloads, and browser history work normally. Backup restore is a progressively enhanced form action with explicit confirmation and server-side validation.
 
 `src/lib/components/practice` contains the session view, pronunciation feedback, and help. `src/lib/practice/session.svelte.ts` creates per-component reactive session state and owns recording, cancellation, playback, and teardown. Do not move that state into module-level singletons. Shared domain types live in `src/lib/types.ts`; SQLite access and inference transport stay under `src/lib/server`. Each API operation has its own `+server.ts`, sharing origin checks, upload limits, and error handling.
 

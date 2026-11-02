@@ -107,3 +107,27 @@ test('reading boundaries reject missing audio and cross-origin mutations', async
     (await request.get('/api/reading/recording?id=missing')).status(),
   ).toBe(404);
 });
+
+test('reading remains usable on narrow screens', async ({ page }) => {
+  await page.goto('/reading');
+  await expect(
+    page.getByRole('heading', { name: 'Ein neuer Tag' }),
+  ).toBeVisible();
+  await page.screenshot({
+    path: '../../.cache/reading-desktop.png',
+    fullPage: true,
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(
+    page.getByRole('button', { name: 'Start recording', exact: true }),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: '../../.cache/reading-mobile.png',
+    fullPage: true,
+  });
+});
