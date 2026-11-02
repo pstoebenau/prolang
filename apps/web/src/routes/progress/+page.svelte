@@ -1,7 +1,11 @@
 <script lang="ts">
+  import { readingProgress } from '$lib/skills/progression';
+  import { vocabularyProgress } from '$lib/skills/vocabulary';
+  import { stages } from '$lib/skills/passages';
   import type { PageProps } from './$types';
   import { Button } from '$lib/components/ui/button';
   let { data }: PageProps = $props();
+  const reading = $derived(readingProgress(data.reading));
   const deck = $derived(data.deck);
   const history = $derived(data.history);
   const learned = $derived(deck.filter((c) => c.card.reps > 0).length);
@@ -25,6 +29,37 @@
     <strong>{history.attempts.length}</strong><small>Speech attempts</small>
   </div>
 </div>
+<h2>Your skill stages</h2>
+<p class="muted">
+  Independent estimates of reading aloud, word recognition, and active recall.
+  These are practice stages, not an overall German proficiency grade.
+</p>
+<div class="history">
+  <strong
+    >Reading aloud · {reading.placed
+      ? stages[reading.level]
+      : 'Not placed yet'}</strong
+  >
+  <p>{data.reading.length} saved readings</p>
+  <Button variant="outline" href="/reading">Practice reading aloud</Button>
+</div>
+{#each ['recognition', 'recall'] as mode}
+  {@const result = data.vocabulary.find((r) => r.mode === mode)}
+  {@const skill = vocabularyProgress(result)}
+  <div class="history">
+    <strong
+      >Vocabulary {mode === 'recognition' ? 'recognition' : 'active recall'} · {skill.assessed
+        ? stages[skill.level]
+        : 'Not assessed yet'}</strong
+    >
+    <p>
+      {result
+        ? `${skill.total} / 16 on the latest sample`
+        : 'Take a short placement assessment.'}
+    </p>
+    <Button variant="outline" href="/vocabulary">Assess vocabulary</Button>
+  </div>
+{/each}
 <h2>Recall history</h2>
 {#if !history.reviews.length}<p class="muted">
     Your self-graded reviews will appear here.

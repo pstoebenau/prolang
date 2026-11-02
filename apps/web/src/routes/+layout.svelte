@@ -5,6 +5,8 @@
   let { children } = $props();
   const navigation = [
     ['/practice', 'Practice'],
+    ['/reading', 'Read aloud'],
+    ['/vocabulary', 'Vocabulary'],
     ['/deck', 'Deck'],
     ['/progress', 'Progress'],
     ['/settings', 'Settings'],

@@ -98,6 +98,7 @@ header {
   color: #285c3e;
 }
 nav {
+  flex-wrap: wrap;
   display: flex;
   gap: 6px;
 }

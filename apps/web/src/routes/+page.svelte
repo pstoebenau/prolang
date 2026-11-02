@@ -16,7 +16,8 @@
   <p class="muted">{data.due} cards due for review · {data.newCards} new cards to explore</p>
   <div class="actions">
     <Button href="/practice">Go to practice</Button>
-    <Button variant="outline" href="/deck">Explore your deck</Button>
+    <Button variant="outline" href="/reading">Read a paragraph</Button>
+    <Button variant="ghost" href="/vocabulary">Find your vocabulary stages</Button>
   </div>
 </section>
 <section class="home-next" aria-label="Your learning tools">
