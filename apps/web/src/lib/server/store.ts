@@ -1,3 +1,15 @@
+import { readingSchema, vocabularyResultSchema } from './skill-data';
+import { passageById } from '../skills/passages';
+import {
+  validateReadingAttempt,
+  type ReadingAttempt,
+} from '../skills/progression';
+import {
+  vocabulary,
+  answerCorrect,
+  type VocabularyResult,
+  type VocabularyMode,
+} from '../skills/vocabulary';
 import type {
   DeckEntry,
   SpeechFeedback,
@@ -52,6 +64,8 @@ const feedbackSchema = z.record(z.string(), z.json());
 const backupSchema = z
   .object({
     version: z.literal(1),
+    reading: z.array(readingSchema).max(100000).optional(),
+    vocabulary: z.array(vocabularyResultSchema).max(100000).optional(),
     exportedAt: date,
     audioPolicy: z.literal('excluded'),
     parameters: z
@@ -123,6 +137,10 @@ export class Store {
       this.db.exec(
         `CREATE TABLE IF NOT EXISTS migrations(version INTEGER PRIMARY KEY); CREATE TABLE IF NOT EXISTS cards(id INTEGER PRIMARY KEY,version INTEGER NOT NULL DEFAULT 0,card TEXT NOT NULL,alternatives TEXT NOT NULL DEFAULT '[]'); CREATE TABLE IF NOT EXISTS reviews(id TEXT PRIMARY KEY,cardId INTEGER NOT NULL,at TEXT NOT NULL,grade INTEGER NOT NULL,log TEXT NOT NULL); CREATE TABLE IF NOT EXISTS attempts(id TEXT PRIMARY KEY,cardId INTEGER NOT NULL,at TEXT NOT NULL,target TEXT NOT NULL,feedback TEXT NOT NULL); CREATE TABLE IF NOT EXISTS recordings(id TEXT PRIMARY KEY,data BLOB NOT NULL,mime TEXT NOT NULL); CREATE TABLE IF NOT EXISTS tickets(id TEXT PRIMARY KEY,cardId INTEGER NOT NULL,version INTEGER NOT NULL,mode TEXT NOT NULL,revealed INTEGER NOT NULL DEFAULT 0,used INTEGER NOT NULL DEFAULT 0,created INTEGER NOT NULL); CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL); INSERT OR IGNORE INTO migrations VALUES(1);`,
       );
+      this.db
+        .exec(`CREATE TABLE IF NOT EXISTS reading_attempts(id TEXT PRIMARY KEY, at TEXT NOT NULL, payload TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS vocabulary_results(id TEXT PRIMARY KEY, at TEXT NOT NULL, payload TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS vocabulary_sessions(id TEXT PRIMARY KEY, created INTEGER NOT NULL, payload TEXT NOT NULL);`);
       for (const c of deck)
         this.db
           .query('INSERT OR IGNORE INTO cards(id,card) VALUES(?,?)')
@@ -288,6 +306,136 @@ export class Store {
       ).map((a) => ({ ...a, feedback: JSON.parse(a.feedback) })),
     };
   }
+  readingHistory(): ReadingAttempt[] {
+    return (
+      this.db
+        .query(
+          'SELECT payload FROM reading_attempts ORDER BY at DESC, rowid DESC',
+        )
+        .all() as { payload: string }[]
+    ).map((r) => JSON.parse(r.payload));
+  }
+  readingAttempt(
+    passageId: string,
+    feedback: SpeechFeedback,
+    recording: { data: Uint8Array; mime: string },
+  ) {
+    const p = passageById(passageId);
+    const a = readingSchema.parse({
+      id: crypto.randomUUID(),
+      passageId,
+      at: new Date().toISOString(),
+      target: p.text,
+      level: p.level,
+      placement: !!p.placement,
+      feedback,
+    });
+    this.db.transaction(() => {
+      this.db
+        .query('INSERT INTO reading_attempts VALUES(?,?,?)')
+        .run(a.id, a.at, JSON.stringify(a));
+      this.db
+        .query('INSERT INTO recordings VALUES(?,?,?)')
+        .run(a.id, recording.data, recording.mime);
+    })();
+    return a;
+  }
+  readingRecording(id: string) {
+    return this.db
+      .query(
+        'SELECT data,mime FROM recordings JOIN reading_attempts USING(id) WHERE id=?',
+      )
+      .get(id) as { data: Uint8Array; mime: string } | null;
+  }
+  vocabularyHistory(): VocabularyResult[] {
+    return (
+      this.db
+        .query(
+          'SELECT payload FROM vocabulary_results ORDER BY at DESC, rowid DESC',
+        )
+        .all() as { payload: string }[]
+    ).map((r) => JSON.parse(r.payload));
+  }
+  startVocabulary(mode: VocabularyMode) {
+    const shuffle = <T>(items: T[]) => {
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+      }
+      return items;
+    };
+    const items = [0, 1, 2, 3].flatMap((level) =>
+      shuffle(vocabulary.filter((v) => v.level === level)).slice(0, 4),
+    );
+    const questions = items.map((item) => ({
+      itemId: item.id,
+      prompt: mode === 'recognition' ? item.german : item.meaning,
+      options:
+        mode === 'recognition'
+          ? shuffle([
+              item,
+              ...shuffle(
+                vocabulary.filter(
+                  (v) => v.level === item.level && v.id !== item.id,
+                ),
+              ).slice(0, 3),
+            ]).map((v) => ({ id: v.id, label: v.meaning }))
+          : [],
+    }));
+    const session = { id: crypto.randomUUID(), mode, questions };
+    this.db
+      .query('DELETE FROM vocabulary_sessions WHERE created < ?')
+      .run(Date.now() - 86400000);
+    this.db
+      .query('INSERT INTO vocabulary_sessions VALUES(?,?,?)')
+      .run(session.id, Date.now(), JSON.stringify(session));
+    return session;
+  }
+  finishVocabulary(id: string, answers: string[]) {
+    return this.db.transaction(() => {
+      const row = this.db
+        .query(
+          'SELECT payload FROM vocabulary_sessions WHERE id=? AND created>?',
+        )
+        .get(id, Date.now() - 86400000) as { payload: string } | null;
+      if (!row)
+        throw Error(
+          'Assessment expired or already submitted. Start another assessment.',
+        );
+      const session = JSON.parse(row.payload) as ReturnType<
+        Store['startVocabulary']
+      >;
+      if (answers.length !== session.questions.length)
+        throw Error('Answer every question, or select “I do not know”.');
+      const result: VocabularyResult = {
+        id,
+        at: new Date().toISOString(),
+        mode: session.mode,
+        answers: session.questions.map((q, i) => {
+          if (
+            session.mode === 'recognition' &&
+            answers[i] &&
+            !q.options.some((o) => o.id === answers[i])
+          )
+            throw Error('Invalid choice.');
+          return {
+            itemId: q.itemId,
+            answer: answers[i],
+            correct: answerCorrect(
+              vocabulary.find((v) => v.id === q.itemId)!,
+              session.mode,
+              answers[i],
+            ),
+          };
+        }),
+      };
+      this.db
+        .query('INSERT INTO vocabulary_results VALUES(?,?,?)')
+        .run(id, result.at, JSON.stringify(result));
+      this.db.query('DELETE FROM vocabulary_sessions WHERE id=?').run(id);
+      return result;
+    })();
+  }
   export() {
     const h = this.history();
     return {
@@ -308,6 +456,8 @@ export class Store {
         alternatives,
       })),
       ...h,
+      reading: this.readingHistory(),
+      vocabulary: this.vocabularyHistory(),
     };
   }
   restore(raw: unknown) {
@@ -318,10 +468,37 @@ export class Store {
       new Set(b.attempts.map((a) => a.id)).size !== b.attempts.length
     )
       throw Error('Duplicate identifiers');
+    const reading = b.reading ?? [],
+      vocab = b.vocabulary ?? [];
+    for (const a of reading) validateReadingAttempt(a as ReadingAttempt);
+    for (const r of vocab) {
+      if (new Set(r.answers.map((a) => a.itemId)).size !== 16)
+        throw Error('Duplicate vocabulary questions');
+      for (const a of r.answers) {
+        const item = vocabulary.find((v) => v.id === a.itemId);
+        if (!item || answerCorrect(item, r.mode, a.answer) !== a.correct)
+          throw Error('Invalid vocabulary result');
+      }
+      for (let level = 0; level < 4; level++)
+        if (
+          r.answers.filter(
+            (a) => vocabulary.find((v) => v.id === a.itemId)!.level === level,
+          ).length !== 4
+        )
+          throw Error('Invalid vocabulary sample');
+    }
+    if (
+      new Set(reading.map((a) => a.id)).size !== reading.length ||
+      new Set(vocab.map((a) => a.id)).size !== vocab.length
+    )
+      throw Error('Duplicate skill identifiers');
     checkParameters(b.parameters.w);
     fsrs(b.parameters as Parameters<typeof fsrs>[0]);
     this.db.transaction(() => {
       for (const table of [
+        'reading_attempts',
+        'vocabulary_results',
+        'vocabulary_sessions',
         'tickets',
         'recordings',
         'attempts',
@@ -329,6 +506,14 @@ export class Store {
         'cards',
       ])
         this.db.exec(`DELETE FROM ${table}`);
+      for (const a of reading)
+        this.db
+          .query('INSERT INTO reading_attempts VALUES(?,?,?)')
+          .run(a.id, a.at, JSON.stringify(a));
+      for (const r of vocab)
+        this.db
+          .query('INSERT INTO vocabulary_results VALUES(?,?,?)')
+          .run(r.id, r.at, JSON.stringify(r));
       for (const c of b.cards)
         this.db
           .query('INSERT INTO cards VALUES(?,?,?,?)')
