@@ -218,7 +218,7 @@ test('unflagged phoneme differences render for the selected word', async ({
   ).toHaveText('e');
   await expect(page.locator('.transcript-note')).toContainText('der tochter');
   const firstSound = page.getByRole('button', {
-    name: 'Expected i: play sound',
+    name: 'Expected i: pronunciation tips',
     exact: true,
   });
   await expect(firstSound).toBeEnabled();
@@ -300,58 +300,32 @@ test('unflagged phoneme differences render for the selected word', async ({
       ),
     )
     .toBe(1);
-  const soundButton = page.getByRole('button', {
-    name: 'Expected ɜ: play sound',
-    exact: true,
-  });
-  await soundButton.click();
-  await expect(page.locator('audio')).toHaveAttribute(
-    'src',
-    '/sounds/open-mid-central-unrounded-vowel.mp3',
-  );
-  await expect
-    .poll(() =>
-      page
-        .locator('audio')
-        .evaluate((audio: HTMLAudioElement) => audio.readyState),
-    )
-    .toBeGreaterThanOrEqual(2);
-  await expect(page.locator('.processing-bar')).toHaveCount(0);
+  const referenceSource = await page.locator('audio').getAttribute('src');
+  await page
+    .getByRole('button', {
+      name: 'Expected ɜ: pronunciation tips',
+      exact: true,
+    })
+    .click();
   await expect(page.getByRole('tooltip')).toContainText(
     'Keep the tongue central',
   );
   await expect(page.getByRole('tooltip')).not.toContainText(
     'The recognizer heard',
   );
-  await expect(page.getByRole('tooltip')).not.toContainText('/');
-  await soundButton.click();
-  await expect
-    .poll(() =>
-      page.locator('audio').evaluate((audio: HTMLAudioElement) => audio.error),
-    )
-    .toBeNull();
   const detectedSound = page.getByRole('button', {
-    name: 'Detected a: play sound',
+    name: 'Detected a: pronunciation tips',
     exact: true,
   });
   await detectedSound.hover();
-  await expect(page.getByRole('tooltip')).toContainText('not your recording');
+  await expect(page.getByRole('tooltip')).toContainText('Aim for');
   await detectedSound.press('Enter');
-  await expect(page.locator('audio')).toHaveAttribute(
-    'src',
-    '/sounds/open-front-unrounded-vowel.mp3',
+  await expect(page.locator('audio')).toHaveAttribute('src', referenceSource!);
+  await expect(page.getByRole('link', { name: 'Audio credits' })).toHaveCount(
+    0,
   );
   await page.keyboard.press('Escape');
   await expect(page.getByRole('tooltip')).toHaveCount(0);
-  // Matching symbols are playable as well as highlighted differences.
-  await page
-    .getByRole('button', { name: 'Expected t: play sound', exact: true })
-    .first()
-    .click();
-  await expect(page.locator('audio')).toHaveAttribute(
-    'src',
-    '/sounds/voiceless-alveolar-plosive.mp3',
-  );
   await expect(page.locator('audio[controls]')).toHaveCount(0);
   await expect(page.locator('audio:visible')).toHaveCount(0);
 });

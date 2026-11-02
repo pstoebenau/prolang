@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Tooltip } from 'bits-ui';
-  import { phoneAudio } from '$lib/phone-audio';
   import { phoneGuidance, soundGuidance } from '$lib/phone-guidance';
   import type { PhonePair } from '$lib/phone-comparison';
 
@@ -8,18 +7,15 @@
     pair,
     side,
     busy,
-    onsound,
   }: {
     pair: PhonePair;
     side: 'expected' | 'heard';
     busy: boolean;
-    onsound: (phone: string) => Promise<void>;
   } = $props();
   const tooltipId = $props.id();
   let open = $state(false);
   const phone = $derived(pair[side]);
   const differs = $derived(pair.expected !== pair.heard);
-  const audio = $derived(phoneAudio(phone));
   const correction = $derived(phoneGuidance(pair));
   const instruction = $derived(
     side === 'expected' && correction
@@ -35,11 +31,9 @@
   <Tooltip.Trigger
     class="phone-symbol"
     disabled={busy}
-    aria-disabled={!audio || busy}
-    aria-label={`${label} ${phone || 'no sound'}${audio ? ': play sound' : ': audio unavailable'}`}
+    aria-label={`${label} ${phone || 'no sound'}: pronunciation tips`}
     onclick={() => {
       open = true;
-      if (audio && !busy) void onsound(phone);
     }}
   >
     {#if differs}<mark>{phone || '—'}</mark>{:else}{phone}{/if}
@@ -66,17 +60,10 @@
               </p>
             {/if}
             <p class="preview-note">
-              {#if audio}
-                Click the symbol to hear an example{side === 'heard'
-                  ? ', not your recording'
-                  : ''}. Some examples include surrounding vowels. Use Native
-                for word timing.
-              {:else if phone}
-                No individual recording for this sound. Use Native to hear it in
-                the word.
+              {#if phone}
+                Use Native to hear the word and Yours to compare your recording.
               {:else}
-                This dash marks a missing or extra sound; there is no sound to
-                play.
+                This dash marks a missing or extra sound.
               {/if}
             </p>
           </div>
@@ -104,9 +91,6 @@
   :global(.phone-symbol:hover),
   :global(.phone-symbol:focus-visible) {
     background: #e4e9dd;
-  }
-  :global(.phone-symbol[aria-disabled='true']) {
-    cursor: help;
   }
   :global(.phone-symbol:disabled) {
     cursor: wait;

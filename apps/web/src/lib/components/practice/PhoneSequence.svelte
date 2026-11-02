@@ -5,18 +5,16 @@
     pairs,
     side,
     busy,
-    onsound,
   }: {
     pairs: PhonePair[];
     side: 'expected' | 'heard';
     busy: boolean;
-    onsound: (phone: string) => Promise<void>;
   } = $props();
 </script>
 
 <span class="phone-sequence">
   {#each pairs as pair, i (`${i}:${pair.expected}:${pair.heard}`)}
-    <PhoneSymbol {pair} {side} {busy} {onsound} />
+    <PhoneSymbol {pair} {side} {busy} />
   {/each}
 </span>
 

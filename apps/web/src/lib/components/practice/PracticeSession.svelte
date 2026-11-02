@@ -114,7 +114,6 @@
             referenceLoading={session.referenceLoading}
             onreference={session.reference}
             onyours={session.yours}
-            onsound={session.sound}
           />
           {#if session.referenceUrl}<audio
               bind:this={session.player}

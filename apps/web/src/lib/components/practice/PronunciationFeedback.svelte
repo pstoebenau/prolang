@@ -11,14 +11,12 @@
     referenceLoading,
     onreference,
     onyours,
-    onsound,
   }: {
     feedback: SpeechFeedback | null;
     target: string;
     busy: boolean;
     referenceLoading: boolean;
     onreference: (word?: string) => Promise<void>;
-    onsound: (phone: string) => Promise<void>;
     onyours: (segment: AudioSegment) => Promise<void>;
   } = $props();
   function phonemes(value: unknown): string {
@@ -83,7 +81,6 @@
                   pairs={selectedResult.phonePairs}
                   side="expected"
                   {busy}
-                  {onsound}
                 />
               {:else}
                 {phonemes(selectedResult.expectedPhones) ||
@@ -100,7 +97,6 @@
                   pairs={selectedResult.phonePairs}
                   side="heard"
                   {busy}
-                  {onsound}
                 />
               {:else}
                 {selectedResult.heardPhones !== undefined
@@ -113,9 +109,7 @@
       </Tooltip.Provider>
       {#if selectedResult.phonePairs}
         <p class="muted sound-hint">
-          Hover or focus a symbol for tips. Click to hear it. <a href="/sounds"
-            >Audio credits</a
-          >
+          Hover, focus, or tap a symbol for pronunciation tips.
         </p>
       {/if}
       <div class="actions">
