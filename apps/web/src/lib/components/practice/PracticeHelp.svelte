@@ -4,7 +4,11 @@
     <div class="eyebrow">The practice loop</div>
     <ol>
       <li>Recall from the English prompt.</li>
-      <li>Record your German.</li>
+      <li>
+        Record your German. After you speak, a 1.5-second pause stops and checks
+        the recording automatically. You can also press Stop &amp; check.
+        Recordings are limited to 30 seconds.
+      </li>
       <li>Reveal and compare.</li>
       <li>Listen to the reference and retry.</li>
       <li>Grade your recall.</li>

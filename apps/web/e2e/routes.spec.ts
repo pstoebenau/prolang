@@ -388,3 +388,115 @@ test('practice handles an empty queue without an introductory screen', async ({
   await expect(page.getByText('Loading practice…')).toHaveCount(0);
   await expect(page.getByRole('link', { name: 'Browse deck' })).toBeVisible();
 });
+
+test('recording stops after speech and silence, and cancellation releases analysis', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const state = {
+      level: 0,
+      reads: 0,
+      track: undefined as MediaStreamTrack | undefined,
+      monitor: undefined as AudioContext | undefined,
+    };
+    Object.assign(window, { silenceTest: state });
+    navigator.mediaDevices.getUserMedia = async () => {
+      const destination = new AudioContext().createMediaStreamDestination();
+      state.track = destination.stream.getAudioTracks()[0];
+      return destination.stream;
+    };
+    const createSource = AudioContext.prototype.createMediaStreamSource;
+    AudioContext.prototype.createMediaStreamSource = function (stream) {
+      state.monitor = this;
+      return createSource.call(this, stream);
+    };
+    AnalyserNode.prototype.getFloatTimeDomainData = function (samples) {
+      state.reads++;
+      samples.fill(state.level);
+    };
+  });
+  let assessments = 0;
+  await page.route('**/api/assess', (route) => {
+    assessments++;
+    return route.fulfill({
+      status: 503,
+      json: { message: 'Test assessment reached' },
+    });
+  });
+  const readState = () =>
+    page.evaluate(() => {
+      const state = (
+        window as typeof window & {
+          silenceTest: {
+            reads: number;
+            track?: MediaStreamTrack;
+            monitor?: AudioContext;
+          };
+        }
+      ).silenceTest;
+      return {
+        reads: state.reads,
+        track: state.track?.readyState,
+        monitor: state.monitor?.state,
+      };
+    });
+  await page.goto('/practice?retry=2');
+  await page
+    .getByRole('button', { name: 'Record German', exact: true })
+    .click();
+  await expect.poll(async () => (await readState()).reads).toBeGreaterThan(5);
+  await expect(
+    page.getByRole('button', { name: 'Stop & check' }),
+  ).toBeVisible();
+  expect(assessments).toBe(0);
+  const reads = (await readState()).reads;
+  await page.evaluate(() => {
+    (window as any).silenceTest.level = 0.1;
+  });
+  await expect
+    .poll(async () => (await readState()).reads)
+    .toBeGreaterThan(reads + 7);
+  await page.evaluate(() => {
+    (window as any).silenceTest.level = 0;
+  });
+  await expect(page.getByRole('alert')).toContainText(
+    'Test assessment reached',
+  );
+  expect(assessments).toBe(1);
+  await expect.poll(async () => (await readState()).track).toBe('ended');
+  await expect.poll(async () => (await readState()).monitor).toBe('closed');
+  await page
+    .getByRole('button', { name: 'Record German', exact: true })
+    .click();
+  await page.getByRole('button', { name: 'Cancel recording' }).click();
+  await expect.poll(async () => (await readState()).track).toBe('ended');
+  await expect.poll(async () => (await readState()).monitor).toBe('closed');
+  expect(assessments).toBe(1);
+});
+
+test('manual recording still works when silence analysis is unavailable', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    navigator.mediaDevices.getUserMedia = async () =>
+      new AudioContext().createMediaStreamDestination().stream;
+    AudioContext.prototype.createAnalyser = () => {
+      throw Error('Analysis unavailable');
+    };
+  });
+  await page.route('**/api/assess', (route) =>
+    route.fulfill({
+      status: 503,
+      json: { message: 'Manual assessment reached' },
+    }),
+  );
+  await page.goto('/practice?retry=2');
+  await page
+    .getByRole('button', { name: 'Record German', exact: true })
+    .click();
+  await expect(page.getByRole('status')).toContainText('use Stop & check');
+  await page.getByRole('button', { name: 'Stop & check' }).click();
+  await expect(page.getByRole('alert')).toContainText(
+    'Manual assessment reached',
+  );
+});

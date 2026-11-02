@@ -1,3 +1,4 @@
+import { watchRecordingSilence } from './silence-stop';
 import { createRecordingPlayback } from './recording-playback';
 import { onMount, onDestroy, tick } from 'svelte';
 import { invalidate } from '$app/navigation';
@@ -34,6 +35,7 @@ export function createPracticeSession(
     player?.pause();
   }
   const ownPlayback = createRecordingPlayback();
+  let stopSilenceMonitor: (() => void) | undefined;
   let recorder: MediaRecorder | undefined,
     stream: MediaStream | undefined,
     timer: ReturnType<typeof setTimeout> | undefined,
@@ -71,6 +73,8 @@ export function createPracticeSession(
     await invalidate('prolang:data');
   }
   function tracks() {
+    stopSilenceMonitor?.();
+    stopSilenceMonitor = undefined;
     clearTimeout(timer);
     stream?.getTracks().forEach((t) => t.stop());
     stream = undefined;
@@ -239,7 +243,27 @@ export function createPracticeSession(
       };
       activeRecorder.start(250);
       recording = true;
-      status = 'Recording · maximum 30 seconds';
+      status = 'Recording · stops after 1.5 seconds of silence';
+      stopSilenceMonitor = watchRecordingSilence(
+        acquired,
+        () => {
+          if (
+            operation === generation &&
+            !disposed &&
+            activeRecorder.state === 'recording'
+          )
+            activeRecorder.stop();
+        },
+        () => {
+          if (
+            operation === generation &&
+            !disposed &&
+            activeRecorder.state === 'recording'
+          )
+            status =
+              'Recording · use Stop & check when finished · maximum 30 seconds';
+        },
+      );
       timer = setTimeout(
         () => activeRecorder.state === 'recording' && activeRecorder.stop(),
         30000,
