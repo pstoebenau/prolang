@@ -22,53 +22,47 @@
   );
 </script>
 
-{#if side === 'heard'}
-  <span class="phone-symbol">
+<Tooltip.Root bind:open disableCloseOnTriggerClick>
+  <Tooltip.Trigger
+    class="phone-symbol"
+    disabled={busy}
+    aria-label={`${side === 'expected' ? 'Expected' : 'Detected'} ${phone || 'no sound'}: pronunciation tips`}
+    onclick={() => {
+      open = true;
+    }}
+  >
     {#if differs}<mark>{phone || '—'}</mark>{:else}{phone}{/if}
-  </span>
-{:else}
-  <Tooltip.Root bind:open disableCloseOnTriggerClick>
-    <Tooltip.Trigger
-      class="phone-symbol"
-      disabled={busy}
-      aria-label={`Expected ${phone || 'no sound'}: pronunciation tips`}
-      onclick={() => {
-        open = true;
-      }}
-    >
-      {#if differs}<mark>{phone || '—'}</mark>{:else}{phone}{/if}
-    </Tooltip.Trigger>
-    <Tooltip.Portal>
-      <Tooltip.Content id={tooltipId} sideOffset={8} collisionPadding={12}>
-        {#snippet child({ props, wrapperProps })}
-          <div {...wrapperProps}>
-            <div
-              {...props}
-              id={tooltipId}
-              role="tooltip"
-              aria-hidden={!open}
-              class="phoneme-tooltip"
+  </Tooltip.Trigger>
+  <Tooltip.Portal>
+    <Tooltip.Content id={tooltipId} sideOffset={8} collisionPadding={12}>
+      {#snippet child({ props, wrapperProps })}
+        <div {...wrapperProps}>
+          <div
+            {...props}
+            id={tooltipId}
+            role="tooltip"
+            aria-hidden={!open}
+            class="phoneme-tooltip"
+          >
+            <strong
+              >Expected
+              <span class="preview-symbol">{pair.expected || 'no sound'}</span
+              ></strong
             >
-              <strong
-                >Expected
-                <span class="preview-symbol">{phone || '—'}</span></strong
-              >
-              {#if instruction}<p>{instruction}</p>{/if}
-              <p class="preview-note">
-                {#if phone}
-                  Use Native to hear the word and Yours to compare your
-                  recording.
-                {:else}
-                  This dash marks a missing or extra sound.
-                {/if}
-              </p>
-            </div>
+            {#if instruction}<p>{instruction}</p>{/if}
+            <p class="preview-note">
+              {#if pair.expected}
+                Use Native to hear the word and Yours to compare your recording.
+              {:else}
+                This dash marks a missing or extra sound.
+              {/if}
+            </p>
           </div>
-        {/snippet}
-      </Tooltip.Content>
-    </Tooltip.Portal>
-  </Tooltip.Root>
-{/if}
+        </div>
+      {/snippet}
+    </Tooltip.Content>
+  </Tooltip.Portal>
+</Tooltip.Root>
 
 <style>
   :global(.phone-symbol) {
