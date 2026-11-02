@@ -116,6 +116,8 @@ export function createPracticeSession(
     reset();
     busy = true;
     finished = false;
+    queue = [];
+    index = 0;
     await guard(async () => {
       queue = await api<Ticket[]>('session', { mode, id });
       index = 0;
@@ -345,10 +347,14 @@ export function createPracticeSession(
       await refresh();
     });
   }
-  onMount(() => {
+  function begin() {
     const retry = getRetry();
-    if (retry && /^[1-9]\d*$/.test(retry) && Number(retry) <= 100)
-      void start('retry', Number(retry));
+    return retry && /^[1-9]\d*$/.test(retry) && Number(retry) <= 100
+      ? start('retry', Number(retry))
+      : start();
+  }
+  onMount(() => {
+    void begin();
   });
   onDestroy(() => {
     disposed = true;
@@ -421,6 +427,7 @@ export function createPracticeSession(
       error = value;
     },
     start,
+    begin,
     reveal,
     assess,
     record,

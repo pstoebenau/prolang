@@ -20,7 +20,7 @@
         ? session.current.mode === 'retry'
           ? 'Pronunciation practice'
           : 'Practice'
-        : 'Your daily practice'}
+        : 'Practice'}
     </h1>
   </div>
   <span class="muted step"
@@ -35,24 +35,35 @@
     class:session-active={session.current && !session.finished}
     aria-label="Practice workspace"
   >
-    {#if !session.current || session.finished}<div class="empty">
+    {#if !session.current && !session.finished}
+      <div class="empty">
+        {#if session.error}
+          <h2>Could not start practice.</h2>
+          <Button onclick={() => session.begin()} disabled={session.busy}
+            >Try again</Button
+          >
+        {:else}
+          <p class="muted" role="status">Loading practice…</p>
+        {/if}
+        <noscript
+          ><p>Enable JavaScript to use interactive practice.</p></noscript
+        >
+      </div>
+    {:else if session.finished}
+      <div class="empty">
         <h2>
-          {session.finished ? 'Session complete.' : 'Ready to practice?'}
+          {session.queue.length ? 'Session complete.' : 'You’re all caught up.'}
         </h2>
         <p class="muted">
-          Recall the German, say it aloud, then check your answer. You decide
-          how well you remembered.
-        </p>
-        <p class="muted">
-          Up to 20 due cards and 5 new cards per session. Cards graded Again
-          return when due, usually after one minute.
+          {session.queue.length
+            ? 'Your reviews have been saved. Keep going or come back when your next cards are due.'
+            : 'No cards are due right now. You can browse the deck to practice individual words.'}
         </p>
         <div class="actions">
           <Button onclick={() => session.start()} disabled={session.busy}
-            >{session.finished
-              ? 'Start another session'
-              : 'Start practice'}</Button
-          ><Button variant="outline" href="/deck">Browse deck</Button>
+            >Start another session</Button
+          >
+          <Button variant="outline" href="/deck">Browse deck</Button>
         </div>
       </div>
     {:else}

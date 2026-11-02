@@ -34,9 +34,6 @@ test('practice grades invalidate server data and retry links survive reloads', a
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/practice');
   await page
-    .getByRole('button', { name: 'Start practice', exact: true })
-    .click();
-  await page
     .getByRole('button', { name: 'Reveal answer', exact: true })
     .click();
   await page.getByRole('button', { name: 'Good', exact: true }).click();
@@ -340,10 +337,54 @@ test('home and practice are separate and the brand returns home', async ({
   await page.getByRole('link', { name: 'Go to practice' }).click();
   await expect(page).toHaveURL(/\/practice$/);
   await expect(
-    page.getByRole('button', { name: 'Start practice', exact: true }),
+    page.getByRole('button', { name: 'Record German', exact: true }),
   ).toBeVisible();
+  await expect(
+    page.getByText('Ready to practice?', { exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole('button', { name: 'Start practice', exact: true }),
+  ).toHaveCount(0);
   await page.getByRole('link', { name: 'Prolang home' }).click();
   await expect(page).toHaveURL('/');
   await page.goto('/?retry=2');
   await expect(page).toHaveURL('/practice?retry=2');
+});
+
+test('practice navigation starts one session and failures can be retried', async ({
+  page,
+}) => {
+  let starts = 0;
+  await page.route('**/api/session', async (route) => {
+    starts++;
+    if (starts === 1)
+      await route.fulfill({
+        status: 503,
+        json: { message: 'Temporarily unavailable' },
+      });
+    else await route.continue();
+  });
+  await page.goto('/');
+  await page.getByRole('link', { name: 'Practice', exact: true }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Could not start practice.' }),
+  ).toBeVisible();
+  expect(starts).toBe(1);
+  await page.getByRole('button', { name: 'Try again', exact: true }).click();
+  await expect(
+    page.getByRole('button', { name: 'Record German', exact: true }),
+  ).toBeVisible();
+  expect(starts).toBe(2);
+});
+
+test('practice handles an empty queue without an introductory screen', async ({
+  page,
+}) => {
+  await page.route('**/api/session', (route) => route.fulfill({ json: [] }));
+  await page.goto('/practice');
+  await expect(
+    page.getByRole('heading', { name: 'You’re all caught up.' }),
+  ).toBeVisible();
+  await expect(page.getByText('Loading practice…')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Browse deck' })).toBeVisible();
 });
