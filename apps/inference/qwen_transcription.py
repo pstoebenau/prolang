@@ -15,7 +15,7 @@ def install(speech, model_path, model_factory=None):
         dtype=torch.float32 if device == 'cpu' else torch.bfloat16,
         device_map=device,
         max_inference_batch_size=1,
-        max_new_tokens=256,
+        max_new_tokens=1024,
     )
 
     def transcribe(waveform, lang='de'):

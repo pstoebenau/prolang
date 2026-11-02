@@ -6,7 +6,7 @@ export async function worker(path: string, body: FormData) {
     r = await fetch(inference + path, {
       method: 'POST',
       body,
-      signal: AbortSignal.timeout(180000),
+      signal: AbortSignal.timeout(path === '/reading' ? 630000 : 180000),
     });
   } catch {
     error(503, 'Speech service unavailable or timed out. Try again.');

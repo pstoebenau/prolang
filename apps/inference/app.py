@@ -51,6 +51,8 @@ def initialize():
     phones._load_model()
     from apps.inference.phone_timing import install as install_phone_timing
     install_phone_timing(phones)
+    from apps.inference.long_audio import install as install_long_audio
+    install_long_audio(speech, phones)
 
 
 def ping():
@@ -61,8 +63,9 @@ def execute(kind, text, data):
     from openpronounce import audio, speech
     import numpy as np
 
-    if kind == "reference":
+    if kind in ("reference", "reading_reference"):
         return audio.text2speech(text, lang="de", backend="gtts")
+    max_seconds = 120 if kind == "reading" else 30
     with tempfile.TemporaryDirectory(prefix="prolang-") as tmp:
         source = Path(tmp) / "input"
         source.write_bytes(data)
@@ -80,7 +83,7 @@ def execute(kind, text, data):
                     "-i",
                     str(source),
                     "-t",
-                    "31",
+                    str(max_seconds + 1),
                     "-f",
                     "f32le",
                     "-ac",
@@ -96,8 +99,8 @@ def execute(kind, text, data):
         except (subprocess.SubprocessError, OSError):
             raise ValueError("Cannot decode audio. Try Chrome WebM or a WAV recording.")
         sound = np.frombuffer(r.stdout, dtype=np.float32).copy()
-        if len(sound) > 30 * 16000:
-            raise ValueError("Recording exceeds 30 seconds. Try a shorter phrase.")
+        if len(sound) > max_seconds * 16000:
+            raise ValueError(f"Recording exceeds {max_seconds} seconds. Try a shorter recording.")
         if (
             len(sound) < 3200
             or not np.isfinite(sound).all()
@@ -147,8 +150,9 @@ async def run(kind, text, data=None):
         raise HTTPException(503, "Models are loading. Try again shortly.")
     if busy:
         raise HTTPException(429, "Speech service busy. Try again shortly.")
-    if not text.strip() or len(text) > 300:
-        raise HTTPException(422, "Target must contain 1–300 characters.")
+    max_text = 3000 if kind in ("reading", "reading_reference") else 300
+    if not text.strip() or len(text) > max_text:
+        raise HTTPException(422, f"Target must contain 1–{max_text} characters.")
     busy = True
     future = asyncio.get_running_loop().run_in_executor(pool, execute, kind, text, data)
 
@@ -158,7 +162,7 @@ async def run(kind, text, data=None):
 
     future.add_done_callback(completed)
     try:
-        return await asyncio.wait_for(asyncio.shield(future), 150)
+        return await asyncio.wait_for(asyncio.shield(future), 600 if kind == "reading" else 150)
     except asyncio.TimeoutError:
         # Killing the service also kills its worker via the process-group supervisor.
         logging.error("Inference deadline exceeded; restarting service required")
@@ -190,4 +194,21 @@ async def assess(text: str = Form(...), file: UploadFile = File(...)):
 @app.post("/reference")
 async def reference(text: str = Form(...)):
     path = await run("reference", text)
+    return FileResponse(path, media_type="audio/wav")
+
+
+@app.post("/reading")
+async def reading(text: str = Form(...), file: UploadFile = File(...)):
+    try:
+        data = await file.read(16 * 1024 * 1024 + 1)
+        if len(data) > 16 * 1024 * 1024:
+            raise HTTPException(413, "Audio exceeds 16 MB.")
+        return await run("reading", text, data)
+    finally:
+        await file.close()
+
+
+@app.post("/reading-reference")
+async def reading_reference(text: str = Form(...)):
+    path = await run("reading_reference", text)
     return FileResponse(path, media_type="audio/wav")
