@@ -109,7 +109,7 @@
       </Tooltip.Provider>
       {#if selectedResult.phonePairs}
         <p class="muted sound-hint">
-          Hover, focus, or tap a symbol for pronunciation tips.
+          Hover, focus, or tap an Expected symbol for pronunciation tips.
         </p>
       {/if}
       <div class="actions">

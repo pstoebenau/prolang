@@ -310,13 +310,11 @@ test('unflagged phoneme differences render for the selected word', async ({
   await expect(page.getByRole('tooltip')).not.toContainText(
     'The recognizer heard',
   );
-  const detectedSound = page.getByRole('button', {
-    name: 'Detected a: pronunciation tips',
-    exact: true,
-  });
-  await detectedSound.hover();
-  await expect(page.getByRole('tooltip')).toContainText('Aim for');
-  await detectedSound.press('Enter');
+  await page.keyboard.press('Escape');
+  const heardPhones = comparison.locator('dd').last();
+  await expect(heardPhones.getByRole('button')).toHaveCount(0);
+  await heardPhones.locator('mark').hover();
+  await expect(page.getByRole('tooltip')).toHaveCount(0);
   await expect(page.locator('audio')).toHaveAttribute('src', referenceSource!);
   await expect(page.getByRole('link', { name: 'Audio credits' })).toHaveCount(
     0,

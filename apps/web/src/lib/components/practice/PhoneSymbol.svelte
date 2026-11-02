@@ -18,60 +18,57 @@
   const differs = $derived(pair.expected !== pair.heard);
   const correction = $derived(phoneGuidance(pair));
   const instruction = $derived(
-    side === 'expected' && correction
-      ? correction.instruction
-      : phone
-        ? soundGuidance(phone)
-        : correction?.instruction,
+    correction?.instruction ?? soundGuidance(pair.expected),
   );
-  const label = $derived(side === 'expected' ? 'Expected' : 'Detected');
 </script>
 
-<Tooltip.Root bind:open disableCloseOnTriggerClick>
-  <Tooltip.Trigger
-    class="phone-symbol"
-    disabled={busy}
-    aria-label={`${label} ${phone || 'no sound'}: pronunciation tips`}
-    onclick={() => {
-      open = true;
-    }}
-  >
+{#if side === 'heard'}
+  <span class="phone-symbol">
     {#if differs}<mark>{phone || '—'}</mark>{:else}{phone}{/if}
-  </Tooltip.Trigger>
-  <Tooltip.Portal>
-    <Tooltip.Content id={tooltipId} sideOffset={8} collisionPadding={12}>
-      {#snippet child({ props, wrapperProps })}
-        <div {...wrapperProps}>
-          <div
-            {...props}
-            id={tooltipId}
-            role="tooltip"
-            aria-hidden={!open}
-            class="phoneme-tooltip"
-          >
-            <strong
-              >{label}
-              <span class="preview-symbol">{phone || '—'}</span></strong
+  </span>
+{:else}
+  <Tooltip.Root bind:open disableCloseOnTriggerClick>
+    <Tooltip.Trigger
+      class="phone-symbol"
+      disabled={busy}
+      aria-label={`Expected ${phone || 'no sound'}: pronunciation tips`}
+      onclick={() => {
+        open = true;
+      }}
+    >
+      {#if differs}<mark>{phone || '—'}</mark>{:else}{phone}{/if}
+    </Tooltip.Trigger>
+    <Tooltip.Portal>
+      <Tooltip.Content id={tooltipId} sideOffset={8} collisionPadding={12}>
+        {#snippet child({ props, wrapperProps })}
+          <div {...wrapperProps}>
+            <div
+              {...props}
+              id={tooltipId}
+              role="tooltip"
+              aria-hidden={!open}
+              class="phoneme-tooltip"
             >
-            {#if instruction}<p>{instruction}</p>{/if}
-            {#if side === 'heard' && correction && pair.expected}
-              <p class="target-note">
-                Aim for <strong>{pair.expected}</strong>: {correction.instruction}
+              <strong
+                >Expected
+                <span class="preview-symbol">{phone || '—'}</span></strong
+              >
+              {#if instruction}<p>{instruction}</p>{/if}
+              <p class="preview-note">
+                {#if phone}
+                  Use Native to hear the word and Yours to compare your
+                  recording.
+                {:else}
+                  This dash marks a missing or extra sound.
+                {/if}
               </p>
-            {/if}
-            <p class="preview-note">
-              {#if phone}
-                Use Native to hear the word and Yours to compare your recording.
-              {:else}
-                This dash marks a missing or extra sound.
-              {/if}
-            </p>
+            </div>
           </div>
-        </div>
-      {/snippet}
-    </Tooltip.Content>
-  </Tooltip.Portal>
-</Tooltip.Root>
+        {/snippet}
+      </Tooltip.Content>
+    </Tooltip.Portal>
+  </Tooltip.Root>
+{/if}
 
 <style>
   :global(.phone-symbol) {
@@ -86,10 +83,13 @@
     border: 0;
     border-radius: 4px;
     background: transparent;
-    cursor: pointer;
+    cursor: default;
   }
-  :global(.phone-symbol:hover),
-  :global(.phone-symbol:focus-visible) {
+  :global(button.phone-symbol) {
+    cursor: help;
+  }
+  :global(button.phone-symbol:hover),
+  :global(button.phone-symbol:focus-visible) {
     background: #e4e9dd;
   }
   :global(.phone-symbol:disabled) {
@@ -126,9 +126,5 @@
   .preview-note {
     color: #667060;
     font-size: 12px;
-  }
-  .target-note {
-    border-top: 1px solid #d3d9cd;
-    padding-top: 10px;
   }
 </style>
